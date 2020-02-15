@@ -49,11 +49,11 @@
 
             <input type="hidden" name="$ok" value="" />
 
-            <a href="javascript:postOk();" class="btn btn-primary mt-5 mb-5">
+            <a href="javascript:postOk();" class="btn btn-primary mt-5">
                 $templateMessages.getMessage($messageKeyPrefix, "signInButtonTitle")
             </a>
 
-            <div class="container mt-5">
+            <div class="container mt-5 mb-5">
 
                 #if($authnMessageKey)
                 <div class="alert alert-warning">$templateMessages.getMessage($authnMessageKey)</div>
