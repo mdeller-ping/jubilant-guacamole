@@ -53,29 +53,29 @@
                 $templateMessages.getMessage($messageKeyPrefix, "signInButtonTitle")
             </a>
 
+            <div class="container mt-5">
+
+                #if($authnMessageKey)
+                <div class="alert alert-warning">$templateMessages.getMessage($authnMessageKey)</div>
+                #end
+                #if($errorMessageKey)
+                <div class="alert alert-warning">$templateMessages.getMessage($messageKeyPrefix, $errorMessageKey)</div>
+                #end
+
+                ## Uncomment below to display any additional server error:
+                #*
+                #if($serverError)
+                <div class="alert alert-danger">$serverError</div>
+                #end
+                *#
+
+            </div>
+
             <p><a href="#">Need Help?</a></p>
 
             <p>Don't have an account? <a href="#">Register Now</a></p>
 
         </form>
-    </div>
-
-    <div class="container mt-5">
-
-        #if($authnMessageKey)
-        <div class="alert alert-warning">$templateMessages.getMessage($authnMessageKey)</div>
-        #end
-        #if($errorMessageKey)
-        <div class="alert alert-warning">$templateMessages.getMessage($messageKeyPrefix, $errorMessageKey)</div>
-        #end
-
-        ## Uncomment below to display any additional server error:
-        #*
-        #if($serverError)
-        <div class="alert alert-danger">$serverError</div>
-        #end
-        *#
-
     </div>
 
     <!-- Optional JavaScript -->
