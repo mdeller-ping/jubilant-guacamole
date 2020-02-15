@@ -301,7 +301,7 @@
       } `;
 
       $.ajax({
-        headers: { 'Authorization': 'Basic ' + btoa('cn=Directory Manager:2FederateM0re') },
+        headers: { 'Authorization': 'Basic ' + btoa('cn=administrator:2FederateM0re') },
         type: "GET",
         url: "https://" + pingDirectory + "/directory/v1/"
       }).done(function (data) {
