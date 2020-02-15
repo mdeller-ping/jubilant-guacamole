@@ -249,6 +249,7 @@
   <script>
 
     let authHeader = 'Y249ZGlyZWN0b3J5IG1hbmFnZXI6MkZlZGVyYXRlTTByZQ==';
+    let pingDirectory = 'auth.tu.demoenvi.com:1443'
 
     // exJax function makes an AJAX call
     function exJax(url, method, payload) {
@@ -298,6 +299,14 @@
         'transUnionMiddleName': 'Michele',
         'transUnionMoreThanSixMonths': false
       } `;
+
+      $.ajax({
+        headers: { 'Authorization': 'Basic ' + btoa('cn=Directory Manager:2FederateM0re') },
+        type: "GET",
+        url: "https://" + pingDirectory + "/directory/v1/"
+      }).done(function (data) {
+        console.log(data);
+      });
 
     }
 
