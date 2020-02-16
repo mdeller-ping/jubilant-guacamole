@@ -182,8 +182,8 @@
           </select>
         </div>
         <div class="form-group col-md-2">
-          <label for="inputZip">Zip</label>
-          <input type="text" class="form-control" id="inputZip" required>
+          <label for="inputPostalCode">Zip Code</label>
+          <input type="text" class="form-control" id="inputPostalCode" required>
         </div>
       </div>
       <hr>
@@ -286,7 +286,7 @@
       street = $('inputAddress').val();
       city = $('inputCity').val();
       state = $('inputState').val();
-      zip = $('inputZip').val();
+      postalCode = $('inputPostalCode').val();
 
       thingy = JSON.stringify({
         "_parentDN": "ou=people,dc=example,dc=com",
@@ -300,11 +300,11 @@
         "street": ["108 Star"],
         "l": ["Summerville"],
         "st": ["ST"],
-        "postalCode": [zip],
+        "postalCode": [postalCode],
         "mobile": ["7204768845"]
       });
 
-      console.log(thingy);
+      console.log(postalCode);
 
       var settings = {
         "url": "https://auth.tu.demoenvi.com:1443/directory/v1",
