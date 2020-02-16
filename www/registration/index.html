@@ -219,6 +219,7 @@
     <h2>Create Your Account</h2>
     <p class="mb-5">All fields are required (except where noted).</p>
     <form id="registration" method="POST">
+      <input type="hidden" id="inputDN">
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputUsername">Username</label>
@@ -287,7 +288,6 @@
     let authHeader = 'Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl';
     let pingDirectory = 'auth.tu.demoenvi.com:1443'
 
-
     function createPlaceHolder() {
       console.log('createPlaceHolder function called');
 
@@ -326,6 +326,47 @@
       var settings = {
         "url": "https://" + pingDirectory + "/directory/v1",
         "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/json",
+          "Authorization": "Basic " + authHeader
+        },
+        "data": body
+      };
+
+      $.ajax(settings)
+        .done(function (data) {
+          var responseText = $.parseJSON(data.responseText);
+          console.log("Account created");
+          $('#warningMessage').text('');
+          $('#warningDiv').hide();
+          $('#personalInfoDiv').hide();
+          $('#inputUsername').val(mail);
+          $('#accountInfoDiv').show();
+        })
+        .fail(function (data, status, error) {
+          console.log("Unable to create account");
+          var responseText = $.parseJSON(data.responseText);
+          $('#warningMessage').text(responseText.details[0].message);
+          $('#warningDiv').show();
+        })
+
+    }
+
+    function createAccount() {
+      console.log('createAccount function called');
+
+      username = $('#inputUsername').val();
+      password = $('#inputPassword').val();
+
+      body = JSON.stringify({
+        "uid": [username],
+        "userPassword": [password]
+      });
+
+      var settings = {
+        "url": "https://" + pingDirectory + "/directory/v1",
+        "method": "PUT",
         "timeout": 0,
         "headers": {
           "Content-Type": "application/json",
