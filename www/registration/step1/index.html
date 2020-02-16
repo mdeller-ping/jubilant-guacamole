@@ -63,7 +63,7 @@
   <!-- /hero banner -->
 
   <!-- user registration -->
-  <div class="container">
+  <div class="container" id="personalInfoDiv">
     <h2>Personal Information</h2>
     <p class="mb-5">All fields are required (except where noted).</p>
     <form id="registration" method="POST">
@@ -214,6 +214,13 @@
   </div>
   <!-- /user registration -->
 
+
+  <!-- warningDiv -->
+  <div class="container collapse mt-4" id="warningDiv">
+    <div class="alert alert-warning" id="warningMessage">pending</div>
+  </div>
+  <!-- /warningDiv -->
+
   <!-- footer -->
   <nav class="navbar navbar-light bg-light mt-5">
     <div class="container">
@@ -309,10 +316,14 @@
 
       $.ajax(settings)
         .done(function (data) {
-          console.log("finished success");
+          console.log("Account created");
+          $('#personalInfoDiv').hide();
         })
         .fail(function (data, status, error) {
-          console.log("failed bro");
+          console.log("Unable to create account");
+          var responseText = $.parseJSON(data.responseText);
+          $('#warningMessage').text(responseText);
+          $('#warningDiv').show();
         })
 
     }
