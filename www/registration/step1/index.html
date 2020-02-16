@@ -296,7 +296,21 @@
           "Content-Type": "application/json",
           "Authorization": "Basic Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
         },
-        "data": JSON.stringify({ "_parentDN": "ou=people,dc=example,dc=com", "objectClass": ["transUnionPerson"], "givenName": ["Suzanne"], "sn": ["Deller"], "transUnionMiddleName": "Michele", "cn": ["Suzanne Michele Deller"], "transUnionDOB": "1990-12-25", "transUnionLastFour": "1234", "street": ["108 Starling"], "l": ["Summerville"], "st": ["SC"], "postalCode": ["29483"], "mobile": ["7204684232"] }),
+        "data": JSON.stringify({
+          "_parentDN": "ou=people,dc=example,dc=com",
+          "objectClass": ["transUnionPerson"],
+          "givenName": [firstName],
+          "sn": [lastName],
+          "transUnionMiddleName": middleName,
+          "cn": [firstName + " " + lastName],
+          "transUnionDOB": dateOfBirth,
+          "transUnionLastFour": lastFour,
+          "street": [street],
+          "l": [city],
+          "st": [state],
+          "postalCode": [zip],
+          "mobile": [mobile]
+        }),
       };
 
       $.ajax(settings).done(function (response) {
