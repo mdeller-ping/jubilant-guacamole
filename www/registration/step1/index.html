@@ -288,18 +288,6 @@
       state = $('inputState').val();
       zip = $('inputZip').val();
 
-      body = `{
-        '_parentDN': 'ou=people,dc=example,dc=com',
-        'objectClass': ['transUnionPerson'],
-        'givenName': ['Suzanne'],
-        'sn': ['Deller'],
-        'cn': ['Suzanne Michele Deller'],
-        'transUnionDOB': '1990-12-25',
-        'transUnionLastFour': '1234',
-        'transUnionMiddleName': 'Michele',
-        'transUnionMoreThanSixMonths': false
-      } `;
-
       var settings = {
         "url": "https://auth.tu.demoenvi.com:1443/directory/v1",
         "method": "POST",
@@ -308,7 +296,11 @@
           "Content-Type": "application/json",
           "Authorization": "Basic Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
         },
-        "data": JSON.stringify({ "_parentDN": "ou=people,dc=example,dc=com", "objectClass": ["transUnionPerson"], "givenName": [firstName], "sn": ["Deller"], "cn": ["Suzanne Michele Deller"], "transUnionDOB": "1990-12-25", "transUnionLastFour": "1234", "transUnionMiddleName": "Michele" }),
+        "data": JSON.stringify({
+          "_parentDN": "ou=people,dc=example,dc=com", "objectClass": ["transUnionPerson"],
+          "givenName": [firstName], "sn": [lastName], "cn": [firstName + " " + lastName], "transUnionDOB": "1990-12-25",
+          "transUnionLastFour": "1234", "transUnionMiddleName": middleName
+        }),
       };
 
       $.ajax(settings).done(function (response) {
