@@ -215,7 +215,7 @@
   <!-- /page 1 - personal info -->
 
   <!-- page 2 - account info -->
-  <div class="container collapse" id="personalInfoDiv">
+  <div class="container collapse" id="accountInfoDiv">
     <h2>Create Your Account</h2>
     <p class="mb-5">All fields are required (except where noted).</p>
     <form id="registration" method="POST">
@@ -467,6 +467,7 @@
           $('#warningMessage').text('');
           $('#warningDiv').hide();
           $('#personalInfoDiv').hide();
+          $('#accountInfoDiv').show();
         })
         .fail(function (data, status, error) {
           console.log("Unable to create account");
