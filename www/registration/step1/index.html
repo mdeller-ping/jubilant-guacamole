@@ -300,12 +300,19 @@
         'transUnionMoreThanSixMonths': false
       } `;
 
-      $.ajax({
-        headers: { 'Authorization': 'Basic ' + btoa('administrator:2FederateM0re') },
-        type: "GET",
-        url: "https://" + pingDirectory + "/directory/v1/"
-      }).done(function (data) {
-        console.log(data);
+      var settings = {
+        "url": "https://auth.tu.demoenvi.com:1443/directory/v1",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/json",
+          "Authorization": "Basic Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
+        },
+        "data": JSON.stringify({ "_parentDN": "ou=people,dc=example,dc=com", "objectClass": ["transUnionPerson"], "givenName": [firstName], "sn": ["Deller"], "cn": ["Suzanne Michele Deller"], "transUnionDOB": "1990-12-25", "transUnionLastFour": "1234", "transUnionMiddleName": "Michele" }),
+      };
+
+      $.ajax(settings).done(function (response) {
+        console.log(response);
       });
 
     }
