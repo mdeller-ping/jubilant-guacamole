@@ -247,8 +247,9 @@
 
   <script>
 
-    let authHeader = 'Y249ZGlyZWN0b3J5IG1hbmFnZXI6MkZlZGVyYXRlTTByZQ==';
+    let authHeader = 'Y249ZGlyZWN0b3J5IG1hbmFnZXI6MkZlZGVyYXRlTTByZQ';
     let pingDirectory = 'auth.tu.demoenvi.com:1443'
+
 
     function createAccount() {
       console.log('createAccount function called');
@@ -282,7 +283,7 @@
       });
 
       var settings = {
-        "url": "https://" + pingDirectory + "/directory/v1",
+        "url": "https://auth.tu.demoenvi.com:1443/directory/v1",
         "method": "POST",
         "timeout": 0,
         "headers": {
