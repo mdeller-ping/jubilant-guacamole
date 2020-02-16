@@ -70,55 +70,61 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputFirstName">First Name</label>
-          <input type="text" class="form-control" id="inputFirstName" value="First" required>
+          <input type="text" class="form-control" id="inputFirstName" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputMiddleName">Middle Name (Optional)</label>
-          <input type="text" class="form-control" value="Middle" id="inputMiddleName">
+          <input type="text" class="form-control" id="inputMiddleName">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputLastName">Last Name</label>
-          <input type="text" class="form-control" value="Last" id="inputLastName" required>
+          <input type="text" class="form-control" id="inputLastName" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="inputDateOfBirth">Date of Birth (YYYY-MM-DD)</label>
-          <input type="text" class="form-control" id="inputDateOfBirth" value="2000-01-02" required>
+          <input type="text" class="form-control" id="inputDateOfBirth" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputLastFour">Last 4 Digits of Social Security Number</label>
-          <input type="text" class="form-control" value="0000" id="inputLastFour" required>
+          <input type="text" class="form-control" id="inputLastFour" required>
         </div>
       </div>
+
+      <hr>
+
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputMail">Email Address</label>
-          <input type="email" class="form-control" value="michael@example.com" id="inputMail" required>
+          <input type="email" class="form-control" id="inputMail" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputMobile">Mobile Number</label>
-          <input type="tel" class="form-control" value="1-720-487-4321" id="inputMobile" required>
+          <input type="tel" class="form-control" id="inputMobile" required>
         </div>
       </div>
+
+      <hr>
+
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputStreet">Address and Unit Number</label>
-          <input type="text" class="form-control" value="1600 Pennsylvania Blvd" id="inputStreet" required>
+          <input type="text" class="form-control" id="inputStreet" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputCity">City</label>
-          <input type="text" class="form-control" value="Washington" id="inputCity" required>
+          <input type="text" class="form-control" id="inputCity" required>
         </div>
       </div>
       <div class="form-row">
@@ -134,7 +140,7 @@
             <option value="CO">Colorado</option>
             <option value="CT">Connecticut</option>
             <option value="DE">Delaware</option>
-            <option value="DC" selected>District Of Columbia</option>
+            <option value="DC">District Of Columbia</option>
             <option value="FL">Florida</option>
             <option value="GA">Georgia</option>
             <option value="HI">Hawaii</option>
@@ -181,7 +187,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="inputPostal">Zip Code</label>
-          <input type="number" class="form-control" value="10001" id="inputPostal" required>
+          <input type="number" class="form-control" id="inputPostal" required>
         </div>
       </div>
 
@@ -285,7 +291,7 @@
         "st": [state],
         "postalCode": [postalCode],
         "mobile": [mobile],
-	"transUnionMoreThanSixMonths": sixMonths
+        "transUnionMoreThanSixMonths": sixMonths
       });
 
       var settings = {
