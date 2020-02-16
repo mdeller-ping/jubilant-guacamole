@@ -276,50 +276,53 @@
 
     function createAccount() {
       console.log('createAccount function called');
-      firstName = $('#inputFirstName').val();
-      middleName = $('#inputMiddleName').val();
-      lastName = $('#inputLastName').val();
-      email = $('#inputEmail').val();
-      dateOfBirth = $('#inputDateOfBirth').val();
-      lastFour = $('inputLastFour').val();
-      mobile = $('inputMobilePhone').val();
-      street = $('inputAddress').val();
-      city = $('inputCity').val();
-      state = $('inputState').val();
-      postalCode = $('inputPostalCode').val();
 
-      thingy = JSON.stringify({
-        "_parentDN": "ou=people,dc=example,dc=com",
-        "objectClass": ["transUnionPerson"],
-        "givenName": [firstName],
-        "sn": [lastName],
-        "transUnionMiddleName": middleName,
-        "cn": [firstName + " " + lastName],
-        "transUnionDOB": dateOfBirth,
-        "transUnionLastFour": "1234",
-        "street": ["108 Star"],
-        "l": ["Summerville"],
-        "st": ["ST"],
-        "postalCode": [postalCode],
-        "mobile": ["7204768845"]
-      });
+      alert($'#firstName');
 
-      console.log(postalCode);
+      // firstName = $('#inputFirstName').val();
+      // middleName = $('#inputMiddleName').val();
+      // lastName = $('#inputLastName').val();
+      // email = $('#inputEmail').val();
+      // dateOfBirth = $('#inputDateOfBirth').val();
+      // lastFour = $('inputLastFour').val();
+      // mobile = $('inputMobilePhone').val();
+      // street = $('inputAddress').val();
+      // city = $('inputCity').val();
+      // state = $('inputState').val();
+      // postalCode = $('inputPostalCode').val();
 
-      var settings = {
-        "url": "https://auth.tu.demoenvi.com:1443/directory/v1",
-        "method": "POST",
-        "timeout": 0,
-        "headers": {
-          "Content-Type": "application/json",
-          "Authorization": "Basic Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
-        },
-        "data": thingy
-      };
+      // thingy = JSON.stringify({
+      //   "_parentDN": "ou=people,dc=example,dc=com",
+      //   "objectClass": ["transUnionPerson"],
+      //   "givenName": [firstName],
+      //   "sn": [lastName],
+      //   "transUnionMiddleName": middleName,
+      //   "cn": [firstName + " " + lastName],
+      //   "transUnionDOB": dateOfBirth,
+      //   "transUnionLastFour": lastG,
+      //   "street": ["108 Star"],
+      //   "l": ["Summerville"],
+      //   "st": ["ST"],
+      //   "postalCode": [lastName],
+      //   "mobile": ["7204768845"]
+      // });
 
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
+      // console.log(postalCode);
+
+      // var settings = {
+      //   "url": "https://auth.tu.demoenvi.com:1443/directory/v1",
+      //   "method": "POST",
+      //   "timeout": 0,
+      //   "headers": {
+      //     "Content-Type": "application/json",
+      //     "Authorization": "Basic Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
+      //   },
+      //   "data": thingy
+      // };
+
+      // $.ajax(settings).done(function (response) {
+      //   console.log(response);
+      // });
 
     }
 
