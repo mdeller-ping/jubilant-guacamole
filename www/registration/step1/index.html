@@ -66,7 +66,7 @@
   <div class="container">
     <h2>Personal Information</h2>
     <p class="mb-5">All fields are required (except where noted).</p>
-    <form method="POST">
+    <form id="registration" method="POST">
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputFirstName">First Name</label>
@@ -92,35 +92,33 @@
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-6">
           <label for="inputLastFour">Last 4 Digits of Social Security Number</label>
-          <input type="text" class="form-control" id="inputLastFour" value="4567" required>
-        </div>
-      </div>
-      <hr>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputEmail">Email Address</label>
-          <input type="email" class="form-control" id="inputEmail" value="someone@example.com" required>
+          <input type="text" class="form-control" value="0000" id="inputLastFour" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputMobilePhone">Mobile Number</label>
-          <input type="text" class="form-control" id="inputMobilePhone" value="8059901819" required>
+          <label for="inputMail">Email Address</label>
+          <input type="email" class="form-control" value="michael@example.com" id="inputMail" required>
         </div>
       </div>
-      <hr>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputAddress">Address and Unit Number</label>
-          <input type="text" class="form-control" id="inputAddress" value="1600 Pennsylvania" required>
+          <label for="inputMobile">Mobile Number</label>
+          <input type="tel" class="form-control" value="1-720-487-4321" id="inputMobile" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputStreet">Address and Unit Number</label>
+          <input type="text" class="form-control" value="1600 Pennsylvania Blvd" id="inputStreet" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputCity">City</label>
-          <input type="text" class="form-control" id="inputCity" value="Washington" required>
+          <input type="text" class="form-control" value="Washington" id="inputCity" required>
         </div>
       </div>
       <div class="form-row">
@@ -182,10 +180,11 @@
           </select>
         </div>
         <div class="form-group col-md-2">
-          <label for="inputPostalCode">Zip Code</label>
-          <input type="text" class="form-control" id="inputPostalCode" value="12345" required>
+          <label for="inputPostal">Zip Code</label>
+          <input type="number" class="form-control" value="10001" id="inputPostal" required>
         </div>
       </div>
+
       <hr>
 
       <div class="form-row">
@@ -277,50 +276,48 @@
     function createAccount() {
       console.log('createAccount function called');
 
-      // firstName = $('#inputFirstName').val();
-      // middleName = $('#inputMiddleName').val();
-      // lastName = $('#inputLastName').val();
-      // email = $('#inputEmail').val();
-      // dateOfBirth = $('#inputDateOfBirth').val();
-      // lastFour = $('inputLastFour').val();
-      // mobile = $('inputMobilePhone').val();
-      // street = $('inputAddress').val();
-      // city = $('inputCity').val();
-      // state = $('inputState').val();
-      // postalCode = $('inputPostalCode').val();
+      firstName = $('#inputFirstName').val();
+      middleName = $('#inputMiddleName').val();
+      lastName = $('#inputLastName').val();
+      dateOfBirth = $('#inputDateOfBirth').val();
+      lastFour = $('#inputLastFour').val();
+      mail = $('#inputMail').val();
+      mobile = $('#inputMobile').val();
+      street = $('#inputStreet').val();
+      city = $('#inputCity').val();
+      state = $('#inputState').val();
+      postalCode = $('#inputPostal').val();
 
-      // thingy = JSON.stringify({
-      //   "_parentDN": "ou=people,dc=example,dc=com",
-      //   "objectClass": ["transUnionPerson"],
-      //   "givenName": [firstName],
-      //   "sn": [lastName],
-      //   "transUnionMiddleName": middleName,
-      //   "cn": [firstName + " " + lastName],
-      //   "transUnionDOB": dateOfBirth,
-      //   "transUnionLastFour": lastG,
-      //   "street": ["108 Star"],
-      //   "l": ["Summerville"],
-      //   "st": ["ST"],
-      //   "postalCode": [lastName],
-      //   "mobile": ["7204768845"]
-      // });
+      body = JSON.stringify({
+        "_parentDN": "ou=people,dc=example,dc=com",
+        "objectClass": ["transUnionPerson"],
+        "givenName": [firstName],
+        "transUnionMiddleName": middleName,
+        "sn": [lastName],
+        "cn": [firstName + " " + lastName],
+        "transUnionDOB": dateOfBirth,
+        "transUnionLastFour": lastFour,
+        "street": [street],
+        "l": [city],
+        "st": [state],
+        "postalCode": [postalCode],
+        "mobile": [mobile]
+      });
 
-      // console.log(postalCode);
+      var settings = {
+        "url": "https://auth.tu.demoenvi.com:1443/directory/v1",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/json",
+          "Authorization": "Basic Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
+        },
+        "data": body
+      };
 
-      // var settings = {
-      //   "url": "https://auth.tu.demoenvi.com:1443/directory/v1",
-      //   "method": "POST",
-      //   "timeout": 0,
-      //   "headers": {
-      //     "Content-Type": "application/json",
-      //     "Authorization": "Basic Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
-      //   },
-      //   "data": thingy
-      // };
-
-      // $.ajax(settings).done(function (response) {
-      //   console.log(response);
-      // });
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
 
     }
 
