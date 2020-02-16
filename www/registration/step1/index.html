@@ -250,29 +250,6 @@
     let authHeader = 'Y249ZGlyZWN0b3J5IG1hbmFnZXI6MkZlZGVyYXRlTTByZQ==';
     let pingDirectory = 'auth.tu.demoenvi.com:1443'
 
-    // exJax function makes an AJAX call
-    function exJax(url, method, payload) {
-      console.log('ajax (' + url + ')');
-      $.ajax({
-        url: url,
-        method: method,
-        dataType: 'json',
-        contentType: 'application/json',
-        data: payload,
-        headers: { Authorization: 'Basic ' + authHeader }
-      })
-        .done(function (data) {
-          console.log('ajax call finished successfully');
-          callback(data);
-        })
-        .fail(function (data) {
-          console.log('ajax call failed');
-          $('#warningDiv').show();
-          $('#warningMessage').text('Unable to enroll user.  Your email address may already be in use.');
-          console.log(data);
-        });
-    }
-
     function createAccount() {
       console.log('createAccount function called');
 
@@ -305,12 +282,12 @@
       });
 
       var settings = {
-        "url": "https://auth.tu.demoenvi.com:1443/directory/v1",
+        "url": "https://" + pingDirectory + "/directory/v1",
         "method": "POST",
         "timeout": 0,
         "headers": {
           "Content-Type": "application/json",
-          "Authorization": "Basic Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
+          "Authorization": "Basic " + authHeader
         },
         "data": body
       };
