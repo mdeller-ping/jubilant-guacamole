@@ -322,7 +322,7 @@
         .fail(function (data, status, error) {
           console.log("Unable to create account");
           var responseText = $.parseJSON(data.responseText);
-          $('#warningMessage').text(responseText);
+          $('#warningMessage').text(responseText.details[0].message);
           $('#warningDiv').show();
         })
 
