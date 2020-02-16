@@ -305,9 +305,17 @@
         "data": body
       };
 
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
+      // $.ajax(settings).done(function (response) {
+      //   console.log(response);
+      // });
+
+      $.ajax(settings)
+        .done(function (data) {
+          console.log(data);
+        })
+        .fail(function (data, status, error) {
+          console.log(error);
+        })
 
     }
 
