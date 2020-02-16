@@ -288,6 +288,24 @@
       state = $('inputState').val();
       zip = $('inputZip').val();
 
+      thingy = JSON.stringify({
+        "_parentDN": "ou=people,dc=example,dc=com",
+        "objectClass": ["transUnionPerson"],
+        "givenName": [firstName],
+        "sn": [lastName],
+        "transUnionMiddleName": middleName,
+        "cn": [firstName + " " + lastName],
+        "transUnionDOB": dateOfBirth,
+        "transUnionLastFour": lastFour,
+        "street": [street],
+        "l": [city],
+        "st": [state],
+        "postalCode": [zip],
+        "mobile": [mobile]
+      });
+
+      console.log(thingy);
+
       var settings = {
         "url": "https://auth.tu.demoenvi.com:1443/directory/v1",
         "method": "POST",
@@ -296,21 +314,7 @@
           "Content-Type": "application/json",
           "Authorization": "Basic Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
         },
-        "data": JSON.stringify({
-          "_parentDN": "ou=people,dc=example,dc=com",
-          "objectClass": ["transUnionPerson"],
-          "givenName": [firstName],
-          "sn": [lastName],
-          "transUnionMiddleName": middleName,
-          "cn": [firstName + " " + lastName],
-          "transUnionDOB": dateOfBirth,
-          "transUnionLastFour": lastFour,
-          "street": [street],
-          "l": [city],
-          "st": [state],
-          "postalCode": [zip],
-          "mobile": [mobile]
-        }),
+        "data": thingy
       };
 
       $.ajax(settings).done(function (response) {
