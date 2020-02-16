@@ -337,8 +337,9 @@
 
       $.ajax(settings)
         .done(function (data) {
-          var responseText = $.parseJSON(data.responseText);
           console.log("Account created");
+          distinguishedName = data._dn;
+          console.log(distinguishedName);
           $('#warningMessage').text('');
           $('#warningDiv').hide();
           $('#personalInfoDiv').hide();
