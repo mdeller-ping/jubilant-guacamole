@@ -297,9 +297,19 @@
           "Authorization": "Basic Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
         },
         "data": JSON.stringify({
-          "_parentDN": "ou=people,dc=example,dc=com", "objectClass": ["transUnionPerson"],
-          "givenName": [firstName], "sn": [lastName], "cn": [firstName + " " + lastName], "transUnionDOB": "1990-12-25",
-          "transUnionLastFour": "1234", "transUnionMiddleName": middleName
+          "_parentDN": "ou=people,dc=example,dc=com",
+          "objectClass": ["transUnionPerson"],
+          "givenName": [firstName],
+          "sn": [lastName],
+          "cn": [firstName + " " + lastName],
+          "transUnionDOB": dateOfBirth,
+          "transUnionLastFour": lastFour,
+          "transUnionMiddleName": middleName,
+          "mobile": mobile,
+          "address": address,
+          "l": city,
+          "st": state,
+          "postalCode": zip
         }),
       };
 
