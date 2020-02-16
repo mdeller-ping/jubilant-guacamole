@@ -317,6 +317,8 @@
       $.ajax(settings)
         .done(function (data) {
           console.log("Account created");
+          $('#warningMessage').text('');
+          $('#warningDiv').hide();
           $('#personalInfoDiv').hide();
         })
         .fail(function (data, status, error) {
