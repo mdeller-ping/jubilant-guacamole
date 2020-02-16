@@ -337,8 +337,6 @@
       $.ajax(settings)
         .done(function (data) {
           var responseText = $.parseJSON(data.responseText);
-          dn = responseText._dn;
-          console.log(dn);
           console.log("Account created");
           $('#warningMessage').text('');
           $('#warningDiv').hide();
