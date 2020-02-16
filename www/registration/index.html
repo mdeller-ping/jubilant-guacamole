@@ -222,13 +222,13 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputUsername">Username</label>
-          <input type="text" class="form-control" id="inputFirstName" required>
+          <input type="text" class="form-control" id="inputUsername" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputPassword">Password</label>
-          <input type="text" class="form-control" id="inputMiddleName" required>
+          <input type="password" class="form-control" id="inputPassword" required>
         </div>
       </div>
       <div class="form-row">
@@ -340,7 +340,7 @@
           $('#warningMessage').text('');
           $('#warningDiv').hide();
           $('#personalInfoDiv').hide();
-          $('#inputUsername').val(mail);
+          $('#inputUsername').val('doofus');
           $('#accountInfoDiv').show();
         })
         .fail(function (data, status, error) {
