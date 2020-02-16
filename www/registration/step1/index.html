@@ -302,8 +302,9 @@
 
       $.ajax({
         headers: { 'Authorization': 'Basic ' + btoa('administrator:2FederateM0re') },
-        type: "GET",
-        url: "https://" + pingDirectory + "/directory/v1/"
+        type: "POST",
+        url: "https://" + pingDirectory + "/directory/v1/",
+        body: body
       }).done(function (data) {
         console.log(data);
       });
