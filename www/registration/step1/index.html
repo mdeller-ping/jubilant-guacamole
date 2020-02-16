@@ -275,8 +275,6 @@
       sixMonths = $("input[name='inputSixMonths']:checked").val();
       sixMonths = (sixMonths == 'true');
 
-      console.log(sixMonths);
-
       body = JSON.stringify({
         "_parentDN": "ou=people,dc=example,dc=com",
         "objectClass": ["transUnionPerson"],
@@ -311,10 +309,10 @@
 
       $.ajax(settings)
         .done(function (data) {
-          console.log(data);
+          console.log("finished success");
         })
         .fail(function (data, status, error) {
-          console.log(error);
+          console.log("failed bro");
         })
 
     }
