@@ -238,7 +238,14 @@
       <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createAccount();">Next Step</a>
     </form>
   </div>
-  <!-- page 2 - account info -->
+  <!-- /page 2 - account info -->
+
+  <!-- page 3 - all done -->
+  <div class="container collapse" id="allDoneDiv">
+    <h2>Thank You</h2>
+    <p class="mb-5">Your account has been created and your password assigned. Please use the Member Tools link above to
+      sign in.</p>
+  </div>
 
   <!-- warningDiv -->
   <div class="container collapse mt-4" id="warningDiv">
@@ -381,15 +388,14 @@
 
       $.ajax(settings)
         .done(function (data) {
-          console.log("Account created");
+          console.log("Password assigned");
           $('#warningMessage').text('');
           $('#warningDiv').hide();
+          $('#accountInfoDiv').hide();
           $('#personalInfoDiv').hide();
-          $('#inputUsername').val(mail);
-          $('#accountInfoDiv').show();
         })
         .fail(function (data, status, error) {
-          console.log("Unable to create account");
+          console.log("Unable to assign password");
           var responseText = $.parseJSON(data.responseText);
           $('#warningMessage').text(responseText.details[0].message);
           $('#warningDiv').show();
