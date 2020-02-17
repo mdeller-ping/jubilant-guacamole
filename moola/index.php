@@ -14,6 +14,22 @@
 
 <body>
 
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+  echo "form was submit";
+
+} else {
+
+  echo "no form submit";
+  
+}
+
+
+?>
+
+
   <nav class="navbar navbar-dark bg-dark">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/">Moola Credit Union</span></a>
@@ -30,7 +46,7 @@
           <input type="text" class="form-control" id="inputUsername" required>
         </div>
       </div>
-      <input type="submit" class="btn btn-primary mt-5 mb-5">Pull Report</a>
+      <input type="submit" class="btn btn-primary mt-5 mb-5">
     </form>
   </div>
   <!-- /pull credit report -->
@@ -44,7 +60,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-
 </body>
 
 </html>
