@@ -18,12 +18,13 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-  echo "form was submit";
+  echo "<script>$('#personalInfoDiv').hide();</script>";
+
 
 } else {
 
-  echo "no form submit";
-  
+  echo "<script>$('#personalInfoDiv').show();</script>";
+
 }
 
 
@@ -37,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </nav>
 
   <!-- pull credit report -->
-  <div class="container mt-5" id="personalInfoDiv">
+  <div class="container mt-5 collapse" id="personalInfoDiv">
     <h2>Subscriber Information</h2>
     <form id="creditRequest" method="POST">
       <div class="form-row">
