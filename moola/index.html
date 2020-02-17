@@ -20,7 +20,7 @@
     </div>
   </nav>
 
-  <!-- submit multifactor request -->
+  <!-- pull credit report -->
   <div class="container mt-5" id="personalInfoDiv">
     <h2>Subscriber Information</h2>
     <form id="creditRequest" method="POST">
@@ -30,11 +30,10 @@
           <input type="text" class="form-control" id="inputUsername" required>
         </div>
       </div>
-      <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createPlaceHolder();">Request Credit</a>
+      <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:pullReport();">Pull Report</a>
     </form>
   </div>
-  <!-- /page 1 - personal info -->
-
+  <!-- /pull credit report -->
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -47,6 +46,12 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+
+  <script>
+    function pullReport() {
+      console.log("pullReport called");
+    }
+  </script>
 </body>
 
 </html>
