@@ -11,25 +11,16 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>Your Neighborhood Credit Union</title>
 </head>
-
-<body>
-
+<script>
 <?php
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-  echo "<script>$('#personalInfoDiv').hide();</script>";
-
-
+  echo "$('#personalInfoDiv').show();";
 } else {
-
-  echo "<script>$('#personalInfoDiv').show();</script>";
-
+  echo "$('#personalInfoDiv').show();";
 }
-
-
 ?>
-
+</script>
+<body>
 
   <nav class="navbar navbar-dark bg-dark">
     <div class="navbar-nav">
