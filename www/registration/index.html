@@ -219,7 +219,7 @@
     <h2>Create Your Account</h2>
     <p class="mb-5">All fields are required (except where noted).</p>
     <form id="registration" method="POST">
-      <input type="hidden" id="inputDN">
+      <input type="hidden" id="inputDistinguishedName">
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputUsername">Username</label>
@@ -344,6 +344,7 @@
           $('#warningDiv').hide();
           $('#personalInfoDiv').hide();
           $('#inputUsername').val(mail);
+          $("#inputDistinguishedName").val(distinguishedName);
           $('#accountInfoDiv').show();
         })
         .fail(function (data, status, error) {
@@ -360,6 +361,7 @@
 
       username = $('#inputUsername').val();
       password = $('#inputPassword').val();
+      distinguishedName = $('#inputDistinguishedName').val();
 
       body = JSON.stringify({
         "uid": [username],
@@ -367,7 +369,7 @@
       });
 
       var settings = {
-        "url": "https://" + pingDirectory + "/directory/v1",
+        "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
         "method": "PUT",
         "timeout": 0,
         "headers": {
