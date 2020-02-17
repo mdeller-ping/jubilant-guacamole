@@ -30,7 +30,7 @@
           <input type="text" class="form-control" id="inputUsername" required>
         </div>
       </div>
-      <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:pullReport();">Pull Report</a>
+      <input type="submit" class="btn btn-primary mt-5 mb-5">Pull Report</a>
     </form>
   </div>
   <!-- /pull credit report -->
@@ -45,27 +45,6 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
 
-  <script>
-    function pullReport() {
-      console.log("pullReport called");
-
-      var settings = {
-        "url": "https://sdk.pingid.com/pingid/v1/accounts/2fd80ebb-526b-4c87-a022-8242ccc48e31/applications/aa2ae4ac-d025-4b37-ab8c-32169a915299/users/michael@example.com/authentications/",
-        "method": "POST",
-        "timeout": 0,
-        "headers": {
-          "Authorization": "PINGID-HMAC=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImFjY291bnRfaWQiOiIyZmQ4MGViYi01MjZiLTRjODctYTAyMi04MjQyY2NjNDhlMzEiLCJ0b2tlbiI6IjUxOGQwMWE1NTRiMjQ3MzY4MzVkNTA0NTllMDNlYWU0Iiwiand0X3ZlcnNpb24iOiJ2NCJ9.eyJkYXRhIjoiMTM0OTliZjhmY2E0NWMyMmQyNjg4NjljYzQ1MjM2MmFlNDE5NWE2MTJmYTE0OGQwMmVhYzJkMjgwMTcwNWUxMyJ9.Vqx9LrNPTfR4aMmMCmCojDPoD0u0cCWCllBD_JesX9E",
-          "Content-Type": "application/json"
-        },
-        "data": JSON.stringify({ "authenticationType": "AUTHENTICATE", "emailConfigurationType": "authentication", "smsMessage": "Please enter this code to authenticate - ", "pushMessageTitle": "Request for credit report.", "pushMessageBody": "moola.xyz is requesting your credit report", "voiceMessage": "Your authentication code is: ${OTP}" }),
-      };
-
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
-
-    }
-  </script>
 </body>
 
 </html>
