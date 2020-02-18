@@ -45,7 +45,7 @@ version: 1.1
 
 <div id="modal" class="modal">
     <div class="modal-content">
-        <img src="/assets/images/TransUnion.svg" width="300px">
+        <img class="ping-logo modal-logo" src="/assets/images/TransUnion.svg" width="300px" />
         <div class="dialog">
 #if($status == "in_progress")
             <!-- AUTHENTICATING SECTION BEGIN-------------------------------------------------------------------------------------->
@@ -497,12 +497,7 @@ version: 1.1
             </div>
 			<!-- USER SELECTION SECTION END ------------------------------------------------------------------------------------------->
  #end
-#set($adminMessage = $messages.getMessage("pingid.sdk.admin.message"))
-#if($adminMessage && $adminMessage.length() > 0)
-            <div class="admin-message">
-               $adminMessage
-            </div>
-#end
+
         </div>
         <footer>
         </footer>
