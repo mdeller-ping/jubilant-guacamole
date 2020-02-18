@@ -40,7 +40,7 @@
           <a class="nav-link" href="#">Credit Offers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="memberTools" href="#">Member Tools</a>
+          <a class="nav-link" id="memberTools" href="https://members.tu.demoenvi.com">Member Tools</a>
         </li>
       </ul>
       <ul class="navbar-nav text-right mt-4">
@@ -97,7 +97,7 @@
           <a class="nav-link" href="https://www.tu.demoenvi.com/registration/">Sign up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://members.tu.demoenvi.com/">Member login</a>
+          <a class="nav-link" id="memberTools" href="https://members.tu.demoenvi.com">Member login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About us</a>
@@ -131,8 +131,8 @@
 
   <script>
     let nonce = Math.floor(Math.random() * 100000);
-    // href="https://members.tu.demoenvi.com"
-    $("memberTools").attr("href", "http://www.google.com/")
+    $("a[href='https://members.tu.demoenvi.com']").attr('href', 'https://members.tu.demoenvi.com?nonce=' + nonce);
+    console.log('here');
   </script>
 </body>
 
