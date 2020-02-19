@@ -32,7 +32,7 @@
     <!-- user login -->
     <div class="container mt-5">
         <h2>Member Login</h2>
-        <form method="POST">
+        <form method="POST" action="$resume_url">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="identifierInput">Username</label>
@@ -93,9 +93,6 @@
 
         function submitForm() {
             document.forms[0].submit();
-            if ($captchaEnabled) {
-                grecaptcha.reset();
-            }
         }
 
         function postOnReturn(e) {
