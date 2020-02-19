@@ -123,7 +123,7 @@
     <script>
         let authHeader = 'Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl';
         let pingDirectory = 'auth.tu.demoenvi.com:1443'
-        let distinguishedName = 'entryUUID=82829a0e-798f-4d24-9e2e-0d3cc5bbeb7c,ou=people,dc=example,dc=com';
+        let distinguishedName = '<?php echo $_SERVER['DN'] ?>';
 
         function updateAccount() {
             console.log('updateAccount function called');
