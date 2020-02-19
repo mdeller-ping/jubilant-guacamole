@@ -14,6 +14,8 @@
   <title>Member Portal</title>
 </head>
 
+<!-- <?php echo $_SERVER['X_HTTP_PA_PLAN'] ?> -->
+
 <body>
 
   <!-- navigation -->
