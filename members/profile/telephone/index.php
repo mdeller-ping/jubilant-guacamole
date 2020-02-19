@@ -81,6 +81,7 @@
         <p class="mt-5 mb-5">Your account has been updated.</p>
         <a href="/profile" class="btn btn-primary">Done</a>
     </div>
+    <!-- /all done -->
 
     <!-- warningDiv -->
     <div class="container collapse mt-4" id="warningDiv">

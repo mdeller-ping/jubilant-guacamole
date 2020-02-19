@@ -61,8 +61,8 @@
     <!-- /hero banner -->
 
     <!-- accountUpdateDiv -->
-    <div class="container" id="accountUpdateDiv">
-        <h2>Change Account Email</h2>
+    <div class="container mt-5" id="accountUpdateDiv">
+        <h2 class="mt-4">Change Account Email</h2>
         <form method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -76,11 +76,12 @@
     <!-- /accountUpdateDiv -->
 
     <!-- all done -->
-    <div class="container collapse" id="allDoneDiv">
-        <h2>Thank You</h2>
-        <p class="mb-5">Your account has been updated.</p>
+    <div class="container mt-5 collapse" id="allDoneDiv">
+        <h2 class="mt-4">Thank You</h2>
+        <p class="mt-5 mb-5">Your account has been updated.</p>
         <a href="/profile" class="btn btn-primary">Done</a>
     </div>
+    <!-- /all done -->
 
     <!-- warningDiv -->
     <div class="container collapse mt-4" id="warningDiv">
