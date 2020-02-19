@@ -76,8 +76,8 @@
     <!-- /accountUpdateDiv -->
 
     <!-- all done -->
-    <div class="container collapse" id="allDoneDiv">
-        <h2>Thank You</h2>
+    <div class="container mt-5 collapse" id="allDoneDiv">
+        <h2 class="mt-4">Thank You</h2>
         <p class="mb-5">Your account has been updated.</p>
         <a href="/profile" class="btn btn-primary">Done</a>
     </div>
