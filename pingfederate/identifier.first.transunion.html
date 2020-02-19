@@ -2,8 +2,6 @@
 
 <!-- template name: html.form.login.template.html -->
 
-#set( $messageKeyPrefix = "html.form.login.template." )
-
 <html lang="$locale.getLanguage()">
 
 <head>
@@ -15,7 +13,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link type="image/x-icon" href="//assets.transunion.com/resources/img/ico/favicon.ico" rel="shortcut icon">
 
-    <title>$templateMessages.getMessage($messageKeyPrefix, "title")</title>
 </head>
 
 <body>
@@ -48,20 +45,7 @@
             <input type="hidden" name="$ok" value="" />
 
             <a href="javascript:postOk();" class="btn btn-primary mt-5">
-                $templateMessages.getMessage($messageKeyPrefix, "signInButtonTitle")
             </a>
-
-            <div class="container mt-5 mb-5">
-
-                #if($authnMessageKey)
-                <div class="alert alert-warning">$templateMessages.getMessage($authnMessageKey)</div>
-                #end #if($errorMessageKey)
-                <div class="alert alert-warning">$templateMessages.getMessage($messageKeyPrefix, $errorMessageKey)</div>
-                #end ## Uncomment below to display any additional server error: #* #if($serverError)
-                <div class="alert alert-danger">$serverError</div>
-                #end *#
-
-            </div>
 
             <p><a href="https://auth.tu.demoenvi.com:9031/ext/pwdreset/Identify?AdapterId=HTMLFormPD">Need Help?</a></p>
 
