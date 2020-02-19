@@ -56,19 +56,11 @@
 
             <div class="container mt-5 mb-5">
 
-                #if($authnMessageKey)
                 <div class="alert alert-warning">$templateMessages.getMessage($authnMessageKey)</div>
-                #end
-                #if($errorMessageKey)
-                <div class="alert alert-warning">$templateMessages.getMessage($messageKeyPrefix, $errorMessageKey)</div>
-                #end
 
-                ## Uncomment below to display any additional server error:
-                #*
-                #if($serverError)
+                <div class="alert alert-warning">$templateMessages.getMessage($messageKeyPrefix, $errorMessageKey)</div>
+
                 <div class="alert alert-danger">$serverError</div>
-                #end
-                *#
 
             </div>
 
