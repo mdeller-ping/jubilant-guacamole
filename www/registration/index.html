@@ -2,135 +2,133 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link type="image/x-icon" href="//assets.transunion.com/resources/img/ico/favicon.ico" rel="shortcut icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="image/x-icon" href="//assets.transunion.com/resources/img/ico/favicon.ico" rel="shortcut icon">
 
-  <title>Member Portal</title>
+    <title>Member Portal</title>
 </head>
 
 <body>
 
-  <!-- navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
-    <a class="navbar-brand mb-1" href="https://www.tu.demoenvi.com/">
-      <img src="https://assets.transunion.com/resources/img/logo.svg" height="50" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
+        <a class="navbar-brand mb-1" href="https://www.tu.demoenvi.com/">
+            <img src="https://assets.transunion.com/resources/img/logo.svg" height="50" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto mt-4">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Credit Education</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Credit Help</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Credit Offers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://members.tu.demoenvi.com">Member Tools</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav text-right mt-4">
-        <li class="nav-item">
-          <a class="btn btn-outline-warning btn-sm" href="/registration/">GET YOUR CREDIT SCORE</a>
-        </li>
-      </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto mt-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Credit Education</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Credit Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Credit Offers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://members.tu.demoenvi.com">Member Tools</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav text-right mt-4">
+                <li class="nav-item">
+                    <a class="btn btn-outline-warning btn-sm" href="/registration/">GET YOUR CREDIT SCORE</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /navigation -->
+
+    <!-- hero banner -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Be in the know with TransUnion &reg;</h1>
+            <p class="lead">See your credit score NOW</p>
+        </div>
     </div>
-  </nav>
-  <!-- /navigation -->
+    <!-- /hero banner -->
 
-  <!-- hero banner -->
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Be in the know with TransUnion &reg;</h1>
-      <p class="lead">See your credit score NOW</p>
-    </div>
-  </div>
-  <!-- /hero banner -->
+    <!-- page 1 - personal info -->
+    <div class="container" id="personalInfoDiv">
+        <h2>Personal Information</h2>
+        <p class="mb-5">All fields are required (except where noted).</p>
+        <form id="registration" method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputFirstName">First Name</label>
+                    <input type="text" class="form-control" id="inputFirstName" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputMiddleName">Middle Name (Optional)</label>
+                    <input type="text" class="form-control" id="inputMiddleName">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLastName">Last Name</label>
+                    <input type="text" class="form-control" id="inputLastName" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputDateOfBirth">Date of Birth (YYYY-MM-DD)</label>
+                    <input type="text" class="form-control" id="inputDateOfBirth" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLastFour">Last 4 Digits of Social Security Number</label>
+                    <input type="text" class="form-control" id="inputLastFour" required>
+                </div>
+            </div>
 
-  <!-- page 1 - personal info -->
-  <div class="container" id="personalInfoDiv">
-    <h2>Personal Information</h2>
-    <p class="mb-5">All fields are required (except where noted).</p>
-    <form id="registration" method="POST">
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputFirstName">First Name</label>
-          <input type="text" class="form-control" id="inputFirstName" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputMiddleName">Middle Name (Optional)</label>
-          <input type="text" class="form-control" id="inputMiddleName">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputLastName">Last Name</label>
-          <input type="text" class="form-control" id="inputLastName" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="inputDateOfBirth">Date of Birth (YYYY-MM-DD)</label>
-          <input type="text" class="form-control" id="inputDateOfBirth" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputLastFour">Last 4 Digits of Social Security Number</label>
-          <input type="text" class="form-control" id="inputLastFour" required>
-        </div>
-      </div>
+            <hr>
 
-      <hr>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputMail">Email Address</label>
+                    <input type="email" class="form-control" id="inputMail" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputMobile">Mobile Number</label>
+                    <input type="tel" class="form-control" id="inputMobile" required>
+                </div>
+            </div>
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputMail">Email Address</label>
-          <input type="email" class="form-control" id="inputMail" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputMobile">Mobile Number</label>
-          <input type="tel" class="form-control" id="inputMobile" required>
-        </div>
-      </div>
+            <hr>
 
-      <hr>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputStreet">Address and Unit Number</label>
-          <input type="text" class="form-control" id="inputStreet" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputCity">City</label>
-          <input type="text" class="form-control" id="inputCity" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="inputState">State</label>
-          <select id="inputState" class="form-control" required>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputStreet">Address and Unit Number</label>
+                    <input type="text" class="form-control" id="inputStreet" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <select id="inputState" class="form-control" required>
             <option selected>Choose...</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -184,227 +182,221 @@
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
           </select>
-        </div>
-        <div class="form-group col-md-2">
-          <label for="inputPostal">Zip Code</label>
-          <input type="number" class="form-control" id="inputPostal" required>
-        </div>
-      </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputPostal">Zip Code</label>
+                    <input type="number" class="form-control" id="inputPostal" required>
+                </div>
+            </div>
 
-      <hr>
+            <hr>
 
-      <div class="form-row">
-      </div>
+            <div class="form-row">
+            </div>
 
-      <p>Have you lived here for more than 6 months?</p>
+            <p>Have you lived here for more than 6 months?</p>
 
-      <div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inputSixMonths" id="inputSixMonths" value="true" checked>
-          <label class="form-check-label">Yes</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inputSixMonths" id="inputSixMonths" value="false">
-          <label class="form-check-label">No</label>
-        </div>
-      </div>
+            <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inputSixMonths" id="inputSixMonths" value="true" checked>
+                    <label class="form-check-label">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inputSixMonths" id="inputSixMonths" value="false">
+                    <label class="form-check-label">No</label>
+                </div>
+            </div>
 
-      <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createPlaceHolder();">Next Step</a>
-    </form>
-  </div>
-  <!-- /page 1 - personal info -->
-
-  <!-- page 2 - account info -->
-  <div class="container collapse" id="accountInfoDiv">
-    <h2>Create Your Account</h2>
-    <p class="mb-5">All fields are required (except where noted).</p>
-    <form id="registration" method="POST">
-      <input type="hidden" id="inputDistinguishedName">
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputUsername">Username</label>
-          <input type="text" class="form-control" id="inputUsername" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputPassword" required>
-        </div>
-      </div>
-      <div class="form-row">
-      </div>
-
-      <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createAccount();">Next Step</a>
-    </form>
-  </div>
-  <!-- /page 2 - account info -->
-
-  <!-- page 3 - all done -->
-  <div class="container collapse" style="height: 800px;" id="allDoneDiv">
-    <h2>Thank You</h2>
-    <p class="mb-5">Your account has been created and your password assigned. Please use the Member Tools link above to
-      sign in.</p>
-  </div>
-
-  <!-- warningDiv -->
-  <div class="container collapse mt-4" id="warningDiv">
-    <div class="alert alert-warning" id="warningMessage">pending</div>
-  </div>
-  <!-- /warningDiv -->
-
-  <!-- footer -->
-  <nav class="navbar navbar-light bg-light mt-5">
-    <div class="container">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.tu.demoenvi.com/registration/">Sign up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://members.tu.demoenvi.com/">Member login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Support</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Terms of Service</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Privacy</a>
-        </li>
-      </ul>
+            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createPlaceHolder();">Next Step</a>
+        </form>
     </div>
-  </nav>
-  <!-- /footer -->
+    <!-- /page 1 - personal info -->
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
+    <!-- page 2 - account info -->
+    <div class="container collapse" id="accountInfoDiv">
+        <h2>Create Your Account</h2>
+        <p class="mb-5">All fields are required (except where noted).</p>
+        <form id="registration" method="POST">
+            <input type="hidden" id="inputDistinguishedName">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputUsername">Username</label>
+                    <input type="text" class="form-control" id="inputUsername" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" required>
+                </div>
+            </div>
+            <div class="form-row">
+            </div>
 
-  <script>
+            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createAccount();">Next Step</a>
+        </form>
+    </div>
+    <!-- /page 2 - account info -->
 
-    let authHeader = 'Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl';
-    let pingDirectory = 'auth.tu.demoenvi.com:1443'
+    <!-- page 3 - all done -->
+    <div class="container collapse" style="height: 800px;" id="allDoneDiv">
+        <h2>Thank You</h2>
+        <p class="mb-5">Your account has been created and your password assigned. Please use the Member Tools link above to sign in.</p>
+    </div>
 
-    function createPlaceHolder() {
-      console.log('createPlaceHolder function called');
+    <!-- warningDiv -->
+    <div class="container collapse mt-4" id="warningDiv">
+        <div class="alert alert-warning" id="warningMessage">pending</div>
+    </div>
+    <!-- /warningDiv -->
 
-      firstName = $('#inputFirstName').val();
-      middleName = $('#inputMiddleName').val();
-      lastName = $('#inputLastName').val();
-      dateOfBirth = $('#inputDateOfBirth').val();
-      lastFour = $('#inputLastFour').val();
-      mail = $('#inputMail').val();
-      mobile = $('#inputMobile').val();
-      street = $('#inputStreet').val();
-      city = $('#inputCity').val();
-      state = $('#inputState').val();
-      postalCode = $('#inputPostal').val();
+    <!-- footer -->
+    <nav class="navbar navbar-light bg-light mt-5">
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.tu.demoenvi.com/registration/">Sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://members.tu.demoenvi.com/">Member login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Support</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Terms of Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Privacy</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /footer -->
 
-      sixMonths = $("input[name='inputSixMonths']:checked").val();
-      sixMonths = (sixMonths == 'true');
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-      body = JSON.stringify({
-        "_parentDN": "ou=people,dc=example,dc=com",
-        "objectClass": ["transUnionPerson"],
-        "givenName": [firstName],
-        "transUnionMiddleName": middleName,
-        "sn": [lastName],
-        "cn": [firstName + " " + lastName],
-        "transUnionDOB": dateOfBirth,
-        "transUnionLastFour": lastFour,
-        "street": [street],
-        "l": [city],
-        "st": [state],
-        "postalCode": [postalCode],
-        "mobile": [mobile],
-        "transUnionMoreThanSixMonths": sixMonths
-      });
+    <script>
+        let authHeader = 'Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl';
+        let pingDirectory = 'auth.tu.demoenvi.com:1443'
 
-      var settings = {
-        "url": "https://" + pingDirectory + "/directory/v1",
-        "method": "POST",
-        "accept": "json",
-        "timeout": 0,
-        "headers": {
-          "Content-Type": "application/json",
-          "Authorization": "Basic " + authHeader
-        },
-        "data": body
-      };
+        function createPlaceHolder() {
+            console.log('createPlaceHolder function called');
 
-      $.ajax(settings)
-        .done(function (data) {
-          console.log("Account created");
-          distinguishedName = data._dn;
-          console.log(distinguishedName);
-          $('#warningMessage').text('');
-          $('#warningDiv').hide();
-          $('#personalInfoDiv').hide();
-          $('#inputUsername').val(mail);
-          $("#inputDistinguishedName").val(distinguishedName);
-          $('#accountInfoDiv').show();
-        })
-        .fail(function (data, status, error) {
-          console.log("Unable to create account");
-          var responseText = $.parseJSON(data.responseText);
-          $('#warningMessage').text(responseText.details[0].message);
-          $('#warningDiv').show();
-        })
+            firstName = $('#inputFirstName').val();
+            middleName = $('#inputMiddleName').val();
+            lastName = $('#inputLastName').val();
+            dateOfBirth = $('#inputDateOfBirth').val();
+            lastFour = $('#inputLastFour').val();
+            mail = $('#inputMail').val();
+            mobile = $('#inputMobile').val();
+            street = $('#inputStreet').val();
+            city = $('#inputCity').val();
+            state = $('#inputState').val();
+            postalCode = $('#inputPostal').val();
 
-    }
+            sixMonths = $("input[name='inputSixMonths']:checked").val();
+            sixMonths = (sixMonths == 'true');
 
-    function createAccount() {
-      console.log('createAccount function called');
+            body = JSON.stringify({
+                "_parentDN": "ou=people,dc=example,dc=com",
+                "objectClass": ["transUnionPerson"],
+                "givenName": [firstName],
+                "transUnionMiddleName": middleName,
+                "sn": [lastName],
+                "cn": [firstName + " " + lastName],
+                "mail": [mail],
+                "transUnionDOB": dateOfBirth,
+                "transUnionLastFour": lastFour,
+                "street": [street],
+                "l": [city],
+                "st": [state],
+                "postalCode": [postalCode],
+                "mobile": [mobile],
+                "transUnionMoreThanSixMonths": sixMonths
+            });
 
-      username = $('#inputUsername').val();
-      password = $('#inputPassword').val();
-      distinguishedName = $('#inputDistinguishedName').val();
+            var settings = {
+                "url": "https://" + pingDirectory + "/directory/v1",
+                "method": "POST",
+                "accept": "json",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Authorization": "Basic " + authHeader
+                },
+                "data": body
+            };
 
-      body = JSON.stringify({
-        "uid": [username],
-        "userPassword": [password]
-      });
+            $.ajax(settings)
+                .done(function(data) {
+                    console.log("Account created");
+                    distinguishedName = data._dn;
+                    console.log(distinguishedName);
+                    $('#warningMessage').text('');
+                    $('#warningDiv').hide();
+                    $('#personalInfoDiv').hide();
+                    $('#inputUsername').val(mail);
+                    $("#inputDistinguishedName").val(distinguishedName);
+                    $('#accountInfoDiv').show();
+                })
+                .fail(function(data, status, error) {
+                    console.log("Unable to create account");
+                    var responseText = $.parseJSON(data.responseText);
+                    $('#warningMessage').text(responseText.details[0].message);
+                    $('#warningDiv').show();
+                })
 
-      var settings = {
-        "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
-        "method": "PUT",
-        "timeout": 0,
-        "headers": {
-          "Content-Type": "application/json",
-          "Authorization": "Basic " + authHeader
-        },
-        "data": body
-      };
+        }
 
-      $.ajax(settings)
-        .done(function (data) {
-          console.log("Password assigned");
-          $('#warningMessage').text('');
-          $('#warningDiv').hide();
-          $('#accountInfoDiv').hide();
-          $('#personalInfoDiv').hide();
-          $('#allDoneDiv').show();
-        })
-        .fail(function (data, status, error) {
-          console.log("Unable to assign password");
-          var responseText = $.parseJSON(data.responseText);
-          $('#warningMessage').text(responseText.details[0].message);
-          $('#warningDiv').show();
-        })
+        function createAccount() {
+            console.log('createAccount function called');
 
-    }
+            username = $('#inputUsername').val();
+            password = $('#inputPassword').val();
+            distinguishedName = $('#inputDistinguishedName').val();
 
-  </script>
+            body = JSON.stringify({
+                "uid": [username],
+                "userPassword": [password]
+            });
+
+            var settings = {
+                "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
+                "method": "PUT",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Authorization": "Basic " + authHeader
+                },
+                "data": body
+            };
+
+            $.ajax(settings)
+                .done(function(data) {
+                    console.log("Password assigned");
+                    $('#warningMessage').text('');
+                    $('#warningDiv').hide();
+                    $('#accountInfoDiv').hide();
+                    $('#personalInfoDiv').hide();
+                    $('#allDoneDiv').show();
+                })
+                .fail(function(data, status, error) {
+                    console.log("Unable to assign password");
+                    var responseText = $.parseJSON(data.responseText);
+                    $('#warningMessage').text(responseText.details[0].message);
+                    $('#warningDiv').show();
+                })
+
+        }
+    </script>
 </body>
 
 </html>
