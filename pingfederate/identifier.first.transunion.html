@@ -1,32 +1,22 @@
-<!DOCTYPE html>
-#*
-The server renders this HTML page in an end-user's browser when
-needed authentication identifier to further determine
-next authentication method(s)
+<!doctype html>
 
-Velocity variables (identified by the $ character) are generated
-at runtime by the server.
-
-Change text or formatting as needed. Modifying Velocity statements
-is not recommended as it may interfere with expected server behavior.
-*#
-
-<!-- template name: identifier.first.template.html -->
+<!-- template name: identifier.first.transunion.html -->
 
 #set( $messageKeyPrefix = "authentication.identifier.template." )
 
-<html lang="$locale.getLanguage()" dir="ltr">
+<html lang="$locale.getLanguage()">
+
 <head>
-    #if ($existing_identifiers.size() > 0)
-    <title>$templateMessages.getMessage($messageKeyPrefix, "selectTitle")</title>
-    #else
-    <title>$templateMessages.getMessage($messageKeyPrefix, "inputTitle")</title>
-    #end
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <base href="$CurrentPingFedBaseURL"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="image/x-icon" href="//assets.transunion.com/resources/img/ico/favicon.ico" rel="shortcut icon">
+
+    <title>$templateMessages.getMessage($messageKeyPrefix, "title")</title>
     <style>
         #postButton {
             #if ($existing_identifiers.size() > 0)
