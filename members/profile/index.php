@@ -72,8 +72,9 @@
                 <strong>Membership & Billing</strong>
             </div>
             <div class="col-sm lead">
-                michael@example.com<br> 1-720-476-8845
-                <br> Password: ***********
+                <?php echo $_SERVER['X-PA-MAIL'] ?><br>
+                <?php echo $_SERVER['X-PA-MOBILE'] ?><br>
+                Password: ***********
             </div>
             <div class="col-sm lead">
                 <a href="/profile/email/">Change Account Email</a><br><a href="#">Change Password</a><br><a href="#">Change Phone Number</a><br>
