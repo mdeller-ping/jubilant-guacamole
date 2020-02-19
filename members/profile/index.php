@@ -75,8 +75,6 @@
                 <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
                 <?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?><br>
                 Password: ***********<br>
-                <?php echo substr($_SERVER['HTTP_X_PA_ENTRYUUID'], 0, 8) ?><br>
-
             </div>
             <div class="col-sm lead">
                 <a href="/profile/email/">Change Account Email</a><br><a href="#">Change Phone Number</a><br><a href="#">Change Password</a><br>
