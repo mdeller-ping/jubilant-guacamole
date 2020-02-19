@@ -120,6 +120,14 @@
     <br>
     <br>
 
+<?php
+
+foreach (getallheaders() as $key=> $value) {
+    print "$key=> $value<br>\n";
+}
+
+?>
+
     <!-- footer -->
     <nav class="navbar navbar-light bg-light">
         <div class="container">
