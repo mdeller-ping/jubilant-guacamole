@@ -47,7 +47,7 @@
           <a class="nav-link" href="/help/">Help</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/education/">Education</a>
+          <a class="nav-link" href="/education/">Education</a>
         </li>
       </ul>
       <ul class="navbar-nav text-right mt-4">

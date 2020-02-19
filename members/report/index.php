@@ -29,11 +29,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto mt-4">
         <li class="nav-item">
-          <a class="nav-link active" href="/report/">Report</a>
+          <a class="nav-link" href="/report/">Report</a>
         </li>
+        <?php
+          if ($_SERVER['HTTP_X_PA_PLAN'] != 'None') {
+        ?>
         <li class="nav-item">
           <a class="nav-link" href="/score/">Score</a>
         </li>
+        <?php
+        }
+        ?>
         <li class="nav-item">
           <a class="nav-link" href="/profile/">My Profile</a>
         </li>

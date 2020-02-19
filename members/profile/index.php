@@ -2,54 +2,62 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link type="image/x-icon" href="//assets.transunion.com/resources/img/ico/favicon.ico" rel="shortcut icon">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link type="image/x-icon" href="//assets.transunion.com/resources/img/ico/favicon.ico" rel="shortcut icon">
 
-    <title>Member Portal</title>
+  <title>Member Portal</title>
 </head>
 
 <body>
 
-    <!-- navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
-        <a class="navbar-brand mb-1" href="/">
-            <img src="https://assets.transunion.com/resources/img/logo.svg" height="50" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
+    <a class="navbar-brand mb-1" href="/">
+      <img src="https://assets.transunion.com/resources/img/logo.svg" height="50" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto mt-4">
-                <li class="nav-item">
-                    <a class="nav-link" href="/report/">Report</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/score/">Score</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="/profile/">My Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/help/">Help</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/education/">Education</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav text-right mt-4">
-                <li class="nav-item">
-                    <a class="btn btn-outline-warning btn-sm" href="/pa/oidc/logout">Log Out</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!-- /navigation -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mt-4">
+        <li class="nav-item">
+          <a class="nav-link" href="/report/">Report</a>
+        </li>
+        <?php
+          if ($_SERVER['HTTP_X_PA_PLAN'] != 'None') {
+        ?>
+        <li class="nav-item">
+          <a class="nav-link" href="/score/">Score</a>
+        </li>
+        <?php
+        }
+        ?>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile/">My Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/help/">Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/education/">Education</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav text-right mt-4">
+        <li class="nav-item">
+          <a class="btn btn-outline-warning btn-sm" href="/pa/oidc/logout">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- /navigation -->
 
     <!-- hero banner -->
     <div class="jumbotron jumbotron-fluid">

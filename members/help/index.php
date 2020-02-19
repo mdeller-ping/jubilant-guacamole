@@ -44,7 +44,7 @@
           <a class="nav-link" href="/profile/">My Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/help/">Help</a>
+          <a class="nav-link" href="/help/">Help</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/education/">Education</a>
