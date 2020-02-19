@@ -241,7 +241,8 @@
     <!-- page 3 - all done -->
     <div class="container collapse" style="height: 800px;" id="allDoneDiv">
         <h2>Thank You</h2>
-        <p class="mb-5">Your account has been created and your password assigned. Please use the Member Tools link above to sign in.</p>
+        <p class="mb-5">Your account has been created and your password assigned.</p>
+        <p class="mb-5">You will be redirected to the login page in 5 seconds. If not, go directly to <a href="https://members.tu.demoenvi.com">Member Tools</a>.</p>
     </div>
 
     <!-- warningDiv -->
@@ -320,7 +321,8 @@
                 "st": [state],
                 "postalCode": [postalCode],
                 "mobile": [mobile],
-                "transUnionMoreThanSixMonths": sixMonths
+                "transUnionMoreThanSixMonths": sixMonths,
+                "transUnionPlan": "None"
             });
 
             var settings = {
@@ -387,6 +389,9 @@
                     $('#accountInfoDiv').hide();
                     $('#personalInfoDiv').hide();
                     $('#allDoneDiv').show();
+                    setTimeout(function() {
+                        window.location.href = 'https://members.tu.demoenvi.com/';
+                    }, 5000);
                 })
                 .fail(function(data, status, error) {
                     console.log("Unable to assign password");
