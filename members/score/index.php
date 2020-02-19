@@ -64,7 +64,7 @@
 
   <div class="container">
 
-    <div class="jumbotron primary">
+    <div class="jumbotron" style="background-color: pink;">
       <h1 class="display-4">Score: 684</h1>
       <p class="lead">Grate: D</p>
       <hr class="my-4">
