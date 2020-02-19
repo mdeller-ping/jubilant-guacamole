@@ -46,7 +46,7 @@
       </ul>
       <ul class="navbar-nav text-right mt-4">
         <li class="nav-item">
-          <a class="btn btn-outline-warning btn-sm" href="/pa/oidc/logout">Log Out</a>
+          <a class="btn btn-outline-warning" href="/pa/oidc/logout">Log Out</a>
         </li>
       </ul>
     </div>
