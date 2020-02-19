@@ -137,7 +137,7 @@
             plan = $('#inputPlan').val();
 
             body = JSON.stringify({
-                "transUnionPlan": [plan]
+                "transUnionPlan": plan
             });
 
             var settings = {
