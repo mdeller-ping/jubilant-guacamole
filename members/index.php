@@ -14,7 +14,7 @@
   <title>Member Portal</title>
 </head>
 
-<!-- <?php echo $_SERVER['X_HTTP_PA_PLAN'] ?> -->
+<!-- <?php echo $_SERVER['HTTP_X_PA_PLAN'] ?> -->
 
 <body>
 
@@ -34,7 +34,7 @@
           <a class="nav-link" href="/report/">Report</a>
         </li>
         <?php
-          if ($_SERVER['X_HTTP_PA_PLAN'] != 'None') {
+          if ($_SERVER['HTTP_X_PA_PLAN'] != 'None') {
         ?>
         <li class="nav-item">
           <a class="nav-link" href="/score/">Score</a>
