@@ -74,7 +74,7 @@
             <div class="col-sm lead">
                 <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
                 <?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?><br>
-                ***********<br>
+                Password: ***********<br>
             </div>
             <div class="col-sm lead">
                 <a href="/profile/email/">Change Account Email</a><br>
@@ -92,10 +92,10 @@
                 <strong>Plan Details</strong>
             </div>
             <div class="col-sm lead">
-                Credit Protection
+                <?php echo $_SERVER['HTTP_X_PA_PLAN'] ?>
             </div>
             <div class="col-sm lead">
-                <a href="#">Change Plan</a>
+                <a href="/profile/plan/">Change Plan</a>
             </div>
         </div>
     </div>
