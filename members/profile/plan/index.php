@@ -66,7 +66,11 @@
         <form method="POST">
             <div class="form-row mt-5">
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="inputPlan" value="<?php echo $_SERVER['HTTP_X_PA_PLAN'] ?>" required>
+                    <select class="form-control" id="inputPlan">
+                        <option value="None">None</option>
+                        <option value="CreditCompass">CreditCompass</option>
+                        <option value="Credit Protection">Credit Protection</option>
+                    </select>
                 </div>
             </div>
             <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
