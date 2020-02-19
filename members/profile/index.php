@@ -74,7 +74,7 @@
             <div class="col-sm lead">
                 <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
                 <?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?><br>
-                Password: ***********<br>
+                ***********<br>
             </div>
             <div class="col-sm lead">
                 <a href="/profile/email/">Change Account Email</a><br>
