@@ -62,11 +62,11 @@
 
     <!-- accountUpdateDiv -->
     <div class="container mt-5" id="accountUpdateDiv">
-        <h2 class="mt-4">Change Mobile Phone Number</h2>
+        <h2 class="mt-4">Change Plan</h2>
         <form method="POST">
             <div class="form-row mt-5">
                 <div class="form-group col-md-6">
-                    <input type="telephone" class="form-control" id="inputMobile" value="<?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?>" required>
+                    <input type="text" class="form-control" id="inputPlan" value="<?php echo $_SERVER['HTTP_X_PA_PLAN'] ?>" required>
                 </div>
             </div>
             <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
