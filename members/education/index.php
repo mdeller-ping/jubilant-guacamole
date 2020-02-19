@@ -31,9 +31,15 @@
         <li class="nav-item">
           <a class="nav-link" href="/report/">Report</a>
         </li>
+        <?php
+          if ($_SERVER['HTTP_X_PA_PLAN'] != 'None') {
+        ?>
         <li class="nav-item">
           <a class="nav-link" href="/score/">Score</a>
         </li>
+        <?php
+        }
+        ?>
         <li class="nav-item">
           <a class="nav-link" href="/profile/">My Profile</a>
         </li>
