@@ -79,7 +79,7 @@
             <div class="col-sm lead">
                 <a href="/profile/email/">Change Account Email</a><br>
                 <a href="/profile/telephone/">Change Phone Number</a><br>
-                <a href="#">Change Password</a><br>
+                <a href="/profile/password/">Change Password</a><br>
             </div>
         </div>
     </div>
