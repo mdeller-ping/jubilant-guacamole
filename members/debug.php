@@ -51,74 +51,14 @@
     </nav>
     <!-- /navigation -->
 
-    <!-- hero banner -->
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Two ways to be in the know with TransUnion &reg;</h1>
-            <p class="lead">Know where you stand. Protect what you've built. See the way forward.</p>
-        </div>
-    </div>
-    <!-- /hero banner -->
+ 
+<?php
 
-    <div class="container mt-5">
-        <h2 class="mt-4">Account</h2>
-    </div>
+foreach (getallheaders() as $key=> $value) {
+    print "$key=> $value<br>\n";
+}
 
-    <div class="container mb-5">
-        <hr>
-
-        <div class="row">
-            <div class="col-sm lead">
-                <strong>Membership & Billing</strong>
-            </div>
-            <div class="col-sm lead">
-                michael@example.com<br> 1-720-476-8845
-                <br> Password: ***********
-            </div>
-            <div class="col-sm lead">
-                <a href="/profile/email/">Change Account Email</a><br><a href="#">Change Password</a><br><a href="#">Change Phone Number</a><br>
-            </div>
-        </div>
-    </div>
-
-    <div class="container mb-5">
-        <hr>
-
-        <div class="row">
-            <div class="col-sm lead">
-                <strong>Plan Details</strong>
-            </div>
-            <div class="col-sm lead">
-                Credit Protection
-            </div>
-            <div class="col-sm lead">
-                <a href="#">Change Plan</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="container mb-5">
-        <hr>
-
-        <div class="row">
-            <div class="col-sm lead">
-                <strong>My Profile</strong>
-            </div>
-            <div class="col-sm lead">
-                <a href="#">Communication Settings</a><br>
-                <a href="#">Marketing Communications</a><br>
-                <a href="#">Language</a><br>
-
-            </div>
-            <div class="col-sm lead">
-                <a href="#">Delegated Consent</a><br>
-            </div>
-        </div>
-    </div>
-
-    <br>
-    <br>
-    <br>
+?>
 
     <!-- footer -->
     <nav class="navbar navbar-light bg-light">
