@@ -64,7 +64,7 @@
     <div class="container mt-5" id="accountUpdateDiv">
         <h2 class="mt-4">Change Mobile Phone Number</h2>
         <form method="POST">
-            <div class="form-row">
+            <div class="form-row mt-5">
                 <div class="form-group col-md-6">
                     <input type="email" class="form-control" id="inputMobile" value="<?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?>" required>
                 </div>
