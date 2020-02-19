@@ -34,7 +34,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="identifierInput" size="36" name="$identifier" autocorrect="off" autocapitalize="off" onKeyPress="return postOnReturn(event)" required />
+                    <input type="text" class="form-control" id="username" size="36" name="$identifier" autocorrect="off" autocapitalize="off" onKeyPress="return postOnReturn(event)" required />
                 </div>
             </div>
 
@@ -69,7 +69,11 @@
         }
 
         function submitForm() {
+            document.forms[0]['$ok'].value = 'clicked';
             document.forms[0].submit();
+            if ($captchaEnabled) {
+                grecaptcha.reset();
+            }
         }
 
         function postOnReturn(e) {
