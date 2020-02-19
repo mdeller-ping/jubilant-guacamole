@@ -60,68 +60,35 @@
     </div>
     <!-- /hero banner -->
 
-    <div class="container mt-5">
-        <h2 class="mt-4">Account</h2>
+    <!-- accountUpdateDiv -->
+    <div class="container" id="accountUpdateDiv">
+        <h2>Change Account Email</h2>
+        <form method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="email" class="form-control" id="inputEmail" required>
+                </div>
+            </div>
+            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
+            <a href="/profile/" class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+    <!-- /accountUpdateDiv -->
+
+    <!-- all done -->
+    <div class="container collapse" style="height: 800px;" id="allDoneDiv">
+        <h2>Thank You</h2>
+        <p class="mb-5">Your account has been created and your password assigned. Please use the Member Tools link above to sign in.</p>
     </div>
 
-    <div class="container mb-5">
-        <hr>
-
-        <div class="row">
-            <div class="col-sm lead">
-                <strong>Membership & Billing</strong>
-            </div>
-            <div class="col-sm lead">
-                michael@example.com<br> 1-720-476-8845
-                <br> Password: ***********
-            </div>
-            <div class="col-sm lead">
-                <a href="/profile/email/">Change Account Email</a><br><a href="#">Change Password</a><br><a href="#">Change Phone Number</a><br>
-            </div>
-        </div>
+    <!-- warningDiv -->
+    <div class="container collapse mt-4" id="warningDiv">
+        <div class="alert alert-warning" id="warningMessage">pending</div>
     </div>
-
-    <div class="container mb-5">
-        <hr>
-
-        <div class="row">
-            <div class="col-sm lead">
-                <strong>Plan Details</strong>
-            </div>
-            <div class="col-sm lead">
-                Credit Protection
-            </div>
-            <div class="col-sm lead">
-                <a href="#">Change Plan</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="container mb-5">
-        <hr>
-
-        <div class="row">
-            <div class="col-sm lead">
-                <strong>My Profile</strong>
-            </div>
-            <div class="col-sm lead">
-                <a href="#">Communication Settings</a><br>
-                <a href="#">Marketing Communications</a><br>
-                <a href="#">Language</a><br>
-
-            </div>
-            <div class="col-sm lead">
-                <a href="#">Delegated Consent</a><br>
-            </div>
-        </div>
-    </div>
-
-    <br>
-    <br>
-    <br>
+    <!-- /warningDiv -->
 
     <!-- footer -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light mt-5">
         <div class="container">
             <ul class="nav">
                 <li class="nav-item">
@@ -149,9 +116,53 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script>
+        let authHeader = 'Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl';
+        let pingDirectory = 'auth.tu.demoenvi.com:1443'
+        let distinguishedName = 'entryUUID=82829a0e-798f-4d24-9e2e-0d3cc5bbeb7c,ou=people,dc=example,dc=com';
+
+        function updateAccount() {
+            console.log('updateAccount function called');
+
+            mail = $('#inputMail').val();
+
+            body = JSON.stringify({
+                "uid": [mail],
+                "mail": [mail]
+            });
+
+            var settings = {
+                "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
+                "method": "PUT",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Authorization": "Basic " + authHeader
+                },
+                "data": body
+            };
+
+            $.ajax(settings)
+                .done(function(data) {
+                    console.log("Account Updated");
+                    $('#warningMessage').text('');
+                    $('#warningDiv').hide();
+                    $('#accountUpdateDiv').hide();
+                    $('#allDoneDiv').show();
+                })
+                .fail(function(data, status, error) {
+                    console.log("Unable to update");
+                    var responseText = $.parseJSON(data.responseText);
+                    $('#warningMessage').text(responseText.details[0].message);
+                    $('#warningDiv').show();
+                })
+
+        }
+    </script>
 </body>
 
 </html>
