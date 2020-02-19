@@ -94,7 +94,9 @@
 
     <script>
         function setFocus() {
-            console.log ('here')
+            if (!$("#username").val()) {
+                console.log ('here');
+            }
         }
 
         function postOk() {
