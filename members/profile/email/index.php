@@ -66,7 +66,7 @@
         <form method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="email" class="form-control" id="inputMail" value="<?php echo $_SERVER['HTTP_X_MAIL'] ?>" required>
+                    <input type="email" class="form-control" id="inputMail" value="<?php echo $_SERVER['HTTP_X_PA_MAIL'] ?>" required>
                 </div>
             </div>
             <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
