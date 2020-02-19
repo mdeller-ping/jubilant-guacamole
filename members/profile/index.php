@@ -72,7 +72,7 @@
                 <strong>Membership & Billing</strong>
             </div>
             <div class="col-sm lead">
-                <?php echo $_SERVER['X-PA-MAIL'] ?><br>
+                <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
                 <?php echo $_SERVER['X-PA-MOBILE'] ?><br>
                 Password: ***********
             </div>
