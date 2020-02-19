@@ -119,6 +119,22 @@
         </div>
     </div>
 
+    <div class="container mb-5">
+        <hr>
+
+        <div class="row">
+            <div class="col-sm lead">
+                <strong>Immutable Identifier</strong>
+            </div>
+            <div class="col-sm lead">
+                <?php echo substr($_SERVER['HTTP_X_PA_ENTRYUUID'], 0, 16) ?>...
+            </div>
+            <div class="col-sm lead">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+
     <br>
     <br>
     <br>
