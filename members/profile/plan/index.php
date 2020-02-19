@@ -67,9 +67,9 @@
             <div class="form-row mt-5">
                 <div class="form-group col-md-6">
                     <select class="form-control" id="inputPlan">
-                        <option value="None">None</option>
-                        <option value="CreditCompass">CreditCompass</option>
-                        <option value="Credit Protection">Credit Protection</option>
+                        <option value="None" <?php if ($_SERVER['HTTP_X_PA_PLAN'] == 'None') echo ' selected' ?>>None</option>
+                        <option value="CreditCompass" <?php if ($_SERVER['HTTP_X_PA_PLAN'] == 'CreditCompass') echo ' selected' ?>>CreditCompass</option>
+                        <option value="Credit Protection" <?php if ($_SERVER['HTTP_X_PA_PLAN'] == 'Credit Protection') echo ' selected' ?>>Credit Protection</option>
                     </select>
                 </div>
             </div>
