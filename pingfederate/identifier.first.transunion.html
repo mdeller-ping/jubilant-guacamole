@@ -32,14 +32,9 @@
     <div class="container mt-5">
         <h2>Member Login</h2>
         <form method="POST" action="$resume_url" autocomplete="off">
-            <div class="ping-input-container">
-                #if ($existing_identifiers.size() > 0)
-                <input id="identifierInput" style="display:none" type="text" size="36" name="$identifier" value="" autocorrect="off" autocapitalize="off" onKeyPress="return postOnReturn(event)" /> #else
-                <input id="identifierInput" type="text" size="36" name="$identifier" value="" autocorrect="off" autocapitalize="off" onKeyPress="return postOnReturn(event)" /> #end
-                <div class="place-bottom type-alert tooltip-text" id="username-text">
-                    <div class="icon">!</div>
-                    $templateMessages.getMessage($messageKeyPrefix, "missingField")
-                </div>
+            <div class="form-row">
+                <label for="identifierInput">LOCALIZATION</label>
+                <input type="text" class="form-control" id="identifierInput" size="36" name="$identifier" value="" autocorrect="off" autocapitalize="off" onKeyPress="return postOnReturn(event)" /> #end
             </div>
 
             <div id="postButton" class="ping-buttons">
