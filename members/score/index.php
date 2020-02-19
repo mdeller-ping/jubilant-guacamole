@@ -63,44 +63,14 @@
   <!-- /hero banner -->
 
   <div class="container">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Lorem dolor sed viverra ipsum. Amet nisl suscipit adipiscing bibendum est ultricies integer.
-      Molestie a iaculis at erat pellentesque. Ornare arcu odio ut sem nulla. Tristique senectus et netus et malesuada
-      fames. In nibh mauris cursus mattis molestie a iaculis at. Massa tempor nec feugiat nisl pretium fusce id. In
-      metus vulputate eu scelerisque felis imperdiet. Porta lorem mollis aliquam ut porttitor leo a. Viverra accumsan in
-      nisl nisi. Turpis in eu mi bibendum neque egestas congue quisque egestas. Sagittis id consectetur purus ut
-      faucibus pulvinar elementum integer enim. Neque viverra justo nec ultrices dui sapien eget mi proin. Maecenas
-      pharetra convallis posuere morbi.</p>
-    <p>Viverra vitae congue eu consequat ac. Nam libero justo laoreet sit. Malesuada proin libero nunc consequat
-      interdum varius sit. Facilisi morbi tempus iaculis urna id. Sed arcu non odio euismod lacinia at quis risus.
-      Molestie at elementum eu facilisis. Justo donec enim diam vulputate ut. Duis ut diam quam nulla porttitor massa.
-      Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Et odio pellentesque diam volutpat. Non
-      quam lacus suspendisse faucibus interdum. Nunc lobortis mattis aliquam faucibus purus in massa. Sagittis id
-      consectetur purus ut faucibus pulvinar.</p>
 
-    <p>Ullamcorper velit sed ullamcorper morbi tincidunt ornare. Fermentum leo vel orci porta non pulvinar neque
-      laoreet. Id cursus metus aliquam eleifend. Quis commodo odio aenean sed adipiscing diam. Aliquam ut porttitor leo
-      a diam. Urna nunc id cursus metus aliquam eleifend mi in nulla. Elit sed vulputate mi sit amet mauris commodo. Non
-      pulvinar neque laoreet suspendisse interdum consectetur libero id. Nisl suscipit adipiscing bibendum est. Id
-      faucibus nisl tincidunt eget nullam non nisi est. Augue neque gravida in fermentum et sollicitudin. Aliquet lectus
-      proin nibh nisl condimentum id. Sed cras ornare arcu dui vivamus arcu felis.</p>
-
-    <p>Venenatis cras sed felis eget velit. Risus nec feugiat in fermentum. Mattis aliquam faucibus purus in massa
-      tempor. Amet nulla facilisi morbi tempus iaculis urna id. Risus nullam eget felis eget nunc lobortis. Ullamcorper
-      morbi tincidunt ornare massa eget egestas purus. In hendrerit gravida rutrum quisque non tellus orci. Nulla
-      facilisi nullam vehicula ipsum a arcu cursus vitae congue. Purus sit amet volutpat consequat mauris nunc congue
-      nisi vitae. Massa sapien faucibus et molestie ac feugiat sed. Tempor nec feugiat nisl pretium fusce id velit. Id
-      neque aliquam vestibulum morbi blandit cursus risus at ultrices. Vel orci porta non pulvinar neque laoreet
-      suspendisse interdum consectetur.</p>
-
-    <p>Eu consequat ac felis donec et. Vestibulum lorem sed risus ultricies tristique nulla. Morbi tincidunt augue
-      interdum velit. Quam pellentesque nec nam aliquam sem et tortor. Felis imperdiet proin fermentum leo vel orci
-      porta. Urna porttitor rhoncus dolor purus. Cursus in hac habitasse platea dictumst. Egestas egestas fringilla
-      phasellus faucibus scelerisque. At augue eget arcu dictum varius duis at consectetur. Tincidunt augue interdum
-      velit euismod in pellentesque. Ornare massa eget egestas purus viverra accumsan in nisl nisi. Pulvinar elementum
-      integer enim neque volutpat ac tincidunt. Sed tempus urna et pharetra pharetra massa massa. Id velit ut tortor
-      pretium viverra suspendisse. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Dolor sit
-      amet consectetur adipiscing elit ut.</p>
+    <div class="jumbotron primary">
+      <h1 class="display-4">Score: 684</h1>
+      <p class="lead">Grate: D</p>
+      <hr class="my-4">
+      <p>Given that you have low credit score, it will be hard for you to obtain new credit. Additionally, lenders almost certainly will require you to make a large deposit or down payment. Prepare yourself to pay high fees and interest rates, and do not expect to receive a high loan amount. It may be difficult for you to qualify for any credit cards as well. If you do qualify for a credit card, you will probably have a very low credit limit with extremely high interest rates. To increase your borrowing power and credit score, you may prove that you are creditworthy by always paying your bills on time. Your credit score can see dramatic improvements over time.</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
 
   </div>
 
