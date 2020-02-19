@@ -134,10 +134,10 @@
         function updateAccount() {
             console.log('updateAccount function called');
 
-            mobile = $('#inputMobile').val();
+            plan = $('#inputPlan').val();
 
             body = JSON.stringify({
-                "mobile": [mobile]
+                "transUnionPlan": [plan]
             });
 
             var settings = {
