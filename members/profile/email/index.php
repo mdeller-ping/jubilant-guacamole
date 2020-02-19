@@ -66,7 +66,7 @@
         <form method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="email" class="form-control" id="inputMail" required>
+                    <input type="email" class="form-control" id="inputMail" value="<?php echo $_SERVER['HTTP_X_MAIL'] ?>" required>
                 </div>
             </div>
             <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
@@ -78,7 +78,8 @@
     <!-- all done -->
     <div class="container collapse" style="height: 800px;" id="allDoneDiv">
         <h2>Thank You</h2>
-        <p class="mb-5">Your account has been created and your password assigned. Please use the Member Tools link above to sign in.</p>
+        <p class="mb-5">Your account has been updated.</p>
+        <a href="/profile" class="btn btn-primary">Done</a>
     </div>
 
     <!-- warningDiv -->
