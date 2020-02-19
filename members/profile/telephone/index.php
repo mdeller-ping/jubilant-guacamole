@@ -61,8 +61,8 @@
     <!-- /hero banner -->
 
     <!-- accountUpdateDiv -->
-    <div class="container" id="accountUpdateDiv">
-        <h2>Change Mobile Phone Number</h2>
+    <div class="container mt-5" id="accountUpdateDiv">
+        <h2 class="mt-4">Change Mobile Phone Number</h2>
         <form method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
