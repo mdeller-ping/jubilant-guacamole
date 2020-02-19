@@ -19,10 +19,7 @@
     <title>$templateMessages.getMessage($messageKeyPrefix, "title")</title>
 </head>
 
-
-
-
-<body>
+<body onload="setFocus();">
 
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
@@ -96,6 +93,11 @@
         crossorigin="anonymous"></script>
 
     <script>
+        function setFocus() {
+            if (! $("#username").val('')) {
+                alert('focus on password');
+            }
+        }
         function postOk() {
             submitForm()
         }
