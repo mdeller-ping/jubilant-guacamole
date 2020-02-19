@@ -1,8 +1,8 @@
 <!doctype html>
 
-<!-- template name: identifier.first.transunion.html -->
+<!-- template name: html.form.login.template.html -->
 
-#set( $messageKeyPrefix = "authentication.identifier.template." )
+#set( $messageKeyPrefix = "html.form.login.template." )
 
 <html lang="$locale.getLanguage()">
 
@@ -35,9 +35,17 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="identifierInput" size="36" name="$identifier" autocorrect="off" autocapitalize="off" onKeyPress="return postOnReturn(event)" required />
+                    <input type="text" class="form-control" id="username" size="36" name="$name" value="$username" autocorrect="off" autocapitalize="off" onKeyPress="return postOnReturn(event)" required />
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" size="36" name="$pass" onKeyPress="return postOnReturn(event)" required />
+                </div>
+            </div>
+
+            <input type="hidden" name="$ok" value="" />
 
             <a href="javascript:postOk();" class="btn btn-primary mt-5">
                 $templateMessages.getMessage($messageKeyPrefix, "signInButtonTitle")
@@ -77,16 +85,7 @@
 
     <script>
         function postOk() {
-            // remove error tips
-            if (document.forms[0]['$identifier'].value !== '') {
-                document.getElementById('username-text').className = 'place-bottom type-alert tooltip-text';
-            }
-            // Add back
-            if (document.forms[0]['$identifier'].value === '') {
-                document.getElementById('username-text').className += ' show';
-            } else {
-                submitForm()
-            }
+            submitForm()
         }
 
         function submitForm() {
