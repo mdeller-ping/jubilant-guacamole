@@ -73,7 +73,8 @@
             </div>
             <div class="col-sm lead">
                 <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
-                <?php echo $_SERVER['X-PA-MOBILE'] ?><br>
+                <?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?><br>
+                <?php echo $_SERVER['HTTP_X_PA_ENTRYUUID'] ?><br>
                 Password: ***********
             </div>
             <div class="col-sm lead">
