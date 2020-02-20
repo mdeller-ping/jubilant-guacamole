@@ -74,5 +74,6 @@ function renderButtonState() {
         $('#logoutButton').removeClass('d-none');
     } else {
         $('#signOnButton').removeClass('d-none');
+        $('#customerButton').removeClass('d-none');
     }
 }
