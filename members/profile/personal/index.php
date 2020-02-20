@@ -16,6 +16,8 @@
 
 <body>
 
+<?php echo "soemthing" ?>
+
   <!-- navigation -->
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
     <a class="navbar-brand mb-1" href="/">
