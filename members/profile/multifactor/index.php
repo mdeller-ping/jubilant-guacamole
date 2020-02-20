@@ -91,8 +91,8 @@
     <div class="container mt-5 collapse" id="allDoneDiv">
         <h2 class="mt-4">Thank You</h2>
         <p class="mt-5 mb-5">MultiFactor authentication has been enabled.  Please use the TransUnion Mobile application to enroll your device.</p>
-        <img src="https://www.tu.demoenvi.com/assets/images/google-play-badge.png" width="170px">
-        <img src="https://www.tu.demoenvi.com/assets/images/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" width="150px">
+        <img src="https://www.tu.demoenvi.com/assets/images/google-play-badge.png" height="70px" class="ml-n3">
+        <img src="https://www.tu.demoenvi.com/assets/images/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" width="142px">
     </div>
     <!-- /all done -->
 
