@@ -77,14 +77,16 @@
 
         <div class="row">
             <div class="col-sm lead">
-                <strong>Membership & Billing</strong>
+                <strong>Contact Information</strong>
             </div>
             <div class="col-sm lead">
+                <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
                 <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
                 <?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?><br>
                 Password: ***********<br>
             </div>
             <div class="col-sm lead">
+                <a href="/profile/personal/">Personal Information</a><br>
                 <a href="/profile/email/">Change Account Email</a><br>
                 <a href="/profile/telephone/">Change Phone Number</a><br>
                 <a href="/profile/password/">Change Password</a><br>
@@ -97,7 +99,7 @@
 
         <div class="row">
             <div class="col-sm lead">
-                <strong>Plan Details</strong>
+                <strong>Membership & Billing</strong>
             </div>
             <div class="col-sm lead">
                 <?php echo $_SERVER['HTTP_X_PA_PLAN'] ?>
@@ -113,7 +115,7 @@
 
         <div class="row">
             <div class="col-sm lead">
-                <strong>My Profile</strong>
+                <strong>Preferences</strong>
             </div>
             <div class="col-sm lead">
                 <a href="#">Communication Settings</a><br>
