@@ -231,13 +231,13 @@
             zip = $('#inputPostal').val();
 
             body = JSON.stringify({
-                "givenName": firstName,
+                "givenName": [firstName],
                 "transUnionMiddleName": middleName,
-                "sn": lastName,
-                "street": street,
-                "l": city,
-                "st": state,
-                "postalCode": zip
+                "sn": [lastName],
+                "street": [street],
+                "l": [city],
+                "st": [state],
+                "postalCode": [zip]
             });
 
             var settings = {
