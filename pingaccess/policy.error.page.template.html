@@ -75,6 +75,11 @@
   <script>
     let nonce = Math.floor(Math.random() * 100000);
     $("a[href='https://members.tu.demoenvi.com']").attr('href', 'https://members.tu.demoenvi.com?nonce=' + nonce);
+
+    setTimeout(function() {
+      window.location.href = window.history.back();
+    }, 5000);
+
   </script>
 </body>
 
