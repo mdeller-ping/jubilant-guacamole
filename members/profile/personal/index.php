@@ -158,7 +158,7 @@
             <option value="VT">Vermont</option>
             <option value="VA">Virginia</option>
             <option value="WA">Washington</option>
-            <option value="WV" <?php if ($_SERVER['HTTP_X_PA_CITY']=="WV") echo "selected" ?>>West Virginia</option>
+            <option value="WV" <?php if ($_SERVER['HTTP_X_PA_PLAN'] == 'None') echo ' selected' ?>>West Virginia</option>
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
           </select>
