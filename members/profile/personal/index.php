@@ -168,46 +168,12 @@
                     <input type="number" class="form-control" id="inputPostal" value="<?php echo $_SERVER['HTTP_X_PA_ZIP'] ?>" required>
                 </div>
             </div>
-
-            <hr>
-
-            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createPlaceHolder();">Next Step</a>
+            
+            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
+            <a href="/profile/" class="btn btn-danger">Cancel</a>
         </form>
     </div>
-    <!-- /page 1 - personal info -->
-
-    <!-- page 2 - account info -->
-    <div class="container collapse" id="accountInfoDiv">
-        <h2>Create Your Account</h2>
-        <p class="mb-5">All fields are required (except where noted).</p>
-        <form id="registration" method="POST">
-            <input type="hidden" id="inputDistinguishedName">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputUsername">Username</label>
-                    <input type="text" class="form-control" id="inputUsername" readonly>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputPassword">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" required>
-                </div>
-            </div>
-            <div class="form-row">
-            </div>
-
-            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createAccount();">Next Step</a>
-        </form>
-    </div>
-    <!-- /page 2 - account info -->
-
-    <!-- page 3 - all done -->
-    <div class="container collapse" style="height: 800px;" id="allDoneDiv">
-        <h2>Thank You</h2>
-        <p class="mb-5">Your account has been created and your password assigned.</p>
-        <p class="mb-5">You will be redirected to the login page in 5 seconds. If not, go directly to <a href="https://members.tu.demoenvi.com">Member Tools</a>.</p>
-    </div>
+    <!-- personal info -->
 
     <!-- warningDiv -->
     <div class="container collapse mt-4" id="warningDiv">
