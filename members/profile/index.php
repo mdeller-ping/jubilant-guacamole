@@ -81,15 +81,31 @@
             </div>
             <div class="col-sm lead">
                 <?php echo $_SERVER['HTTP_X_PA_CN'] ?><br>
-                <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
                 <?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?><br>
-                Password: ***********<br>
             </div>
             <div class="col-sm lead">
                 <a href="/profile/personal/">Personal Information</a><br>
-                <a href="/profile/email/">Change Account Email</a><br>
                 <a href="/profile/telephone/">Change Phone Number</a><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <hr>
+
+        <div class="row">
+            <div class="col-sm lead">
+                <strong>Security</strong>
+            </div>
+            <div class="col-sm lead">
+                <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
+                Password: ***********<br>
+                MultiFactor: Enabled<br>
+            </div>
+            <div class="col-sm lead">
+                <a href="/profile/email/">Change Account Email</a><br>
                 <a href="/profile/password/">Change Password</a><br>
+                <a href="/profile/multifactor/">MultiFactor</a><br>
             </div>
         </div>
     </div>
