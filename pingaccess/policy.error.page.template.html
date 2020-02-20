@@ -56,8 +56,8 @@
   <div class="container mt-5">
     <h2 class="display-4">#if($header)$Encode.forHtml($header)#end</h2>
     <p class="lead">Well, this is embarassing.  You just should not be trying to get to that page.</p>
+    <p class="lead">Here is a way back to the <a href="javascript:window.history.back();">last page you visited</a>.</p>
     <hr class="my-4">
-    <p>Here is a way back to the <a href="javascript:window.history.back();">last page you visited</a>.</p>
   </div>
 
   <!-- Optional JavaScript -->
@@ -75,10 +75,6 @@
   <script>
     let nonce = Math.floor(Math.random() * 100000);
     $("a[href='https://members.tu.demoenvi.com']").attr('href', 'https://members.tu.demoenvi.com?nonce=' + nonce);
-
-    setTimeout(function() {
-      window.location.href = window.history.back();
-    }, 5000);
 
   </script>
 </body>
