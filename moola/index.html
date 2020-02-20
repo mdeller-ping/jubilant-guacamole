@@ -61,20 +61,20 @@
         <div class="alert alert-primary collapse" role="alert" id="accessTokenDiv">
           <form>
             <div class="form-group">
-              <label for="inputUsername">Pull credit information</label>
-              <input type="email" class="form-control" id="inputUsername">
+              <label for="creditUsername">Pull credit information</label>
+              <input type="email" class="form-control" id="creditUsername">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="javascript:creditPull();" class="btn btn-primary">Submit</button>
           </form>
         </div>
 
         <div class="alert alert-success collapse" role="alert" id="idTokenDiv">
           <form>
             <div class="form-group">
-              <label for="inputUsername">Verify user identity</label>
-              <input type="email" class="form-control" id="inputUsername">
+              <label for="verifyUsername">Verify user identity</label>
+              <input type="email" class="form-control" id="verifyUsername">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="javascript:challengeIdentity();" class="btn btn-primary">Submit</button>
           </form>
         </div>
 
@@ -109,6 +109,18 @@
   <script src="js/auth.js"></script>
 
   <script>
+
+    function creditPull() {
+      console.log ("creditPull function called");
+      identity = $("#creditUsername").val();
+      console.log(identity);
+    }
+
+    function challengeIdentity() {
+      console.log ("challengeIdentity function called");
+      identity = $("#verifyUsername").val();
+      console.log(identity);
+    }
 
     // begin process
 
