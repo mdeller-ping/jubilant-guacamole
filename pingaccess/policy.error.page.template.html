@@ -57,15 +57,7 @@
     <h2 class="display-4">#if($header)$Encode.forHtml($header)#end</h1>
     <p class="lead">Well, this is embarassing.  You just should not be trying to get to that page.</p>
     <hr class="my-4">
-    <p>You will be redirected back in 5 seconds.  If not, please <a href="window.history.back();">click here</a>.</p>
-  </div>
-
-  <div class="container mt-5">
-
-    <div class="alert alert-primary mb-5" role="alert">
-        #if($header)$Encode.forHtml($header)#end
-    </div>
-
+    <p>You will be redirected back in 5 seconds.  If not, please <a href="javascript:window.history.back();">click here</a>.</p>
   </div>
 
   <!-- Optional JavaScript -->
