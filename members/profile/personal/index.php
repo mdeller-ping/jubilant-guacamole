@@ -16,12 +16,6 @@
 
 <body>
 
-<?php
-
-    if ($_SERVER['HTTP_X_PA_PLAN'] == 'None') echo ' selected';
-
-?>
-
   <!-- navigation -->
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
     <a class="navbar-brand mb-1" href="/">
@@ -164,7 +158,7 @@
             <option value="VT">Vermont</option>
             <option value="VA">Virginia</option>
             <option value="WA">Washington</option>
-            <option value="WV" <?php if ($_SERVER['HTTP_X_PA_PLAN'] == 'None') echo ' selected' ?>>West Virginia</option>
+            <option value="WV" <?php if ($_SERVER['HTTP_X_PA_PLAN'] == 'None') echo ' selected'; ?>>West Virginia</option>
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
           </select>
