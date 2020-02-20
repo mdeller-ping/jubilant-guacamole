@@ -214,6 +214,61 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
+    <script>
+        let authHeader = 'Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl';
+        let pingDirectory = 'auth.tu.demoenvi.com:1443'
+        let distinguishedName = '<?php echo $_SERVER['HTTP_X_PA_DN'] ?>';
+
+        function updateAccount() {
+            console.log('updateAccount function called');
+
+            firstName = $('#inputFirstName').val();
+            middleName = $('#inputMiddleName').val();
+            lastName = $('#inputLastName').val();
+            street = $('#inputStreet').val();
+            city = $('#inputCity').val();
+            state = $('#inputState').val();
+            zip = $('#inputPostal').val();
+
+            body = JSON.stringify({
+                "givenName": firstName,
+                "transUnionMiddleName": middleName,
+                "sn": lastName,
+                "street": street,
+                "l": city,
+                "st": state,
+                "postalCode": zip
+            });
+
+            var settings = {
+                "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
+                "method": "PUT",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Authorization": "Basic " + authHeader
+                },
+                "data": body
+            };
+
+            $.ajax(settings)
+                .done(function(data) {
+                    console.log("Account Updated");
+                    $('#warningMessage').text('');
+                    $('#warningDiv').hide();
+                    $('#accountUpdateDiv').hide();
+                    $('#allDoneDiv').show();
+                })
+                .fail(function(data, status, error) {
+                    console.log("Unable to update");
+                    var responseText = $.parseJSON(data.responseText);
+                    $('#warningMessage').text(responseText.details[0].message);
+                    $('#warningDiv').show();
+                })
+
+        }
+    </script>
+
 </body>
 
 </html>
