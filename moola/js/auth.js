@@ -1,7 +1,7 @@
 // variable definitions and building authorization url
 
-const environmentId = ''; // available on settings page of p14c admin console
-const clientId = ''; // available on connections tab of admin console
+const environmentId = 'b9da0edc-794c-453f-8988-f09426f36865'; // available on settings page of p14c admin console
+const clientId = 'cddc8b93-68ac-4509-b904-ceab06a51b73'; // available on connections tab of admin console
 const baseUrl = 'http://localhost/'; // URL of where you will host this application
 
 const scopes = 'openid profile'; // default scopes to request
@@ -18,61 +18,61 @@ const apiUrl = 'https://api.pingone.com/v1';
 // if environmentId or clientId are null warn the user
 
 if (!clientId || !environmentId) {
-  alert('Be sure to edit js/auth.js with your environmentId and clientId');
+    alert('Be sure to edit js/auth.js with your environmentId and clientId');
 }
 
 // doLogin function: generates and stores nonce, redirects to authorization request url
 
 function doLogin() {
-  let nonce = generateNonce(60);
-  let authorizationUrl =
-    authUrl +
-    '/' +
-    environmentId +
-    '/as/authorize?response_type=' +
-    responseType +
-    '&client_id=' +
-    clientId +
-    '&redirect_uri=' +
-    redirectUri +
-    '&scope=' +
-    scopes +
-    '&nonce=' +
-    nonce;
+    let nonce = generateNonce(60);
+    let authorizationUrl =
+        authUrl +
+        '/' +
+        environmentId +
+        '/as/authorize?response_type=' +
+        responseType +
+        '&client_id=' +
+        clientId +
+        '&redirect_uri=' +
+        redirectUri +
+        '&scope=' +
+        scopes +
+        '&nonce=' +
+        nonce;
 
-  Cookies.set('nonce', nonce, { domain: cookieDomain });
+    Cookies.set('nonce', nonce, { domain: cookieDomain });
 
-  window.location.href = authorizationUrl;
+    window.location.href = authorizationUrl;
 }
 
 // simple function to parse json web token
 
 function parseJwt(token) {
-  var base64Url = token.split('.')[1];
-  var base64 = base64Url.replace('-', '+').replace('_', '/');
-  return JSON.parse(window.atob(base64));
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace('-', '+').replace('_', '/');
+    return JSON.parse(window.atob(base64));
 }
 
 // function to generate random nonce
 
 function generateNonce(length) {
-  var result = '';
-  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789:;_-.()!';
-  var charactersLength = characters.length;
-  for (var i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789:;_-.()!';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
 }
 
 // render navigation buttons depending on user login state
 
 function renderButtonState() {
-  console.log('renderButtonState called');
-  if (Cookies.get('accessToken', { domain: cookieDomain })) {
-    $('#preferencesButton').removeClass('d-none');
-    $('#logoutButton').removeClass('d-none');
-  } else {
-    $('#signOnButton').removeClass('d-none');
-  }
+    console.log('renderButtonState called');
+    if (Cookies.get('accessToken', { domain: cookieDomain })) {
+        $('#preferencesButton').removeClass('d-none');
+        $('#logoutButton').removeClass('d-none');
+    } else {
+        $('#signOnButton').removeClass('d-none');
+    }
 }
