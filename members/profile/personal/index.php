@@ -90,46 +90,19 @@
                     <input type="text" class="form-control" id="inputLastName" value="<?php echo $_SERVER['HTTP_X_PA_SN'] ?>" required>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="inputDateOfBirth">Date of Birth (YYYY-MM-DD)</label>
-                    <input type="text" class="form-control" id="inputDateOfBirth" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputLastFour">Last 4 Digits of Social Security Number</label>
-                    <input type="text" class="form-control" id="inputLastFour" required>
-                </div>
-            </div>
-
-            <hr>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputMail">Email Address</label>
-                    <input type="email" class="form-control" id="inputMail" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputMobile">Mobile Number</label>
-                    <input type="tel" class="form-control" id="inputMobile" required>
-                </div>
-            </div>
 
             <hr>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputStreet">Address and Unit Number</label>
-                    <input type="text" class="form-control" id="inputStreet" required>
+                    <input type="text" class="form-control" id="inputStreet" value="<?php echo $_SERVER['HTTP_X_PA_STREET'] ?>" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity" required>
+                    <input type="text" class="form-control" id="inputCity" value="<?php echo $_SERVER['HTTP_X_PA_CITY'] ?>" required>
                 </div>
             </div>
             <div class="form-row">
@@ -192,27 +165,11 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputPostal">Zip Code</label>
-                    <input type="number" class="form-control" id="inputPostal" required>
+                    <input type="number" class="form-control" id="inputPostal" value="<?php echo $_SERVER['HTTP_X_PA_ZIP'] ?>" required>
                 </div>
             </div>
 
             <hr>
-
-            <div class="form-row">
-            </div>
-
-            <p>Have you lived here for more than 6 months?</p>
-
-            <div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inputSixMonths" id="inputSixMonths" value="true" checked>
-                    <label class="form-check-label">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inputSixMonths" id="inputSixMonths" value="false">
-                    <label class="form-check-label">No</label>
-                </div>
-            </div>
 
             <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createPlaceHolder();">Next Step</a>
         </form>
@@ -291,124 +248,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <script>
-        let authHeader = 'Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl';
-        let pingDirectory = 'auth.tu.demoenvi.com:1443'
-
-        function createPlaceHolder() {
-            console.log('createPlaceHolder function called');
-
-            firstName = $('#inputFirstName').val();
-            middleName = $('#inputMiddleName').val();
-            lastName = $('#inputLastName').val();
-            dateOfBirth = $('#inputDateOfBirth').val();
-            lastFour = $('#inputLastFour').val();
-            mail = $('#inputMail').val();
-            mobile = $('#inputMobile').val();
-            street = $('#inputStreet').val();
-            city = $('#inputCity').val();
-            state = $('#inputState').val();
-            postalCode = $('#inputPostal').val();
-
-            sixMonths = $("input[name='inputSixMonths']:checked").val();
-            sixMonths = (sixMonths == 'true');
-
-            body = JSON.stringify({
-                "_parentDN": "ou=people,dc=example,dc=com",
-                "objectClass": ["transUnionPerson"],
-                "givenName": [firstName],
-                "transUnionMiddleName": middleName,
-                "sn": [lastName],
-                "cn": [firstName + " " + lastName],
-                "mail": [mail],
-                "transUnionDOB": dateOfBirth,
-                "transUnionLastFour": lastFour,
-                "street": [street],
-                "l": [city],
-                "st": [state],
-                "postalCode": [postalCode],
-                "mobile": [mobile],
-                "transUnionMoreThanSixMonths": sixMonths,
-                "transUnionPlan": "None"
-            });
-
-            var settings = {
-                "url": "https://" + pingDirectory + "/directory/v1",
-                "method": "POST",
-                "accept": "json",
-                "timeout": 0,
-                "headers": {
-                    "Content-Type": "application/json",
-                    "Authorization": "Basic " + authHeader
-                },
-                "data": body
-            };
-
-            $.ajax(settings)
-                .done(function(data) {
-                    console.log("Account created");
-                    distinguishedName = data._dn;
-                    console.log(distinguishedName);
-                    $('#warningMessage').text('');
-                    $('#warningDiv').hide();
-                    $('#personalInfoDiv').hide();
-                    $('#inputUsername').val(mail);
-                    $("#inputDistinguishedName").val(distinguishedName);
-                    $('#accountInfoDiv').show();
-                })
-                .fail(function(data, status, error) {
-                    console.log("Unable to create account");
-                    var responseText = $.parseJSON(data.responseText);
-                    $('#warningMessage').text(responseText.details[0].message);
-                    $('#warningDiv').show();
-                })
-
-        }
-
-        function createAccount() {
-            console.log('createAccount function called');
-
-            username = $('#inputUsername').val();
-            password = $('#inputPassword').val();
-            distinguishedName = $('#inputDistinguishedName').val();
-
-            body = JSON.stringify({
-                "uid": [username],
-                "userPassword": [password]
-            });
-
-            var settings = {
-                "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
-                "method": "PUT",
-                "timeout": 0,
-                "headers": {
-                    "Content-Type": "application/json",
-                    "Authorization": "Basic " + authHeader
-                },
-                "data": body
-            };
-
-            $.ajax(settings)
-                .done(function(data) {
-                    console.log("Password assigned");
-                    $('#warningMessage').text('');
-                    $('#warningDiv').hide();
-                    $('#accountInfoDiv').hide();
-                    $('#personalInfoDiv').hide();
-                    $('#allDoneDiv').show();
-                    setTimeout(function() {
-                        window.location.href = 'https://members.tu.demoenvi.com/';
-                    }, 5000);
-                })
-                .fail(function(data, status, error) {
-                    console.log("Unable to assign password");
-                    var responseText = $.parseJSON(data.responseText);
-                    $('#warningMessage').text(responseText.details[0].message);
-                    $('#warningDiv').show();
-                })
-
-        }
-    </script>
 </body>
 
 </html>
