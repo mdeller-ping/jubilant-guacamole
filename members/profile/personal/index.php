@@ -110,57 +110,57 @@
                     <label for="inputState">State</label>
                     <select id="inputState" class="form-control" required>
             <option selected>Choose...</option>
-            <option value="AL">Alabama</option>
-            <option value="AK">Alaska</option>
-            <option value="AZ">Arizona</option>
-            <option value="AR">Arkansas</option>
-            <option value="CA">California</option>
-            <option value="CO">Colorado</option>
-            <option value="CT">Connecticut</option>
-            <option value="DE">Delaware</option>
-            <option value="DC">District Of Columbia</option>
-            <option value="FL">Florida</option>
-            <option value="GA">Georgia</option>
-            <option value="HI">Hawaii</option>
-            <option value="ID">Idaho</option>
-            <option value="IL">Illinois</option>
-            <option value="IN">Indiana</option>
-            <option value="IA">Iowa</option>
-            <option value="KS">Kansas</option>
-            <option value="KY">Kentucky</option>
-            <option value="LA">Louisiana</option>
-            <option value="ME">Maine</option>
-            <option value="MD">Maryland</option>
-            <option value="MA">Massachusetts</option>
-            <option value="MI">Michigan</option>
-            <option value="MN">Minnesota</option>
-            <option value="MS">Mississippi</option>
-            <option value="MO">Missouri</option>
-            <option value="MT">Montana</option>
-            <option value="NE">Nebraska</option>
-            <option value="NV">Nevada</option>
-            <option value="NH">New Hampshire</option>
-            <option value="NJ">New Jersey</option>
-            <option value="NM">New Mexico</option>
-            <option value="NY">New York</option>
-            <option value="NC">North Carolina</option>
-            <option value="ND">North Dakota</option>
-            <option value="OH">Ohio</option>
-            <option value="OK">Oklahoma</option>
-            <option value="OR">Oregon</option>
-            <option value="PA">Pennsylvania</option>
-            <option value="RI">Rhode Island</option>
-            <option value="SC">South Carolina</option>
-            <option value="SD">South Dakota</option>
-            <option value="TN">Tennessee</option>
-            <option value="TX">Texas</option>
-            <option value="UT">Utah</option>
-            <option value="VT">Vermont</option>
-            <option value="VA">Virginia</option>
-            <option value="WA">Washington</option>
+            <option value="AL" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'AL') echo ' selected'; ?>>Alabama</option>
+            <option value="AK" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'AK') echo ' selected'; ?>>Alaska</option>
+            <option value="AZ" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'AZ') echo ' selected'; ?>>Arizona</option>
+            <option value="AR" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'AR') echo ' selected'; ?>>Arkansas</option>
+            <option value="CA" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'CA') echo ' selected'; ?>>California</option>
+            <option value="CO" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'CO') echo ' selected'; ?>>Colorado</option>
+            <option value="CT" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'CT') echo ' selected'; ?>>Connecticut</option>
+            <option value="DE" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'DE') echo ' selected'; ?>>Delaware</option>
+            <option value="DC" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'DC') echo ' selected'; ?>>District Of Columbia</option>
+            <option value="FL" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'FL') echo ' selected'; ?>>Florida</option>
+            <option value="GA" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'GA') echo ' selected'; ?>>Georgia</option>
+            <option value="HI" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'HI') echo ' selected'; ?>>Hawaii</option>
+            <option value="ID" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'ID') echo ' selected'; ?>>Idaho</option>
+            <option value="IL" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'IL') echo ' selected'; ?>>Illinois</option>
+            <option value="IN" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'IN') echo ' selected'; ?>>Indiana</option>
+            <option value="IA" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'IA') echo ' selected'; ?>>Iowa</option>
+            <option value="KS" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'KS') echo ' selected'; ?>>Kansas</option>
+            <option value="KY" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'KY') echo ' selected'; ?>>Kentucky</option>
+            <option value="LA" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'LA') echo ' selected'; ?>>Louisiana</option>
+            <option value="ME" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'ME') echo ' selected'; ?>>Maine</option>
+            <option value="MD" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'MD') echo ' selected'; ?>>Maryland</option>
+            <option value="MA" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'MA') echo ' selected'; ?>>Massachusetts</option>
+            <option value="MI" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'MI') echo ' selected'; ?>>Michigan</option>
+            <option value="MN" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'MN') echo ' selected'; ?>>Minnesota</option>
+            <option value="MS" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'MS') echo ' selected'; ?>>Mississippi</option>
+            <option value="MO" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'MO') echo ' selected'; ?>>Missouri</option>
+            <option value="MT" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'MT') echo ' selected'; ?>>Montana</option>
+            <option value="NE" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'NE') echo ' selected'; ?>>Nebraska</option>
+            <option value="NV" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'NV') echo ' selected'; ?>>Nevada</option>
+            <option value="NH" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'NH') echo ' selected'; ?>>New Hampshire</option>
+            <option value="NJ" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'NJ') echo ' selected'; ?>>New Jersey</option>
+            <option value="NM" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'NM') echo ' selected'; ?>>New Mexico</option>
+            <option value="NY" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'NY') echo ' selected'; ?>>New York</option>
+            <option value="NC" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'NC') echo ' selected'; ?>>North Carolina</option>
+            <option value="ND" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'ND') echo ' selected'; ?>>North Dakota</option>
+            <option value="OH" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'OH') echo ' selected'; ?>>Ohio</option>
+            <option value="OK" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'OK') echo ' selected'; ?>>Oklahoma</option>
+            <option value="OR" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'OR') echo ' selected'; ?>>Oregon</option>
+            <option value="PA" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'PA') echo ' selected'; ?>>Pennsylvania</option>
+            <option value="RI" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'RI') echo ' selected'; ?>>Rhode Island</option>
+            <option value="SC" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'SC') echo ' selected'; ?>>South Carolina</option>
+            <option value="SD" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'SD') echo ' selected'; ?>>South Dakota</option>
+            <option value="TN" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'TN') echo ' selected'; ?>>Tennessee</option>
+            <option value="TX" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'TX') echo ' selected'; ?>>Texas</option>
+            <option value="UT" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'UT') echo ' selected'; ?>>Utah</option>
+            <option value="VT" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'VT') echo ' selected'; ?>>Vermont</option>
+            <option value="VA" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'VA') echo ' selected'; ?>>Virginia</option>
+            <option value="WA" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'WA') echo ' selected'; ?>>Washington</option>
             <option value="WV" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'WV') echo ' selected'; ?>>West Virginia</option>
-            <option value="WI">Wisconsin</option>
-            <option value="WY">Wyoming</option>
+            <option value="WI" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'WI') echo ' selected'; ?>>Wisconsin</option>
+            <option value="WY" <?php if ($_SERVER['HTTP_X_PA_STATE'] == 'WY') echo ' selected'; ?>>Wyoming</option>
           </select>
                 </div>
                 <div class="form-group col-md-2">
