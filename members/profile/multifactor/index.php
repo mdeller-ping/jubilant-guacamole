@@ -75,8 +75,8 @@
             <div class="form-row mt-5">
                 <div class="form-group col-md-6">
                     <select class="form-control" id="inputMFA">
-                        <option value=0 <?php if ($_SERVER['HTTP_X_PA_MFA'] == 'TRUE') echo ' selected' ?>>Enabled</option>
-                        <option value=1 <?php if ($_SERVER['HTTP_X_PA_MFA'] == 'FALSE') echo ' selected' ?>>Disabled</option>
+                        <option value='true' <?php if ($_SERVER['HTTP_X_PA_MFA'] == 'TRUE') echo ' selected' ?>>Enabled</option>
+                        <option value='false' <?php if ($_SERVER['HTTP_X_PA_MFA'] == 'FALSE') echo ' selected' ?>>Disabled</option>
                     </select>
                 </div>
             </div>
@@ -143,6 +143,7 @@
             console.log('updateAccount function called');
 
             mfaInabled = $('#inputMFA').val();
+            mfaInabled = (mfaEnabled == 'true');
 
             body = JSON.stringify({
                 "transUnionMFA": mfaInabled
