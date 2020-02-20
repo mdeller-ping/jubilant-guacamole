@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-#*
-The server renders this HTML page in an end-user's browser when
-an SSO request fails locally but no SSO error landing page is
-specified.
-
-Except for $errorText, Velocity variables (identified by the
-$ character) are generated at runtime by the server.
-
-$errorText is specified in the "Default URL" screen of the Admin
-console.
-
-Change text or formatting as needed. Modifying Velocity statements
-is not recommended as it may interfere with expected server behavior.
-*#
+<!doctype html>
 
 <!-- template name: idp.sso.error.page.template.html -->
 
@@ -20,90 +6,64 @@ is not recommended as it may interfere with expected server behavior.
 
 <html lang="$locale.getLanguage()" dir="ltr">
 <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="image/x-icon" href="//assets.transunion.com/resources/img/ico/favicon.ico" rel="shortcut icon">
+
     <title>$templateMessages.getMessage($messageKeyPrefix, "title")</title>
     <base href="$CurrentPingFedBaseURL"/>
-    <meta name="robots" content="noindex, nofollow" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta http-equiv="x-ua-compatible" content="IE=edge" />
-    <link rel="stylesheet" media="all" type="text/css" href="assets/css/main.css" />
 </head>
 
 <body>
+
+    <!-- navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
+        <a class="navbar-brand mb-1" href="https://www.tu.demoenvi.com/">
+        <img src="https://assets.transunion.com/resources/img/logo.svg" height="50" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mt-4">
+            <li class="nav-item">
+            <a class="nav-link" href="#">Products</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Credit Education</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Credit Help</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Credit Offers</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" id="memberTools" href="https://members.tu.demoenvi.com">Member Tools</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+    <!-- /navigation -->  
     
-    <div class="ping-container">
-        
-        <!-- 
-         if there is a logo present in the 'company-logo' container,
-         then 'has-logo' class should be added to 'ping-header' container.
-         -->
-        <div class="ping-header">
-            <span class="company-logo"><!-- client company logo here --></span>
-            $templateMessages.getMessage($messageKeyPrefix, "title")
-        </div><!-- .ping-header -->
-        
-        <div class="ping-body-container">
-
-            <div class="ping-messages">
-                
-                #if($exceptionMessage)
-                    <div class="ping-error">
-                        $escape.escape($exceptionMessage)
-                    </div>
-                #end
-
-                <!-- <div class="ping-error">$escape.escape($error)</div> -->
-
-                <!-- errorDetail is localized before this page is loaded -->
-                <div class="ping-error">
-                    $escape.escape($errorDetail)
-                </div>
-
-                <!-- errorText is localized before this page is loaded -->
-                <div class="ping-error">
-                    $escape.escape($errorText)
-                </div>
-
-                <div class="wrap">
-                    $templateMessages.getMessage($messageKeyPrefix, "adapterIdTitle"): $escape.escape($adapterId)
-                </div>
-
-                ## Uncomment below to display additional dynamic content to user:
-                #*
-                <div class="wrap">
-                    $templateMessages.getMessage($messageKeyPrefix, "partner"): <strong>$escape.escape($connectionID)</strong>
-                </div>
-                <div class="wrap">
-                    $templateMessages.getMessage("global.trackingId"): <strong>$TrackingId</strong>
-                </div>
-                *#
-            </div>
-
-            ## Uncomment below to display additional dynamic content to user:
-            #*
-            <div>
-                <div class="section-sub-title">
-                    $templateMessages.getMessage("global.fullStackTraceTitle")
-                </div>
-                <pre>$fullStackTrace</pre>
-
-                <div class="section-sub-title">
-                    $templateMessages.getMessage("global.xmlResponse")
-                </div>
-                <pre>$escape.escape($responseXml.toString())</pre>
-            </div>
-            *#
-             
-        </div><!-- .ping-body-container -->
-        
-        <div class="ping-footer-container">
-            <div class="ping-footer">
-                <div class="ping-credits"></div>
-            <div class="ping-copyright">$templateMessages.getMessage("global.footerMessage")</div>
-            </div> <!-- .ping-footer -->
-        </div> <!-- .ping-footer-container -->
-        
-    </div><!-- .ping-container -->
+    <div class="container mt-5">
+        <h2 class="display-4">#if($exceptionMessage)$escape.escape($exceptionMessage)#end</h1>
+        <p class="lead">$escape.escape($errorDetail)</p>
+        <hr class="my-4">
+        <p>$escape.escape($errorText)</p>
+        <p>$templateMessages.getMessage($messageKeyPrefix, "adapterIdTitle"): $escape.escape($adapterId)</p>
+    </div>
+    
+    <script>
+        let nonce = Math.floor(Math.random() * 100000);
+        $("a[href='https://members.tu.demoenvi.com']").attr('href', 'https://members.tu.demoenvi.com?nonce=' + nonce);
+    </script>
     
 </body>
 </html>
