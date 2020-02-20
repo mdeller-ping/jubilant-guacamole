@@ -81,12 +81,12 @@
             </div>
             <div class="col-sm lead">
                 <?php echo $_SERVER['HTTP_X_PA_CN'] ?><br>
-                <?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?><br>
                 <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
-                <a href="/profile/email/">Change Account Email</a><br>
+                <?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?><br>
             </div>
             <div class="col-sm lead">
                 <a href="/profile/personal/">Personal Information</a><br>
+                <a href="/profile/email/">Change Account Email</a><br>
                 <a href="/profile/telephone/">Change Phone Number</a><br>
             </div>
         </div>
