@@ -142,11 +142,11 @@
         function updateAccount() {
             console.log('updateAccount function called');
 
-            mfaInabled = $('#inputMFA').val();
-            mfaInabled = (mfaEnabled == 'true');
+            mfaEnabled = $('#inputMFA').val();
+            mfaEnabled = (mfaEnabled == 'true');
 
             body = JSON.stringify({
-                "transUnionMFA": mfaInabled
+                "transUnionMFA": mfaEnabled
             });
 
             var settings = {
