@@ -81,13 +81,13 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputMiddleName">Middle Name (Optional)</label>
-                    <input type="text" class="form-control" id="inputMiddleName">
+                    <input type="text" class="form-control" id="inputMiddleName" value="<?php echo $_SERVER['HTTP_X_PA_MIDDLENAME'] ?>" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputLastName">Last Name</label>
-                    <input type="text" class="form-control" id="inputLastName" required>
+                    <input type="text" class="form-control" id="inputLastName" value="<?php echo $_SERVER['HTTP_X_PA_SN'] ?>" required>
                 </div>
             </div>
             <div class="form-row">
