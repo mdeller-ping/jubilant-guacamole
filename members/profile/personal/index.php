@@ -70,12 +70,12 @@
 
     <!-- personal info -->
     <div class="container mt-5" id="accountUpdateDiv">
-        <h2 class="mt-4">Change Your Password</h2>
+        <h2 class="mt-4">Personal Information</h2>
         <form method="POST">
         <div class="form-row mt-5">
                 <div class="form-group col-md-6">
                     <label for="inputFirstName">First Name</label>
-                    <input type="text" class="form-control" id="inputFirstName" required>
+                    <input type="text" class="form-control" id="inputFirstName" value="<?php echo $_SERVER['X_HTTP_PA_GIVENNAME'] ?>" required>
                 </div>
             </div>
             <div class="form-row">
