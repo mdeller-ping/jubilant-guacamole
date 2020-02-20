@@ -175,6 +175,14 @@
     </div>
     <!-- personal info -->
 
+    <!-- all done -->
+    <div class="container mt-5 collapse" id="allDoneDiv">
+        <h2 class="mt-4">Thank You</h2>
+        <p class="mt-5 mb-5">Your account has been updated.</p>
+        <a href="/profile" class="btn btn-primary">Done</a>
+    </div>
+    <!-- /all done -->
+
     <!-- warningDiv -->
     <div class="container collapse mt-4" id="warningDiv">
         <div class="alert alert-warning" id="warningMessage">pending</div>
