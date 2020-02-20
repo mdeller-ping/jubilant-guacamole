@@ -69,7 +69,7 @@
     <!-- /hero banner -->
 
     <div class="container mt-5">
-        <h2 class="mt-4">Account</h2>
+        <h2 class="display-4">Account</h2>
     </div>
 
     <div class="container mb-5">
