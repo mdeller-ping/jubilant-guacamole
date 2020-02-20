@@ -19,7 +19,7 @@
 <?php
 
     if ($_SERVER['HTTP_X_PA_PLAN'] == 'None') {
-        echo ' selected'; }
+        echo ' selected';
     } else {
         echo ' nope';
     }
