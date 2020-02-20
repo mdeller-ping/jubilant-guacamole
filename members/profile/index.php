@@ -82,6 +82,8 @@
             <div class="col-sm lead">
                 <?php echo $_SERVER['HTTP_X_PA_CN'] ?><br>
                 <?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?><br>
+                <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
+                <a href="/profile/email/">Change Account Email</a><br>
             </div>
             <div class="col-sm lead">
                 <a href="/profile/personal/">Personal Information</a><br>
@@ -98,12 +100,10 @@
                 <strong>Security</strong>
             </div>
             <div class="col-sm lead">
-                <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
                 Password: ***********<br>
                 MultiFactor: Enabled<br>
             </div>
             <div class="col-sm lead">
-                <a href="/profile/email/">Change Account Email</a><br>
                 <a href="/profile/password/">Change Password</a><br>
                 <a href="/profile/multifactor/">MultiFactor</a><br>
             </div>
