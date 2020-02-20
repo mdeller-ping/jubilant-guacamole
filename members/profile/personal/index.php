@@ -16,7 +16,15 @@
 
 <body>
 
-<?php echo "soemthing" ?>
+<?php
+
+    if ($_SERVER['HTTP_X_PA_PLAN'] == 'None') {
+        echo ' selected'; }
+    } else {
+        echo ' nope';
+    }
+
+?>
 
   <!-- navigation -->
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
