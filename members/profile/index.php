@@ -16,17 +16,6 @@
 
 <body>
 
-<?php
-
-if ($_SERVER['HTTP_X_PA_MFA'] == 'TRUE') {
-    echo ' enabled';
-} else {
-    echo ' disabled';
-}
-
-?>
-
-
   <!-- navigation -->
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
     <a class="navbar-brand mb-1" href="/">
@@ -112,7 +101,7 @@ if ($_SERVER['HTTP_X_PA_MFA'] == 'TRUE') {
             </div>
             <div class="col-sm lead">
                 Password: ***********<br>
-                MultiFactor: <br>
+                MultiFactor: <?php if ($_SERVER['HTTP_X_PA_MFA'] == 'TRUE') { echo 'Enabled'; } else { echo 'Disabled'; } ?><br>
             </div>
             <div class="col-sm lead">
                 <a href="/profile/password/">Change Password</a><br>
