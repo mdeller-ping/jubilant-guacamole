@@ -74,7 +74,7 @@
         <form method="POST">
             <div class="form-row mt-5">
                 <div class="form-group col-md-6">
-                    <input type="email" class="form-control" id="inputPassword" required>
+                    <input type="password" class="form-control" id="inputPassword" required>
                 </div>
             </div>
             <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
