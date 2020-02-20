@@ -1,0 +1,69 @@
+<!doctype html>
+
+<!-- template name: general.error.page.template.html -->
+
+#set( $messageKeyPrefix = "general.error.page.template." )
+#set( $lang = $locale.toLanguageTag() )
+
+<html lang="#if($lang != "und")$Encode.forHtmlAttribute($lang)#end" dir="$Encode.forHtmlAttribute($orientation)">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="image/x-icon" href="//assets.transunion.com/resources/img/ico/favicon.ico" rel="shortcut icon">
+    
+    <title>#if($title)$Encode.forHtml($title)#end</title>
+</head>
+
+<body>
+
+    <!-- navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
+        <a class="navbar-brand mb-1" href="https://www.tu.demoenvi.com/">
+        <img src="https://assets.transunion.com/resources/img/logo.svg" height="50" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mt-4">
+            <li class="nav-item">
+            <a class="nav-link" href="#">Products</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Credit Education</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Credit Help</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Credit Offers</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" id="memberTools" href="https://members.tu.demoenvi.com">Member Tools</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+    <!-- /navigation -->  
+    
+    <div class="container mt-5">
+        <h2 class="display-4">#if(${header})$Encode.forHtml($header)#elseif($title)$Encode.forHtml($title)#end</h1>
+        <p class="lead">$Encode.forHtml($localizedMessageResolver.resolveMessage($locale, "pa.error.contact.system.administrator"))</p>
+        <hr class="my-4">
+        <p>#if(${info})$Encode.forHtml($info)#end</p>
+        <p>$templateMessages.getMessage($messageKeyPrefix, "adapterIdTitle"): $escape.escape($adapterId)</p>
+    </div>
+    
+    <script>
+        let nonce = Math.floor(Math.random() * 100000);
+        $("a[href='https://members.tu.demoenvi.com']").attr('href', 'https://members.tu.demoenvi.com?nonce=' + nonce);
+    </script>
+    
+</body>
+</html>
