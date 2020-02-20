@@ -1,8 +1,8 @@
 <!doctype html>
 
-<!-- template name: general.error.page.template.html -->
+<!-- template name: http.error.page.template.html -->
 
-#set( $messageKeyPrefix = "general.error.page.template." )
+#set( $messageKeyPrefix = "http.error.page.template." )
 
 <html lang="$locale.getLanguage()" dir="ltr">
 <head>
@@ -54,9 +54,9 @@
 
     <div class="container mt-5">
         <h2 class="display-4">$templateMessages.getMessage($messageKeyPrefix, "header")</h2>
-        <p class="lead">$templateMessages.getMessage($messageKeyPrefix, "info")</p>
+        <p class="lead">$templateMessages.getMessage($messageKeyPrefix, "errorMessage")</p>
         <hr class="my-4">
-        <p>$templateMessages.getMessage($messageKeyPrefix, "errorReference")#: <strong>$referenceNumber</strong></p>
+        <p>$errorCode - $escape.escape($message)</strong></p>
     </div>
     
     <script>

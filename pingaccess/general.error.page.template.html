@@ -53,7 +53,7 @@
     <!-- /navigation -->  
     
     <div class="container mt-5">
-        <h2 class="display-4">#if(${header})$Encode.forHtml($header)#elseif($title)$Encode.forHtml($title)#end</h1>
+        <h2 class="display-4">#if(${header})$Encode.forHtml($header)#elseif($title)$Encode.forHtml($title)#end</h2>
         <p class="lead">$Encode.forHtml($localizedMessageResolver.resolveMessage($locale, "pa.error.contact.system.administrator"))</p>
         <hr class="my-4">
         <p>#if(${info})$Encode.forHtml($info)#end</p>
