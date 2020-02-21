@@ -70,7 +70,8 @@
 
     <!-- accountUpdateDiv -->
     <div class="container mt-5" id="accountUpdateDiv">
-        <h2 class="mt-4">Consent Management</h2>
+        <h2 class="mt-4">Data Consent</h2>
+        <p>Would you like to consent to sharing your credit score with 3rd parties?</p>
         <form method="POST">
           <div class="form-check">
             <input class="form-check-input" type="radio" name="inputConsent" value="true" checked>
