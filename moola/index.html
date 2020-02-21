@@ -113,6 +113,10 @@
 
       identity = $("#creditUsername").val();
 
+      $('#userConsentStatus').text('');
+      $('#userApprovalStatus').text('');
+      $('#responseCredit').text('');
+
       var settings = {
         "url": "https://auth.tu.demoenvi.com:1443/directory/v1/entryUUID=" + identity + ",ou=people,dc=example,dc=com?includeAttributes=transUnionActive",
         "method": "GET",
