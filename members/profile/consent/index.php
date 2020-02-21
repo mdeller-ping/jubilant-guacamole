@@ -172,7 +172,7 @@
         function updateAccount() {
             console.log('updateAccount function called');
 
-            body = JSON.stringify($('#consentJson').val());
+            body = $('#consentJson').val();
 
             console.log(body);
 
