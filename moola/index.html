@@ -144,10 +144,14 @@
           .done(function(data) {
               console.log("Status received");
               status = data.status;
-              $('#userApprovalStatus').text(status);
               if (status == 'APPROVED') {
                 console.log('thank goodness');
+                $('#userApprovalStatus').text('User Approval: APPROVED');
+              } else if (status == 'OTP') {
+                console.log('timeout');
+                $('#userApprovalStatus').text('User Approval: TIMEOUT');
               } else {
+                $('#userApprovalStatus').text('User Approval: PENDING');
                 setTimeout(function() {
                   getPushStatus(identity, transaction);
                 }, 1500);
