@@ -122,7 +122,7 @@
       };
 
       $.ajax(settings).done(function (response) {
-        consent = data.transUnionActive;
+        consent = response.transUnionActive;
         console.log(consent);
       });
 
