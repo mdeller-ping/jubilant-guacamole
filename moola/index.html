@@ -126,10 +126,10 @@
       $.ajax(settings).done(function (response) {
         consent = response.transUnionActive;
         if (consent) {
-          $('#userConsentStatus').text('User Consent: ACTIVE');
+          $('#responseCredit').text('User Consent: ACTIVE');
           initiatePush();
         } else {
-          $('#userConsentStatus').text('User Consent: REJECTED');
+          $('#responseCredit').text('User Consent: REJECTED');
         }
       });
 
