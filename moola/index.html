@@ -135,12 +135,8 @@
 
     }
 
-    console.log("ONCE ONLY A");
-
     function getScore() {
       // verify user has opted into consent via datagovernance
-
-      console.log('inside');
 
       identity = $("#creditUsername").val();
 
@@ -158,17 +154,12 @@
         creditSCore = response.transUnionCreditScore;
         if (creditSCore) {
           $('#userConsentStatus').text('Credit Score: ' + creditSCore);
-          initiatePush();
         } else {
           $('#userConsentStatus').text('Credit Score: UNAVAILABLE');
         }
       });
 
-      console.log('ending');
-
     }
-
-    console.log("ONCE ONLY B");
 
     function initiatePush() {
 
@@ -184,9 +175,7 @@
 
       $.ajax(settings)
           .done(function(data) {
-              console.log("Push initiated");
               transaction = data.id;
-              console.log(transaction);
               getPushStatus(identity, transaction);
           })
           .fail(function(data, status, error) {
@@ -194,9 +183,6 @@
           })
 
     }
-
-    console.log("ONCE ONLY C");
-
 
     function getPushStatus(identity, transaction) {
 
@@ -235,7 +221,6 @@
     // begin process
 
     $(document).ready(function () {
-      console.log("Page ready function");
 
       // determine if user is already signed in, and show appropriate login/logout buttons
 
