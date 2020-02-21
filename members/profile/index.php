@@ -153,7 +153,7 @@
                 <strong>Immutable Identifier</strong>
             </div>
             <div class="col-sm lead">
-                <?php echo substr($_SERVER['HTTP_X_PA_ENTRYUUID'], 0, 24) ?>...
+                <?php echo $_SERVER['HTTP_X_PA_ENTRYUUID'] ?>...
             </div>
             <div class="col-sm lead">
                 &nbsp;
