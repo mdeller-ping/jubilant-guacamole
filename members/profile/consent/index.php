@@ -176,34 +176,34 @@
 
             console.log(body);
 
-        //     var settings = {
-        //         "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
-        //         "method": "PUT",
-        //         "timeout": 0,
-        //         "headers": {
-        //             "Content-Type": "application/json",
-        //             "Authorization": "Basic " + authHeader
-        //         },
-        //         "data": body
-        //     };
+            var settings = {
+                "url": "https://" + pingDirectory + "/directory/v1/consents",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Authorization": "Basic " + authHeader
+                },
+                "data": body
+            };
 
-        //     $.ajax(settings)
-        //         .done(function(data) {
-        //             console.log("Account Updated");
-        //             $('#warningMessage').text('');
-        //             $('#warningDiv').hide();
-        //             $('#accountUpdateDiv').hide();
-        //             $('#allDoneDiv').show();
-        //         })
-        //         .fail(function(data, status, error) {
-        //             console.log("Unable to update");
-        //             var responseText = $.parseJSON(data.responseText);
-        //             $('#warningMessage').text(responseText.details[0].message);
-        //             $('#warningDiv').show();
-        //         })
+            $.ajax(settings)
+                .done(function(data) {
+                    console.log("Account Updated");
+                    $('#warningMessage').text('');
+                    $('#warningDiv').hide();
+                    $('#accountUpdateDiv').hide();
+                    $('#allDoneDiv').show();
+                })
+                .fail(function(data, status, error) {
+                    console.log("Unable to update");
+                    var responseText = $.parseJSON(data.responseText);
+                    $('#warningMessage').text(responseText.details[0].message);
+                    $('#warningDiv').show();
+                })
 
         }
-        prettyPrint();
+        // prettyPrint();
     </script>
 </body>
 
