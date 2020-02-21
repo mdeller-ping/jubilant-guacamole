@@ -58,7 +58,7 @@
           <p class="lead">We are your neighborhood lender.  Homes, cars, bikes and boats.  Let's talk.</p>
         </div>
 
-        <div class="alert alert-primary collapse" role="alert" id="accessTokenDiv">
+        <div class="alert alert-primary collapse" role="alert" id="requestCredit">
           <form>
             <div class="form-group">
               <label for="creditUsername">Pull credit information</label>
@@ -66,16 +66,18 @@
             </div>
             <a href="javascript:creditPull();" class="btn btn-primary">Submit</a>
           </form>
+          <div id="responseCredit"></div>
         </div>
 
-        <div class="alert alert-success collapse" role="alert" id="idTokenDiv">
+        <div class="alert alert-success collapse" role="alert" id="requestIdentity">
           <form>
             <div class="form-group">
               <label for="verifyUsername">Verify user identity</label>
-              <input type="email" class="form-control" id="verifyUsername">
+              <input type="email" class="form-control" id="requestIdentity">
             </div>
             <a href="javascript:challengeIdentity();" class="btn btn-primary">Submit</a>
           </form>
+          <div id="responseIdentity"></div>
         </div>
 
       </section>
@@ -135,15 +137,8 @@
 
       if (Cookies.get('accessToken', { domain: cookieDomain })) {
 
-        $("#accessTokenDiv").show();
-        $("#accessTokenCode").text(Cookies.get('accessToken', { domain: cookieDomain }));
-
-      }
-
-      if (Cookies.get('idToken', { domain: cookieDomain })) {
-
-        $("#idTokenDiv").show();
-        $("#idTokenCode").text(Cookies.get('idToken', { domain: cookieDomain }));
+        $("#requestCredit").show();
+        $("#requestIdentity").show();
 
       }
 
