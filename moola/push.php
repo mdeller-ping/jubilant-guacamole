@@ -1,5 +1,7 @@
 <?php
 
+header('Content-Type: application/json');
+
 $username=$_GET['username'];
 $title=$_GET['title'];
 $body=$_GET['body'];

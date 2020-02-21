@@ -132,7 +132,7 @@
           .done(function(data) {
               console.log("Push initiated");
               transactionId = data.id;
-              console.log(transactionId);
+              console.log(data);
               getPushStatus();
           })
           .fail(function(data, status, error) {
