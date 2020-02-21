@@ -102,15 +102,6 @@
             <hr>
 
             <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputMail">Email Address</label>
-                    <input type="email" class="form-control" id="inputMail" required>
-                </div>
-            </div>
-
-            <hr>
-
-            <div class="form-row">
             </div>
 
             <p>Have you lived here for more than 6 months?</p>
@@ -139,8 +130,8 @@
             <input type="hidden" id="inputDistinguishedName">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputUsername">Username</label>
-                    <input type="text" class="form-control" id="inputUsername" readonly>
+                    <label for="inputMail">Email Address</label>
+                    <input type="email" class="form-control" id="inputMail" required>
                 </div>
             </div>
             <div class="form-row">
@@ -305,7 +296,6 @@
             lastName = $('#inputLastName').val();
             dateOfBirth = $('#inputDateOfBirth').val();
             lastFour = $('#inputLastFour').val();
-            mail = $('#inputMail').val();
 
             sixMonths = $("input[name='inputSixMonths']:checked").val();
             sixMonths = (sixMonths == 'true');
@@ -317,7 +307,6 @@
                 "transUnionMiddleName": middleName,
                 "sn": [lastName],
                 "cn": [firstName + " " + lastName],
-                "mail": [mail],
                 "transUnionDOB": dateOfBirth,
                 "transUnionLastFour": lastFour,
                 "transUnionMoreThanSixMonths": sixMonths,
@@ -369,10 +358,11 @@
             state = $('#inputState').val();
             postalCode = $('#inputPostal').val();
             mobile = $('#inputMobile').val();
-
+            mail = $('#inputMail').val();
 
             body = JSON.stringify({
-                "uid": [username],
+                "uid": [mail],
+                "mail": [mail],
                 "userPassword": [password],
                 "street": [street],
                 "l": [city],
