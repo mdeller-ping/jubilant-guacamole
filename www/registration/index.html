@@ -404,24 +404,13 @@
 
             password = $('#inputPassword').val();
             distinguishedName = $('#inputDistinguishedName').val();
-            street = $('#inputStreet').val();
-            city = $('#inputCity').val();
-            state = $('#inputState').val();
-            postalCode = $('#inputPostal').val();
             mobile = $('#inputMobile').val();
             mail = $('#inputMail').val();
-            sixMonths = $("input[name='inputSixMonths']:checked").val();
-            sixMonths = (sixMonths == 'true');
 
             body = JSON.stringify({
                 "uid": [mail],
                 "mail": [mail],
                 "userPassword": [password],
-                "street": [street],
-                "l": [city],
-                "st": [state],
-                "postalCode": [postalCode],
-                "transUnionMoreThanSixMonths": sixMonths,
                 "mobile": [mobile]
             });
 
@@ -441,8 +430,9 @@
                     console.log("Password assigned");
                     $('#warningMessage').text('');
                     $('#warningDiv').hide();
-                    $('#page2Div').hide();
                     $('#page1Div').hide();
+                    $('#page2Div').hide();
+                    $('#page3Div').hide();
                     $('#allDoneDiv').show();
                 })
                 .fail(function(data, status, error) {
