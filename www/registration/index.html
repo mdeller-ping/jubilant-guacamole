@@ -101,22 +101,6 @@
 
             <hr>
 
-            <div class="form-row">
-            </div>
-
-            <p>Have you lived here for more than 6 months?</p>
-
-            <div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inputSixMonths" id="inputSixMonths" value="true" checked>
-                    <label class="form-check-label">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inputSixMonths" id="inputSixMonths" value="false">
-                    <label class="form-check-label">No</label>
-                </div>
-            </div>
-
             <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createPlaceHolder();">Next Step</a>
         </form>
     </div>
@@ -215,11 +199,25 @@
                     <label for="inputPostal">Zip Code</label>
                     <input type="number" class="form-control" id="inputPostal" required>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputMobile">Mobile Number</label>
-                        <input type="tel" class="form-control" id="inputMobile" required>
-                    </div>
+            </div>
+
+            <p>Have you lived here for more than 6 months?</p>
+
+            <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inputSixMonths" id="inputSixMonths" value="true" checked>
+                    <label class="form-check-label">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inputSixMonths" id="inputSixMonths" value="false">
+                    <label class="form-check-label">No</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputMobile">Mobile Number</label>
+                    <input type="tel" class="form-control" id="inputMobile" required>
                 </div>
             </div>
 
@@ -297,8 +295,7 @@
             dateOfBirth = $('#inputDateOfBirth').val();
             lastFour = $('#inputLastFour').val();
 
-            sixMonths = $("input[name='inputSixMonths']:checked").val();
-            sixMonths = (sixMonths == 'true');
+
 
             body = JSON.stringify({
                 "_parentDN": "ou=people,dc=example,dc=com",
@@ -309,7 +306,6 @@
                 "cn": [firstName + " " + lastName],
                 "transUnionDOB": dateOfBirth,
                 "transUnionLastFour": lastFour,
-                "transUnionMoreThanSixMonths": sixMonths,
                 "transUnionMFA": false,
                 "transUnionPlan": "None"
             });
@@ -357,6 +353,8 @@
             postalCode = $('#inputPostal').val();
             mobile = $('#inputMobile').val();
             mail = $('#inputMail').val();
+            sixMonths = $("input[name='inputSixMonths']:checked").val();
+            sixMonths = (sixMonths == 'true');
 
             body = JSON.stringify({
                 "uid": [mail],
@@ -366,6 +364,7 @@
                 "l": [city],
                 "st": [state],
                 "postalCode": [postalCode],
+                "transUnionMoreThanSixMonths": sixMonths,
                 "mobile": [mobile]
             });
 
