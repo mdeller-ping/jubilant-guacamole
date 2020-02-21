@@ -69,8 +69,9 @@
         </div>
 
         <div class="alert alert-secondary collapse" role="alert" id="responseCreditDiv">
-          <pre id="responseCredit" class="mt-5"></pre>
-          <pre id="responseCreditStatus"></pre>
+          <pre id="userApprovalStatus"></pre>
+          <hr>
+          <pre id="responseCredit"></pre>
         </div>
 
       </section>
@@ -132,7 +133,6 @@
     }
 
     function getPushStatus(identity, transaction) {
-      console.log('getPushStatus called');
 
       var settings = {
           "url": "https://www.moola.xyz/status.php?username=" +identity + "&transaction=" + transaction,
@@ -144,8 +144,7 @@
           .done(function(data) {
               console.log("Status received");
               status = data.status;
-              $('#responseCredit').text(JSON.stringify(data));
-              $('#responseCreditStatus').text(status);
+              $('#userApprovalStatus').text(status);
               if (status == 'APPROVED') {
                 console.log('thank goodness');
               } else {
