@@ -70,15 +70,22 @@
 
     <!-- accountUpdateDiv -->
     <div class="container mt-5" id="accountUpdateDiv">
-        <h2 class="mt-4">Change Account Email</h2>
+        <h2 class="mt-4">Consent Management</h2>
         <form method="POST">
-        <div class="form-row mt-5">
-                <div class="form-group col-md-6">
-                    <input type="email" class="form-control" id="inputMail" value="<?php echo $_SERVER['HTTP_X_PA_MAIL'] ?>" required>
-                </div>
-            </div>
-            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
-            <a href="/profile/" class="btn btn-danger">Cancel</a>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="inputConsent" value="true" checked>
+            <label class="form-check-label">
+              Opt Into Sharing
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="inputConsent" value="false">
+            <label class="form-check-label">
+              Opt Out of Sharing
+            </label>
+          </div>
+          <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
+          <a href="/profile/" class="btn btn-danger">Cancel</a>
         </form>
     </div>
     <!-- /accountUpdateDiv -->
