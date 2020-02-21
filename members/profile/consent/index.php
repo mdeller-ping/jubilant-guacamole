@@ -175,7 +175,7 @@
             consent = (consent == 'true');
 
             body = JSON.stringify({
-                "transUnionMFA": consent
+                "transUnionActive": consent
             });
 
             var settings = {
