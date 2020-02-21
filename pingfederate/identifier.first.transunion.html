@@ -35,7 +35,7 @@
         <form method="POST" action="$resume_url">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="identifierInput">Username</label>
+                    <label for="identifierInput">$templateMessages.getMessage($messageKeyPrefix, "usernameTitle")</label>
                     <input type="text" class="form-control" id="identifierInput" size="36" name="$identifier" value=""
                         autocorrect="off" autocapitalize="off" onKeyPress="return postOnReturn(event)" required />
                 </div>
