@@ -71,19 +71,6 @@
           <pre id="responseCreditStatus"></pre>
         </div>
 
-        <div class="alert alert-success collapse" role="alert" id="requestIdentity">
-          <form>
-            <div class="form-group">
-              <label for="verifyUsername">Verify User Identity</label>
-              <input type="email" class="form-control" id="requestIdentity">
-            </div>
-            <a href="javascript:verifyIdentity();" class="btn btn-primary">Submit</a>
-          </form>
-          <br>
-          <div id="responseIdentity"></div>
-          <div id="responseIdentityStatus"></div>
-        </div>
-
       </section>
     </div>
 
@@ -115,61 +102,6 @@
   <script src="js/auth.js"></script>
 
   <script>
-
-    function verifyIdentity() {
-      console.log ("verifyIdentity function called");
-
-      title = encodeURI('Customer Service Approval');
-      body = encodeURI('TransUnion Customer Service has initiated this step up to confirm your identity.  Please only approve if you are expecting this request.');
-      identity = $("#verifyUsername").val();
-
-      var settings = {
-          "url": "https://www.moola.xyz/push.php?username=" +identity + "&title=" + title + "&body=" + body,
-          "method": "GET",
-          "timeout": 0
-      };
-
-      $.ajax(settings)
-          .done(function(data) {
-              console.log("Push initiated");
-              transaction = data.id;
-              console.log(transaction);
-              // getIdentityStatus(identity, transaction);
-          })
-          .fail(function(data, status, error) {
-              console.log("Unable to update");
-          })
-
-    }
-
-    function getIdentityStatus(identity, transaction) {
-      console.log('getIdentityStatus called');
-
-      var settings = {
-          "url": "https://www.moola.xyz/status.php?username=" +identity + "&transaction=" + transaction,
-          "method": "GET",
-          "timeout": 0
-      };
-
-      $.ajax(settings)
-          .done(function(data) {
-              console.log("Status received");
-              status = data.status;
-              $('#responseIdentity').text(JSON.stringify(data));
-              $('#responseIdentityStatus').text(status);
-              if (status == 'APPROVED') {
-                console.log('thank goodness');
-              } else {
-                setTimeout(function() {
-                  getIdentityStatus(identity, transaction);
-                }, 1500);
-            }
-          })
-          .fail(function(data, status, error) {
-              console.log("Unable to update");
-          })
-
-    }
 
     function creditPull() {
       console.log ("creditPull function called");
@@ -240,7 +172,6 @@
       if (Cookies.get('accessToken', { domain: cookieDomain })) {
 
         $("#requestCredit").show();
-        $("#requestIdentity").show();
 
       }
 
