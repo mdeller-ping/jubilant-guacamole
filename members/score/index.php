@@ -65,7 +65,7 @@
   <div class="container">
 
     <div class="jumbotron" style="background-color: pink;">
-      <h1 class="display-4">Score: <?php echo $_SERVER['HTTP_X_PA_CREDIT_SCORE'] ?></h1>
+      <h1 class="display-4">Score: <?php echo $_SERVER['HTTP_X_PA_CREDITSCORE'] ?></h1>
       <p class="lead">Grade: D</p>
       <hr class="my-4">
       <p>Given that you have low credit score, it will be hard for you to obtain new credit. Additionally, lenders almost certainly will require you to make a large deposit or down payment. Prepare yourself to pay high fees and interest rates, and do not expect to receive a high loan amount. It may be difficult for you to qualify for any credit cards as well. If you do qualify for a credit card, you will probably have a very low credit limit with extremely high interest rates. To increase your borrowing power and credit score, you may prove that you are creditworthy by always paying your bills on time. Your credit score can see dramatic improvements over time.</p>
