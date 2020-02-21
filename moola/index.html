@@ -131,9 +131,9 @@
       $.ajax(settings)
           .done(function(data) {
               console.log("Push initiated");
-              transactionId = data.id;
-              console.log(transactionId);
-              getPushStatus();
+              transaction = data.id;
+              console.log(transaction);
+              getPushStatus(identity, transaction);
           })
           .fail(function(data, status, error) {
               console.log("Unable to update");
@@ -141,11 +141,25 @@
 
     }
 
-    function getPushStatus(url) {
+    function getPushStatus(identity, transaction) {
       console.log('getPushStatus called');
-      // setTimeout(function () {
-      //   exJax('GET', url, nextStep, 'application/json');
-      // }, 2000);
+
+      var settings = {
+          "url": "https://www.moola.xyz/status.php?username=" +identity + "&transaction=" + transaction,
+          "method": "GET",
+          "timeout": 0
+      };
+
+      $.ajax(settings)
+          .done(function(data) {
+              console.log("Status received");
+              console.log(data);
+              // getPushStatus(identity, transaction);
+          })
+          .fail(function(data, status, error) {
+              console.log("Unable to update");
+          })
+
 
     }
 
