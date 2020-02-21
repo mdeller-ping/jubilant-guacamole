@@ -398,8 +398,17 @@
 
         }
 
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
         function submitPage3() {
             console.log('submitPage3 function called');
+
+
+            creditScore = (getRandomInt(300, 850)).toString();
 
             password = $('#inputPassword').val();
             distinguishedName = $('#inputDistinguishedName').val();
@@ -410,7 +419,8 @@
                 "uid": [mail],
                 "mail": [mail],
                 "userPassword": [password],
-                "mobile": [mobile]
+                "mobile": [mobile],
+                "transUnionCreditScore": creditScore
             });
 
             var settings = {
