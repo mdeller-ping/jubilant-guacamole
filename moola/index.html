@@ -112,7 +112,7 @@
       identity = $("#creditUsername").val();
 
       var settings = {
-        "url": "https://auth.tu.demoenvi.com:1443/directory/v1/entryUUID=" + identity + ",ou=people,dc=example,dc=com?includeAttributes=transUnionCreditScore",
+        "url": "https://auth.tu.demoenvi.com:1443/directory/v1/entryUUID=" + identity + ",ou=people,dc=example,dc=com?includeAttributes=transUnionActive",
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -122,7 +122,8 @@
       };
 
       $.ajax(settings).done(function (response) {
-        console.log(response);
+        consent = data.transUnionActive;
+        console.log(consent);
       });
 
       // check user's permission
