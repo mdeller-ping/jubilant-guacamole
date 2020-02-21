@@ -177,7 +177,7 @@
             console.log(body);
 
             var settings = {
-                "url": "https://" + pingDirectory + "/directory/v1/consents",
+                "url": "https://" + pingDirectory + "/consent/v1/consents",
                 "method": "POST",
                 "timeout": 0,
                 "headers": {
