@@ -61,7 +61,7 @@
     <!-- /hero banner -->
 
     <!-- page 1 - personal info -->
-    <div class="container" id="personalInfoDiv">
+    <div class="container" id="page1Div">
         <h2>Personal Information</h2>
         <p class="mb-5">All fields are required (except where noted).</p>
         <form id="registration" method="POST">
@@ -101,29 +101,17 @@
 
             <hr>
 
-            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:formPage1();">Next Step</a>
+            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:submitPage1();">Next Step</a>
         </form>
     </div>
     <!-- /page 1 - personal info -->
 
     <!-- page 2 - account info -->
-    <div class="container collapse" id="accountInfoDiv">
-        <h2>Create Your Account</h2>
+    <div class="container collapse" id="page2Div">
+        <h2>Home Address</h2>
         <p class="mb-5">All fields are required (except where noted).</p>
         <form id="registration" method="POST">
             <input type="hidden" id="inputDistinguishedName">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputMail">Email Address</label>
-                    <input type="email" class="form-control" id="inputMail" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputPassword">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" required>
-                </div>
-            </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -214,14 +202,37 @@
                 </div>
             </div>
 
+            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createAccount();">Next Step</a>
+        </form>
+    </div>
+    <!-- /page 2 - account info -->
+
+    <!-- page 3 - account info -->
+    <div class="container collapse" id="page3Div">
+        <h2>Security</h2>
+        <p class="mb-5">All fields are required (except where noted).</p>
+        <form id="registration" method="POST">
+            <input type="hidden" id="inputDistinguishedName">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputMobile">Mobile Number</label>
                     <input type="tel" class="form-control" id="inputMobile" required>
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputMail">Email Address</label>
+                    <input type="email" class="form-control" id="inputMail" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" required>
+                </div>
+            </div>
 
-            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createAccount();">Next Step</a>
+            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:submitPage3();">Finish</a>
         </form>
     </div>
     <!-- /page 2 - account info -->
@@ -286,16 +297,14 @@
         let authHeader = 'Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl';
         let pingDirectory = 'auth.tu.demoenvi.com:1443'
 
-        function formPage1() {
-            console.log('formPage1 function called');
+        function submitPage1() {
+            console.log('submitPage1 function called');
 
             firstName = $('#inputFirstName').val();
             middleName = $('#inputMiddleName').val();
             lastName = $('#inputLastName').val();
             dateOfBirth = $('#inputDateOfBirth').val();
             lastFour = $('#inputLastFour').val();
-
-
 
             body = JSON.stringify({
                 "_parentDN": "ou=people,dc=example,dc=com",
@@ -329,9 +338,9 @@
                     console.log(distinguishedName);
                     $('#warningMessage').text('');
                     $('#warningDiv').hide();
-                    $('#personalInfoDiv').hide();
+                    $('#page1Div').hide();
                     $("#inputDistinguishedName").val(distinguishedName);
-                    $('#accountInfoDiv').show();
+                    $('#page2Div').show();
                 })
                 .fail(function(data, status, error) {
                     console.log("Unable to create account");
@@ -385,7 +394,7 @@
                     $('#warningMessage').text('');
                     $('#warningDiv').hide();
                     $('#accountInfoDiv').hide();
-                    $('#personalInfoDiv').hide();
+                    $('#page1Div').hide();
                     $('#allDoneDiv').show();
                 })
                 .fail(function(data, status, error) {
