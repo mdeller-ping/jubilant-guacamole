@@ -83,6 +83,9 @@
                     <input type="text" class="form-control" id="inputLastName" required>
                 </div>
             </div>
+
+            <hr>
+
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputDateOfBirth">Date of Birth (YYYY-MM-DD)</label>
@@ -102,12 +105,6 @@
                 <div class="form-group col-md-6">
                     <label for="inputMail">Email Address</label>
                     <input type="email" class="form-control" id="inputMail" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputMobile">Mobile Number</label>
-                    <input type="tel" class="form-control" id="inputMobile" required>
                 </div>
             </div>
 
@@ -227,6 +224,12 @@
                     <label for="inputPostal">Zip Code</label>
                     <input type="number" class="form-control" id="inputPostal" required>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputMobile">Mobile Number</label>
+                        <input type="tel" class="form-control" id="inputMobile" required>
+                    </div>
+                </div>
             </div>
 
             <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createAccount();">Next Step</a>
@@ -303,7 +306,6 @@
             dateOfBirth = $('#inputDateOfBirth').val();
             lastFour = $('#inputLastFour').val();
             mail = $('#inputMail').val();
-            mobile = $('#inputMobile').val();
 
             sixMonths = $("input[name='inputSixMonths']:checked").val();
             sixMonths = (sixMonths == 'true');
@@ -318,7 +320,6 @@
                 "mail": [mail],
                 "transUnionDOB": dateOfBirth,
                 "transUnionLastFour": lastFour,
-                "mobile": [mobile],
                 "transUnionMoreThanSixMonths": sixMonths,
                 "transUnionMFA": false,
                 "transUnionPlan": "None"
@@ -367,6 +368,8 @@
             city = $('#inputCity').val();
             state = $('#inputState').val();
             postalCode = $('#inputPostal').val();
+            mobile = $('#inputMobile').val();
+
 
             body = JSON.stringify({
                 "uid": [username],
@@ -374,7 +377,8 @@
                 "street": [street],
                 "l": [city],
                 "st": [state],
-                "postalCode": [postalCode]
+                "postalCode": [postalCode],
+                "mobile": [mobile]
             });
 
             var settings = {
