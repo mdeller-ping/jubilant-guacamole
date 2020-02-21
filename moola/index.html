@@ -113,29 +113,6 @@
     function creditPull() {
       console.log ("creditPull function called");
       identity = $("#creditUsername").val();
-      var settings = {
-  "url": "https://mdeller-pidsdk.pingapac.com/pidp/push/initiateMFA",
-  "method": "POST",
-  "timeout": 0,
-  "headers": {
-    "Content-Type": "application/x-www-form-urlencoded",
-    "Accept": "application/json",
-    "": ""
-  },
-  "data": {
-    "username": "5c11a6b2-fcbf-48de-8202-12c5617ae5ae",
-    "pushMessageTitle": "Hello Michael",
-    "pushMessageBody": "Pizza looks great"
-  }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
       console.log(identity);
     }
 
