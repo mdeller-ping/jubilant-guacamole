@@ -104,7 +104,7 @@
         } ]
     },
     "consentContext": {
-        "captureMethod": "New Customer Registration",
+        "captureMethod": "Member portal preferences update",
         "subject": {
             "userAgent": "<?php echo $_SERVER['HTTP_USER_AGENT']?>",
             "ipAddress": "<?php echo $_SERVER['HTTP_X_FORWARDED_FOR']?>"
@@ -195,10 +195,7 @@
                     $('#warningMessage').text('');
                     $('#warningDiv').hide();
                     $('#accountUpdateDiv').hide();
-                    if (mfaEnabled)
-                      $('#enabledDiv').show();
-                    if (!mfaEnabled)
-                      $('#disabledDiv').show();
+                    $('#allDoneDiv').hide();
                 })
                 .fail(function(data, status, error) {
                     console.log("Unable to update");
