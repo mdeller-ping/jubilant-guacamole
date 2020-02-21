@@ -124,7 +124,7 @@
 
       title = encodeURI('Customer Service Approval');
       body = encodeURI('TransUnion Customer Service has initiated this step up to confirm your identity.  Please only approve if you are expecting this request.');
-      identity = $("#creditUsername").val();
+      identity = $("#verifyUsername").val();
 
       var settings = {
           "url": "https://www.moola.xyz/push.php?username=" +identity + "&title=" + title + "&body=" + body,
