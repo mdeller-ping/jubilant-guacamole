@@ -1,9 +1,6 @@
 <?php
 
 $username=$_GET['username'];
-echo $username;
-
-exit();
 
 $curl = curl_init();
 
