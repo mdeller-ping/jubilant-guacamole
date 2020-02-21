@@ -75,7 +75,7 @@
         <form method="POST">
           <textarea class="form-control" style="height: 300px;" id="consentJson">
 {
-    "actor": "michael@example.com",
+    "actor": "<?php echo $_SERVER['HTTP_X_PA_MAIL']?>",
     "subject": "michael@example.com",
     "status": "accepted",
     "audience": "credit",
