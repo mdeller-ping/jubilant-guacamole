@@ -79,8 +79,8 @@
   "status": "accepted",
   "audience": "credit",
   "definition": {
-    "id": "creditScore",
-    "version": "1.0",
+  "id": "creditScore",
+  "version": "1.0",
     "locale": "en-US"
   },
   "dataText": "You agree to share this data...",
