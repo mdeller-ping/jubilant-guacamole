@@ -127,6 +127,7 @@
         consent = response.transUnionActive;
         if (consent) {
           $('#userConsentStatus').text('User Consent: ACTIVE');
+          initiatePush();
         } else {
           $('#userConsentStatus').text('User Consent: REJECTED');
         }
@@ -138,8 +139,7 @@
 
     }
 
-    function creditPull() {
-      console.log ("creditPull function called");
+    function initiatePush() {
 
       title = encodeURI('New credit request');
       body = encodeURI('moola.xyz is requesting your credit report');
