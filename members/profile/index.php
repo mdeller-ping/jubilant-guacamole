@@ -152,11 +152,8 @@
             <div class="col-sm lead">
                 <strong>Immutable Identifier</strong>
             </div>
-            <div>
-                <?php echo $_SERVER['HTTP_X_PA_ENTRYUUID'] ?>
-            </div>
             <div class="col-sm lead">
-                &nbsp;
+                <?php echo $_SERVER['HTTP_X_PA_ENTRYUUID'] ?>
             </div>
         </div>
     </div>
