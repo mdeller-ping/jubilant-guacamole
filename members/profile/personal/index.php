@@ -233,6 +233,7 @@
             firstName = $('#inputFirstName').val();
             middleName = $('#inputMiddleName').val();
             lastName = $('#inputLastName').val();
+            cn = firstName + ' ' + lastName;
             street = $('#inputStreet').val();
             city = $('#inputCity').val();
             state = $('#inputState').val();
@@ -242,6 +243,7 @@
                 "givenName": [firstName],
                 "transUnionMiddleName": middleName,
                 "sn": [lastName],
+                "cn": [cn],
                 "street": [street],
                 "l": [city],
                 "st": [state],
