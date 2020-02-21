@@ -153,8 +153,8 @@
       $.ajax(settings)
           .done(function(data) {
               console.log("Status received");
-              console.log(data);
-              // getPushStatus(identity, transaction);
+              status = data.status;
+              console.log(status);
           })
           .fail(function(data, status, error) {
               console.log("Unable to update");
