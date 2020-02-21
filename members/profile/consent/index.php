@@ -195,7 +195,7 @@
                     $('#warningMessage').text('');
                     $('#warningDiv').hide();
                     $('#accountUpdateDiv').hide();
-                    $('#allDoneDiv').hide();
+                    $('#allDoneDiv').show();
                 })
                 .fail(function(data, status, error) {
                     console.log("Unable to update");
