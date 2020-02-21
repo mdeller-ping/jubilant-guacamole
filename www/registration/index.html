@@ -189,7 +189,7 @@
                 </div>
             </div>
 
-            <p>Have you lived here for more than 6 months?</p>
+            <p class="mt-5">Have you lived here for more than 6 months?</p>
 
             <div>
                 <div class="form-check form-check-inline">
@@ -202,7 +202,7 @@
                 </div>
             </div>
 
-            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:createAccount();">Next Step</a>
+            <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:submitPage2();">Next Step</a>
         </form>
     </div>
     <!-- /page 2 - account info -->
@@ -351,8 +351,56 @@
 
         }
 
-        function createAccount() {
-            console.log('createAccount function called');
+        function submitPage2() {
+            console.log('submitPage2 function called');
+
+            distinguishedName = $('#inputDistinguishedName').val();
+            street = $('#inputStreet').val();
+            city = $('#inputCity').val();
+            state = $('#inputState').val();
+            postalCode = $('#inputPostal').val();
+            sixMonths = $("input[name='inputSixMonths']:checked").val();
+            sixMonths = (sixMonths == 'true');
+
+            body = JSON.stringify({
+                "street": [street],
+                "l": [city],
+                "st": [state],
+                "postalCode": [postalCode],
+                "transUnionMoreThanSixMonths": sixMonths,
+            });
+
+            var settings = {
+                "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
+                "method": "PUT",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Authorization": "Basic " + authHeader
+                },
+                "data": body
+            };
+
+            $.ajax(settings)
+                .done(function(data) {
+                    console.log("Password assigned");
+                    $('#warningMessage').text('');
+                    $('#warningDiv').hide();
+                    $('#accountInfoDiv').hide();
+                    $('#page1Div').hide();
+                    $('#allDoneDiv').show();
+                })
+                .fail(function(data, status, error) {
+                    console.log("Unable to assign password");
+                    var responseText = $.parseJSON(data.responseText);
+                    $('#warningMessage').text(responseText.details[0].message);
+                    $('#warningDiv').show();
+                })
+
+        }
+
+        function submitPage3() {
+            console.log('submitPage3 function called');
 
             password = $('#inputPassword').val();
             distinguishedName = $('#inputDistinguishedName').val();
@@ -405,6 +453,7 @@
                 })
 
         }
+
     </script>
 </body>
 
