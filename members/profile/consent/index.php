@@ -73,6 +73,12 @@
         <h2 class="mt-4">Data Privacy</h2>
         <p>Would you like to consent to sharing your credit score with 3rd parties?</p>
         <form method="POST">
+          <div class="form-group col-md-6">
+            <select class="form-control" id="inputConsent">
+              <option value='true' <?php if ($_SERVER['HTTP_X_PA_CONSENT'] == 'TRUE') echo ' selected' ?>>Enabled</option>
+              <option value='false' <?php if ($_SERVER['HTTP_X_PA_CONSENT'] == 'FALSE') echo ' selected' ?>>Disabled</option>
+            </select>
+          </div>
           <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
           <a href="/profile/" class="btn btn-danger">Cancel</a>
         </form>
@@ -162,23 +168,19 @@
         let pingDirectory = 'auth.tu.demoenvi.com:1443'
         let distinguishedName = '<?php echo $_SERVER['HTTP_X_PA_DN'] ?>';
 
-        function prettyPrint() {
-          var ugly = document.getElementById('consentJson').value;
-          var obj = JSON.parse(ugly);
-          var pretty = JSON.stringify(obj, undefined, 4);
-          document.getElementById('consentJson').value = pretty;
-        }
-
         function updateAccount() {
             console.log('updateAccount function called');
 
-            body = $('#consentJson').val();
+            consent = $('#inputConsent').val();
+            consent = (consent == 'true');
 
-            console.log(body);
+            body = JSON.stringify({
+                "transUnionMFA": consent
+            });
 
             var settings = {
-                "url": "https://" + pingDirectory + "/consent/v1/consents",
-                "method": "POST",
+                "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
+                "method": "PUT",
                 "timeout": 0,
                 "headers": {
                     "Content-Type": "application/json",
@@ -193,7 +195,10 @@
                     $('#warningMessage').text('');
                     $('#warningDiv').hide();
                     $('#accountUpdateDiv').hide();
-                    $('#allDoneDiv').show();
+                    if (mfaEnabled)
+                      $('#enabledDiv').show();
+                    if (!mfaEnabled)
+                      $('#disabledDiv').show();
                 })
                 .fail(function(data, status, error) {
                     console.log("Unable to update");
@@ -203,7 +208,6 @@
                 })
 
         }
-        // prettyPrint();
     </script>
 </body>
 
