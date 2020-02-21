@@ -64,7 +64,7 @@
               <label for="creditUsername">Pull Credit Information</label>
               <input type="text" class="form-control" id="creditUsername">
             </div>
-            <a href="javascript:creditPull();" class="btn btn-primary">Submit</a>
+            <a href="javascript:checkConsent();" class="btn btn-primary">Submit</a>
           </form>
         </div>
 
@@ -105,6 +105,31 @@
   <script src="js/auth.js"></script>
 
   <script>
+
+    function checkConsent() {
+      // verify user has opted into consent via datagovernance
+
+      identity = $("#creditUsername").val();
+
+      var settings = {
+        "url": "https://auth.tu.demoenvi.com:1443/directory/v1/entryUUID=" + identity + ",ou=people,dc=example,dc=com?includeAttributes=transUnionCreditScore",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": "Basic Y249QWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
+        },
+      };
+
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
+
+      // check user's permission
+
+      // pull credit score
+
+    }
 
     function creditPull() {
       console.log ("creditPull function called");
