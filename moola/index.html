@@ -129,12 +129,21 @@
 
       $.ajax(settings)
           .done(function(data) {
-              console.log("Account Updated");
+              console.log("Push initiated");
+              getPushStatus();
           })
           .fail(function(data, status, error) {
               console.log("Unable to update");
           })
 
+    }
+
+    function getPushStatus(url) {
+      console.log('getPushStatus called');
+      // setTimeout(function () {
+      //   exJax('GET', url, nextStep, 'application/json');
+      // }, 2000);
+      
     }
 
     function challengeIdentity() {
