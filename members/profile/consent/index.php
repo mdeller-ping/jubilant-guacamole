@@ -98,7 +98,7 @@
 	      "captureMethod": "New Customer Registration",
   	    "subject": {
   	      "userAgent": "<?php echo $_SERVER['HTTP_USER_AGENT'] ?>",
-	        "ipAddress": "10.1.0.89"
+	        "ipAddress": "<?php echo $_SERVER['HTTP_X_FORWARDED_FOR'] ?>"
 	      }
     }
 }
