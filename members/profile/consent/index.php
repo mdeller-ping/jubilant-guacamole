@@ -76,7 +76,7 @@
           <textarea class="form-control" style="height: 300px;" id="consentJson">
 {
     "actor": "<?php echo $_SERVER['HTTP_X_PA_MAIL']?>",
-    "subject": "michael@example.com",
+    "subject": "<?php echo $_SERVER['HTTP_X_PA_MAIL']?>",
     "status": "accepted",
     "audience": "credit",
     "definition": {
@@ -97,7 +97,7 @@
     "consentContext": {
 	      "captureMethod": "New Customer Registration",
   	    "subject": {
-  	      "userAgent": "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10",
+  	      "userAgent": "<?php echo $_SERVER['HTTP_USER_AGENT'] ?>",
 	        "ipAddress": "10.1.0.89"
 	      }
     }
