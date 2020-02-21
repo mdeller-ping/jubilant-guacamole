@@ -5,7 +5,10 @@
 
 $creditScore = $_SERVER['HTTP_X_PA_CREDITSCORE'];
 
-if ($creditScore < 669) { $creditGrade = 'D'; }
+if ($creditScore > 799) { $creditGrade = 'A'; }
+if ($creditScore < 800) { $creditGrade = 'B'; }
+if ($creditScore < 740) { $creditGrade = 'C'; }
+if ($creditScore < 670) { $creditGrade = 'D'; }
 
 ?>
 
