@@ -138,6 +138,8 @@
     function getScore() {
       // verify user has opted into consent via datagovernance
 
+      console.log('inside');
+
       identity = $("#creditUsername").val();
 
       var settings = {
@@ -159,6 +161,9 @@
           $('#userConsentStatus').text('Credit Score: UNAVAILABLE');
         }
       });
+
+      console.log('ending');
+
 
     }
 
