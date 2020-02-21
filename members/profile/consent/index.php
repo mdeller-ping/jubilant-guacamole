@@ -73,7 +73,10 @@
         <h2 class="mt-4">Data Privacy</h2>
         <p>Would you like to consent to sharing your credit score with 3rd parties?</p>
         <form method="POST">
-          <textarea class="form-control" style="height: 300px;" id="consentJson">
+          <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
+          <a href="/profile/" class="btn btn-danger">Cancel</a>
+        </form>
+        <textarea class="form-control" style="height: 300px;" id="consentJson">
 {
     "actor": "<?php echo $_SERVER['HTTP_X_PA_MAIL']?>",
     "subject": "<?php echo $_SERVER['HTTP_X_PA_MAIL']?>",
@@ -104,9 +107,6 @@
 }
           </textarea>
 
-          <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
-          <a href="/profile/" class="btn btn-danger">Cancel</a>
-        </form>
     </div>
     <!-- /accountUpdateDiv -->
 
