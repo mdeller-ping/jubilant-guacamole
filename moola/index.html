@@ -58,15 +58,17 @@
           <p class="lead">We are your neighborhood lender.  Homes, cars, bikes and boats.  Let's talk.</p>
         </div>
 
-        <div class="alert alert-primary collapse" role="alert" id="requestCredit">
+        <div class="alert alert-primary collapse" role="alert" id="requestCreditDiv">
           <form>
             <div class="form-group">
               <label for="creditUsername" class="mb-5">Pull Credit Information</label>
-              <input type="email" class="form-control" id="creditUsername">
+              <input type="text" class="form-control" id="creditUsername">
             </div>
             <a href="javascript:creditPull();" class="btn btn-primary mt-5">Submit</a>
           </form>
-         
+        </div>
+
+        <div class="alert alert-secondary collapse" role="alert" id="responseCreditDiv">
           <pre id="responseCredit" class="mt-5"></pre>
           <pre id="responseCreditStatus"></pre>
         </div>
@@ -171,7 +173,7 @@
 
       if (Cookies.get('accessToken', { domain: cookieDomain })) {
 
-        $("#requestCredit").show();
+        $("#requestCreditDiv").show();
 
       }
 
