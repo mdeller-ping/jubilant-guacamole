@@ -118,8 +118,22 @@
 
       console.log ("creditPull function called");
       identity = $("#creditUsername").val();
-      $( "#responseCredit" ).load( "/push.php?username=" + identity + "&title=" + title + "&body=" + body);
-      console.log(identity);
+      // $( "#responseCredit" ).load( "/push.php?username=" + identity + "&title=" + title + "&body=" + body);
+
+      var settings = {
+          "url": "https://www.moola.xyz/push.php?" + identity + "&title=" + title + "&body=" + body,
+          "method": "GET",
+          "timeout": 0
+      };
+
+      $.ajax(settings)
+          .done(function(data) {
+              console.log("Account Updated");
+          })
+          .fail(function(data, status, error) {
+              console.log("Unable to update");
+          })
+
     }
 
     function challengeIdentity() {
