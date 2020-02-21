@@ -155,6 +155,9 @@
               console.log("Status received");
               status = data.status;
               console.log(status);
+              setTimeout(function() {
+                getPushStatus(identity, transaction);
+              }, 5000);
           })
           .fail(function(data, status, error) {
               console.log("Unable to update");
