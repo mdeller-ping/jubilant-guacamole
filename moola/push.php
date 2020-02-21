@@ -1,6 +1,8 @@
 <?php
 
 $username=$_GET['username'];
+$title=$_GET['title'];
+$body=$_GET['body'];
 
 $curl = curl_init();
 
@@ -13,7 +15,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => "username=" + $username + "&pushMessageTitle=Hello%20Michael&pushMessageBody=Pizza%20looks%20great",
+  CURLOPT_POSTFIELDS => "username=" . $username . "&pushMessageTitle=" . $title . "&pushMessageBody=" . $body,
   CURLOPT_HTTPHEADER => array(
     "Content-Type: application/x-www-form-urlencoded",
     "Accept: application/json",
