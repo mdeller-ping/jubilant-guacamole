@@ -67,7 +67,7 @@
             <a href="javascript:creditPull();" class="btn btn-primary">Submit</a>
           </form>
           <pre id="responseCredit"></pre>
-          <input type="text" name="transactionId">
+          <pre id="responseStatus"></pre>
         </div>
 
         <div class="alert alert-success collapse" role="alert" id="requestIdentity">
@@ -154,15 +154,19 @@
           .done(function(data) {
               console.log("Status received");
               status = data.status;
-              console.log(status);
-              setTimeout(function() {
-                getPushStatus(identity, transaction);
-              }, 1500);
+              $('#responseCredit').text(data);
+              $('#responseStatus').text(status);
+              if (status == 'APPROVED') {
+                console.log('thank goodness');
+              } else {
+                setTimeout(function() {
+                  getPushStatus(identity, transaction);
+                }, 1500);
+            }
           })
           .fail(function(data, status, error) {
               console.log("Unable to update");
           })
-
 
     }
 
