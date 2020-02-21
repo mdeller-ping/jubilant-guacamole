@@ -334,7 +334,6 @@
                     $('#warningMessage').text('');
                     $('#warningDiv').hide();
                     $('#personalInfoDiv').hide();
-                    $('#inputUsername').val(mail);
                     $("#inputDistinguishedName").val(distinguishedName);
                     $('#accountInfoDiv').show();
                 })
@@ -350,7 +349,6 @@
         function createAccount() {
             console.log('createAccount function called');
 
-            username = $('#inputUsername').val();
             password = $('#inputPassword').val();
             distinguishedName = $('#inputDistinguishedName').val();
             street = $('#inputStreet').val();
