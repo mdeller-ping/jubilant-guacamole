@@ -73,7 +73,7 @@
         <h2 class="mt-4">Data Privacy</h2>
         <p>Would you like to consent to sharing your credit score with 3rd parties?</p>
         <form method="POST">
-          <textarea class="form-control" id="consentJson">{
+          <textarea class="form-control" style="height: 300px;" id="consentJson">{
   "actor": "michael@example.com",
   "subject": "michael@example.com",
   "status": "accepted",
