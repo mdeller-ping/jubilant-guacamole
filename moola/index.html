@@ -154,7 +154,7 @@
           .done(function(data) {
               console.log("Status received");
               status = data.status;
-              $('#responseCredit').text(data);
+              $('#responseCredit').text(JSON.stringify(data));
               $('#responseStatus').text(status);
               if (status == 'APPROVED') {
                 console.log('thank goodness');
