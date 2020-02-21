@@ -407,7 +407,6 @@
         function submitPage3() {
             console.log('submitPage3 function called');
 
-
             creditScore = (getRandomInt(300, 850)).toString();
 
             password = $('#inputPassword').val();
@@ -420,7 +419,8 @@
                 "mail": [mail],
                 "userPassword": [password],
                 "mobile": [mobile],
-                "transUnionCreditScore": creditScore
+                "transUnionCreditScore": creditScore,
+                "transUnionActive": false
             });
 
             var settings = {
