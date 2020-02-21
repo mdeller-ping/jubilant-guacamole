@@ -69,7 +69,7 @@
           <br>
           <br>
           <pre id="responseCredit"></pre>
-          <pre id="responseStatus"></pre>
+          <pre id="responseCreditStatus"></pre>
         </div>
 
         <div class="alert alert-success collapse" role="alert" id="requestIdentity">
@@ -81,6 +81,7 @@
             <a href="javascript:verifyIdentity();" class="btn btn-primary">Submit</a>
           </form>
           <div id="responseIdentity"></div>
+          <div id="responseIdentityStatus"></div>
         </div>
 
       </section>
@@ -154,8 +155,8 @@
           .done(function(data) {
               console.log("Status received");
               status = data.status;
-              $('#responseCredit').text(JSON.stringify(data));
-              $('#responseStatus').text(status);
+              $('#responseIdentity').text(JSON.stringify(data));
+              $('#responseIdentityStatus').text(status);
               if (status == 'APPROVED') {
                 console.log('thank goodness');
               } else {
@@ -176,8 +177,6 @@
       title = encodeURI('New credit request');
       body = encodeURI('moola.xyz is requesting your credit report');
       identity = $("#creditUsername").val();
-
-      // $( "#responseCredit" ).load( "/push.php?username=" + identity + "&title=" + title + "&body=" + body);
 
       var settings = {
           "url": "https://www.moola.xyz/push.php?username=" +identity + "&title=" + title + "&body=" + body,
@@ -212,7 +211,7 @@
               console.log("Status received");
               status = data.status;
               $('#responseCredit').text(JSON.stringify(data));
-              $('#responseStatus').text(status);
+              $('#responseCreditStatus').text(status);
               if (status == 'APPROVED') {
                 console.log('thank goodness');
               } else {
