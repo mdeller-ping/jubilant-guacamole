@@ -73,34 +73,36 @@
         <h2 class="mt-4">Data Privacy</h2>
         <p>Would you like to consent to sharing your credit score with 3rd parties?</p>
         <form method="POST">
-          <textarea class="form-control" style="height: 300px;" id="consentJson">{
-  "actor": "michael@example.com",
-  "subject": "michael@example.com",
-  "status": "accepted",
-  "audience": "credit",
-  "definition": {
-  "id": "creditScore",
-  "version": "1.0",
-    "locale": "en-US"
-  },
-  "dataText": "You agree to share this data...",
-  "purposeText": "This data will be used for...",
-  "titleText": "Share Your Data!",
-  "data": {
-     "implicit": [
-     	{
-     		"timestamp": "2020-02-21T04:04:57.066Z",
-     		"expires": "2020-03-21T04:04:57.066Z"
- 		} ]
-  },
-  "consentContext": {
-	  "captureMethod": "New Customer Registration",
-	  "subject": {
-	    "userAgent": "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10",
-	    "ipAddress": "10.1.0.89"
-	  }
-	}
-}</textarea>
+          <textarea class="form-control" style="height: 300px;" id="consentJson">
+{
+    "actor": "michael@example.com",
+    "subject": "michael@example.com",
+    "status": "accepted",
+    "audience": "credit",
+    "definition": {
+        "id": "creditScore",
+        "version": "1.0",
+        "locale": "en-US"
+    },
+    "dataText": "You agree to share this data...",
+    "purposeText": "This data will be used for...",
+    "titleText": "Share Your Data!",
+    "data": {
+        "implicit": [
+     	  {
+     	      "timestamp": "2020-02-21T04:04:57.066Z",
+     		    "expires": "2020-03-21T04:04:57.066Z"
+ 		    } ]
+    },
+    "consentContext": {
+	      "captureMethod": "New Customer Registration",
+  	    "subject": {
+  	      "userAgent": "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10",
+	        "ipAddress": "10.1.0.89"
+	      }
+    }
+}
+          </textarea>
 
           <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
           <a href="/profile/" class="btn btn-danger">Cancel</a>
@@ -164,7 +166,7 @@
           var ugly = document.getElementById('consentJson').value;
           var obj = JSON.parse(ugly);
           var pretty = JSON.stringify(obj, undefined, 4);
-          document.getElementById('myTextArea').value = pretty;
+          document.getElementById('consentJson').value = pretty;
         }
 
         function updateAccount() {
