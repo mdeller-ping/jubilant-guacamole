@@ -85,7 +85,22 @@
         "locale": "en-US"
     },
     "dataText": "You agree to share this data...",
-    "purposeText": "This data will be used for..."
+    "purposeText": "This data will be used for...",
+    "titleText": "Share Your Data!",
+    "data": {
+        "implicit": [
+            {
+              "timestamp": "2020-02-21T04:04:57.066Z",
+              "expires": "2020-03-21T04:04:57.066Z"
+        } ]
+    },
+    "consentContext": {
+        "captureMethod": "New Customer Registration",
+        "subject": {
+            "userAgent": "<?php echo $_SERVER['HTTP_USER_AGENT']?>",
+            "ipAddress": "<?php echo $_SERVER['HTTP_X_FORWARDED_FOR']?>"
+        }
+    }
 }
           </textarea>
 
