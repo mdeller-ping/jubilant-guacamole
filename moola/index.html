@@ -133,9 +133,32 @@
         }
       });
 
-      // check user's permission
+    }
 
-      // pull credit score
+    function getScore() {
+      // verify user has opted into consent via datagovernance
+
+      identity = $("#creditUsername").val();
+
+      var settings = {
+        "url": "https://auth.tu.demoenvi.com:1443/directory/v1/entryUUID=" + identity + ",ou=people,dc=example,dc=com?includeAttributes=transUnionCreditScore",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": "Basic Y249QWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl"
+        },
+      };
+
+      $.ajax(settings).done(function (response) {
+        creditSCore = response.transUnionCreditScore;
+        if (creditSCore) {
+          $('#userConsentStatus').text('Credit Score: ' + creditSCore);
+          initiatePush();
+        } else {
+          $('#userConsentStatus').text('Credit Score: UNAVAILABLE');
+        }
+      });
 
     }
 
@@ -178,6 +201,7 @@
               status = data.status;
               if (status == 'APPROVED') {
                 $('#userApprovalStatus').text('User Approval: APPROVED');
+                getScore();
               } else if (status == 'OTP') {
                 console.log('timeout');
                 $('#userApprovalStatus').text('User Approval: TIMEOUT');
