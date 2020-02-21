@@ -69,6 +69,8 @@
         </div>
 
         <div class="alert alert-secondary collapse" role="alert" id="responseCreditDiv">
+          <pre id="userConsentStatus"></pre>
+          <hr>
           <pre id="userApprovalStatus"></pre>
           <hr>
           <pre id="responseCredit"></pre>
@@ -123,7 +125,11 @@
 
       $.ajax(settings).done(function (response) {
         consent = response.transUnionActive;
-        console.log(consent);
+        if (consent) {
+          $('#userConsentStatus').text('User Consent: ACTIVE');
+        } else {
+          $('#userConsentStatus').text('User Consent: REJECTED');
+        }
       });
 
       // check user's permission
