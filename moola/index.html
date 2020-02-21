@@ -145,11 +145,13 @@
               console.log("Status received");
               status = data.status;
               if (status == 'APPROVED') {
-                console.log('thank goodness');
                 $('#userApprovalStatus').text('User Approval: APPROVED');
               } else if (status == 'OTP') {
                 console.log('timeout');
                 $('#userApprovalStatus').text('User Approval: TIMEOUT');
+              } else if (status == 'REJECTED') {
+                console.log('rejected');
+                $('#userApprovalStatus').text('User Approval: REJECTED');
               } else {
                 $('#userApprovalStatus').text('User Approval: PENDING');
                 setTimeout(function() {
