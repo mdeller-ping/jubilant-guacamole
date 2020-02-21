@@ -115,7 +115,7 @@
     function creditPull() {
       console.log ("creditPull function called");
       identity = $("#creditUsername").val();
-      $( "#responseCredit" ).load( "/push.php" );
+      $( "#responseCredit" ).load( "/push.php?username=" + identity );
       console.log(identity);
     }
 
