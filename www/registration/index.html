@@ -88,13 +88,13 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputDateOfBirth">Date of Birth (YYYY-MM-DD)</label>
-                    <input type="text" class="form-control" id="inputDateOfBirth" required>
+                    <input type="text" class="form-control" id="inputDateOfBirth" value="1980-01-05" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputLastFour">Last 4 Digits of Social Security Number</label>
-                    <input type="text" class="form-control" id="inputLastFour" required>
+                    <input type="text" class="form-control" id="inputLastFour" value="1234" required>
                 </div>
             </div>
 
@@ -293,8 +293,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <script>
-        let authHeader = 'Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl';
-        let pingDirectory = 'auth.tu.demoenvi.com:1443'
+        let authHeader = 'Y249ZGlyZWN0b3J5IG1hbmFnZXI6MkZlZGVyYXRlTTByZQ==';
+        let pingDirectory = 'dir.tu.demoenvi.com:8443';
+        let parentDn = 'ou=people,dc=example,dc=com';
 
         function submitPage1() {
             console.log('submitPage1 function called');
@@ -305,29 +306,27 @@
             dateOfBirth = $('#inputDateOfBirth').val();
             lastFour = $('#inputLastFour').val();
 
-            body = JSON.stringify({
-                "_parentDN": "ou=people,dc=example,dc=com",
-                "objectClass": ["transUnionPerson"],
-                "givenName": [firstName],
-                "transUnionMiddleName": middleName,
-                "sn": [lastName],
-                "cn": [firstName + " " + lastName],
-                "transUnionDOB": dateOfBirth,
-                "transUnionLastFour": lastFour,
-                "transUnionMFA": false,
-                "transUnionPlan": "None"
-            });
+            var data = {
+              "_parentDN":parentDn,
+              "objectClass":["transUnionPerson"],
+              "givenName":[firstName],
+              "transUnionMiddleName": middleName,
+              "sn": [lastName],
+              "cn": [firstName + " " + lastName],
+              "transUnionDOB": dateOfBirth,
+              "transUnionLastFour": lastFour,
+              "transUnionMFA": false,
+            }
 
             var settings = {
-                "url": "https://" + pingDirectory + "/directory/v1",
-                "method": "POST",
-                "accept": "json",
-                "timeout": 0,
-                "headers": {
-                    "Content-Type": "application/json",
-                    "Authorization": "Basic " + authHeader
-                },
-                "data": body
+              "url": "https://" + pingDirectory + "/directory/v1",
+              "method": "POST",
+              "timeout": 0,
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Basic Y249ZGlyZWN0b3J5IG1hbmFnZXI6MkZlZGVyYXRlTTByZQ=="
+              },
+              "data": JSON.stringify(data)
             };
 
             $.ajax(settings)
@@ -361,23 +360,25 @@
             sixMonths = $("input[name='inputSixMonths']:checked").val();
             sixMonths = (sixMonths == 'true');
 
-            body = JSON.stringify({
-                "street": [street],
-                "l": [city],
-                "st": [state],
-                "postalCode": [postalCode],
-                "transUnionMoreThanSixMonths": sixMonths,
-            });
+            console.log(distinguishedName);
+
+            var data = {
+              "street":[street],
+              "l":[city],
+              "st":[state],
+              "postalCode":[postalCode],
+              "transUnionMoreThanSixMonths":sixMonths
+            };
 
             var settings = {
-                "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
-                "method": "PUT",
-                "timeout": 0,
-                "headers": {
-                    "Content-Type": "application/json",
-                    "Authorization": "Basic " + authHeader
-                },
-                "data": body
+              "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
+              "method": "PUT",
+              "timeout": 0,
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Basic Y249ZGlyZWN0b3J5IG1hbmFnZXI6MkZlZGVyYXRlTTByZQ=="
+              },
+              "data": JSON.stringify(data)
             };
 
             $.ajax(settings)
@@ -395,7 +396,7 @@
                     $('#warningMessage').text(responseText.details[0].message);
                     $('#warningDiv').show();
                 })
-
+        
         }
 
         function getRandomInt(min, max) {
@@ -414,14 +415,14 @@
             mobile = $('#inputMobile').val();
             mail = $('#inputMail').val();
 
-            body = JSON.stringify({
+            var data = {
                 "uid": [mail],
                 "mail": [mail],
                 "userPassword": [password],
                 "mobile": [mobile],
                 "transUnionCreditScore": creditScore,
                 "transUnionActive": false
-            });
+            };
 
             var settings = {
                 "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
@@ -431,7 +432,7 @@
                     "Content-Type": "application/json",
                     "Authorization": "Basic " + authHeader
                 },
-                "data": body
+                "data": JSON.stringify(data)
             };
 
             $.ajax(settings)
