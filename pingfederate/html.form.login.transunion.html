@@ -48,6 +48,8 @@
                 </div>
             </div>
 
+            <input type="hidden" name="$passwordReset" value=""/>
+
             <input type="hidden" name="$ok" value="" />
 
             <a href="javascript:postOk();" class="btn btn-primary mt-5">
@@ -68,7 +70,9 @@
 
             </div>
 
-            <p><a href="https://auth.tu.demoenvi.com:9031/ext/pwdreset/Identify?AdapterId=HTMLFormPD">$templateMessages.getMessage($messageKeyPrefix, "forgotPassword")</a></p>
+            #if($supportsPasswordReset)
+            <p><a href="javascript:postForgotPassword();">$templateMessages.getMessage($messageKeyPrefix, "forgotPassword")</a></p>
+            #end
             <p><a href="https://www.tu.demoenvi.com/registration/">$templateMessages.getMessage($messageKeyPrefix, "registerNow")</a></p>
 
         </form>
@@ -100,6 +104,11 @@
 
         function postOk() {
             submitForm()
+        }
+
+        function postForgotPassword() {
+            document.forms[0]['$passwordReset'].value = 'clicked';
+            document.forms[0].submit();
         }
 
         function submitForm() {
