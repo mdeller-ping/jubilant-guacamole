@@ -14,7 +14,7 @@
 
   // reusable function to hand user back to pingfederate
 
-  function handoff($resumePath) {
+  function handoff($resumePath, $entryUUID) {
     $url = "https://auth.tu.demoenvi.com:9031/ext/ref/dropoff";
 
     $response = \Httpful\Request::post($url)
