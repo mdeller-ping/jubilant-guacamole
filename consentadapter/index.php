@@ -146,8 +146,6 @@
     $dataText = "{$response->body->dataText}";
     $purposeText = "{$response->body->purposeText}";
 
-  }
-
 ?>
 <!doctype html>
 
@@ -242,3 +240,4 @@
 </body>
 
 </html>
+<?php  } ?>
