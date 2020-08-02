@@ -7,7 +7,6 @@
   $referenceId = $_POST['REF'];
   $resumePath = $_POST['resumePath'];
   $definitionId = 'TransUnion_Terms_of_Service';
-  $ipAddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
   date_default_timezone_set('UTC');
   $timestamp = date("F j, Y, g:i a");
@@ -41,6 +40,8 @@
   if (isset($_POST['acceptConsent']) && $_POST['acceptConsent'] == 'True') {
 
     $entryUUID = $_POST['entryUUID'];
+    $ipAddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
     // record acceptance
 
@@ -64,7 +65,7 @@
       'consentContext' => array(
         'captureMethod' => 'ConsentAdapter',
         'subject' => array (
-          'userAgent' => 'asdf',
+          'userAgent' => $userAgent,
           'ipAddress' => $ipAddress
         )
       )
