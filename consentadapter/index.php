@@ -6,9 +6,8 @@
 
   $referenceId = $_POST['REF'];
   $resumePath = $_POST['resumePath'];
-  $entryUUID = $_POST['entryUUID'];
   $definitionId = 'TransUnion_Terms_of_Service';
-  $ipAddress = $_SERVER['HTTP_X_Forwarded_For'];
+  $ipAddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
   date_default_timezone_set('UTC');
   $timestamp = date("F j, Y, g:i a");
@@ -40,6 +39,8 @@
   // was the consent form just submit?
 
   if (isset($_POST['acceptConsent']) && $_POST['acceptConsent'] == 'True') {
+
+    $entryUUID = $_POST['entryUUID'];
 
     // record acceptance
 
