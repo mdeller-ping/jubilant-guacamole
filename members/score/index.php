@@ -1,19 +1,21 @@
 <!doctype html>
 <html lang="en">
-
 <?php
 
-$creditScore = $_SERVER['HTTP_X_PA_CREDITSCORE'];
+include ("httpful.phar");
 
-if ($creditScore > 799) {
-  $creditGrade = 'A';
-} elseif ($creditScore < 800 && $creditScore > 739) {
-  $creditGrade = 'B';
-} elseif ($creditScore < 740 && $creditScore > 669) {
-  $creditGrade = 'C';
-} else {
-  $creditGrade = 'D';
-}
+$entryUUID = $_SERVER['HTTP_X_PA_ENTRYUUID']; // dynamic
+# $entryUUID = 'b6afed76-56a2-4b57-893f-4a5f9b08a84d'; // melissa
+# $entryUUID = 'd8de3495-7aff-43e5-adea-b2fe4297bfed'; // jeremy
+# $entryUUID = 'def21274-e648-4690-ae07-d4d15b87910e'; // michael
+
+# $url = "http://api.tu.demoenvi.com:8080/score/";
+$url = "https://gov.tu.demoenvi.com:8443/tu/score/";
+
+$response = \Httpful\Request::get($url)
+  ->addHeader('Authorization', 'Bearer {"active": true, "sub": "' . $entryUUID .'", "scope": "nonexistent.scope", "client_id": "nonexistent.client"}')
+  ->expectsJson()
+  ->send();
 
 ?>
 
@@ -81,11 +83,26 @@ if ($creditScore > 799) {
   <div class="container">
 
     <div class="jumbotron" style="background-color: pink;">
-      <h1 class="display-4">Score: <?php echo $creditScore ?></h1>
-      <p class="lead">Grade: <?php echo $creditGrade ?></p>
+      <h1 class="display-8">TransUnion Score: <?php echo "{$response->body->TransUnionScore}"?></h1>
+      <h1 class="display-8">Experian Score: <?php echo "{$response->body->ExperianScore}"?></h1>
+      <h1 class="display-8">Equifax Score: <?php echo "{$response->body->EquifaxScore}"?></h1>
       <hr class="my-4">
-      <p>There are many different scoring models that predict different types of consumer behavior, such as likelihood to carry a balance on a revolving account, or the likelihood to fall behind on an account. The scoring models are based on many factors including debt to income ratio, number of delinquent payments, or number of open accounts. Each creditor has different criteria for granting credit and might view the credit information differently. Any creditor using a score to deny credit must tell you which item(s) in your credit report contributed to the decision.</p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      <p>An appropriate subscription <a href="/profile/plan/">plan</a> is required to see complete credit scores.</p>
+      <a class="btn btn-primary btn-lg mt-5" href="/education/" role="button">Learn more</a>
+    </div>
+
+    <br />
+    <br />
+
+    <a href="#" onclick="toggleRaw();">Toggle Raw</a>
+
+    <br />
+    <br />
+
+    <div style="display:none" id="rawDiv">
+      <pre class='alert alert-warning'>GET <?php echo $url ?></pre>
+      <pre class='alert alert-primary'><?php echo $response ?>
+      </pre>
     </div>
 
   </div>
@@ -128,6 +145,12 @@ if ($creditScore > 799) {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+
+  <script>
+    function toggleRaw() {
+      $('#rawDiv').toggle();
+    }
+  </script>
 </body>
 
 </html>
