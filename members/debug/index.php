@@ -31,15 +31,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/report/">Report</a>
         </li>
-        <?php
-          if ($_SERVER['HTTP_X_PA_PLAN'] != 'None') {
-        ?>
         <li class="nav-item">
           <a class="nav-link" href="/score/">Score</a>
         </li>
-        <?php
-        }
-        ?>
         <li class="nav-item">
           <a class="nav-link" href="/profile/">My Profile</a>
         </li>
@@ -59,14 +53,16 @@
   </nav>
   <!-- /navigation -->
 
- 
-<?php
-
-foreach (getallheaders() as $key=> $value) {
-    print "$key=> $value<br>\n";
-}
-
-?>
+  <div class="card">
+        <div class="card-header">
+          All Headers
+        </div>
+        <ul class="list-group list-group-flush">
+<?php foreach (getallheaders() as $key=>$value) { ?>
+    <li class="list-group-item"><?php echo $key?>: <?php echo $value ?></li>
+<?php } ?>
+        </ul>
+      </div>
 
     <!-- footer -->
     <nav class="navbar navbar-light bg-light">
