@@ -1,6 +1,6 @@
 <?php
 
-  require('../httpful.phar');
+  require('httpful.phar');
 
   // get stuff from form post
 
