@@ -79,7 +79,7 @@
     $status = "{$response->body->status}";
 
     if ($status == 'accepted') {
-      handoff($resumePath);
+      handoff($resumePath, $entryUUID);
     } else {
       //bad news bears
       exit();
@@ -127,7 +127,7 @@
 
       // the consent is active and matches the current version of the definition
 
-      handoff($resumePath);
+      handoff($resumePath, $entryUUID);
 
     }
 
