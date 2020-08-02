@@ -85,66 +85,68 @@
       exit();
     }
 
-  }
+  } else {
 
-  // query pingfederate for this referencId
-  
-  $url = "https://auth.tu.demoenvi.com:9031/ext/ref/pickup?REF=" . $referenceId;
+    // query pingfederate for this referenceId
+    
+    $url = "https://auth.tu.demoenvi.com:9031/ext/ref/pickup?REF=" . $referenceId;
 
-  $response = \Httpful\Request::get($url)
-    ->authenticateWith('ConsentAdapter', '2FederateM0re')
+    $response = \Httpful\Request::get($url)
+      ->authenticateWith('ConsentAdapter', '2FederateM0re')
+      ->expectsJson()
+      ->send();
+
+    $entryUUID = "{$response->body->{'chainedattr.entryUUID'}}";
+
+    if (! $entryUUID) {
+      // should not happen
+      echo "unable to translate reference id to entryuuid";
+      exit();
+    }
+
+    // look in pingdirectory for current consent
+
+    $url = "https://dir.tu.demoenvi.com:8443/consent/v1/consents?actor=" . $entryUUID;
+
+    $response = \Httpful\Request::get($url)
+    ->authenticateWith('cn=Directory Manager', '2FederateM0re')
     ->expectsJson()
     ->send();
 
-  $entryUUID = "{$response->body->{'chainedattr.entryUUID'}}";
+    $responseCount = "{$response->body->size}";
+    
+    // iterate thru existing consents to find any
 
-  if (! $entryUUID) {
-    // should not happen
-    echo "unable to translate reference id to entryuuid";
-    exit();
-  }
+    for ($x = 0; $x < $responseCount; $x = $x + 1) {
 
-  // look in pingdirectory for current consent
+      $status = "{$response->body->_embedded->consents[$x]->status}";
+      $version = "{$response->body->_embedded->consents[$x]->definition->version}";
+      $currentVersion = "{$response->body->_embedded->consents[$x]->definition->version}";
 
-  $url = "https://dir.tu.demoenvi.com:8443/consent/v1/consents?actor=" . $entryUUID;
+      if ($status == 'accepted' && $version == $currentVersion) {
 
-  $response = \Httpful\Request::get($url)
-  ->authenticateWith('cn=Directory Manager', '2FederateM0re')
-  ->expectsJson()
-  ->send();
+        // the consent is active and matches the current version of the definition
 
-  $responseCount = "{$response->body->size}";
-  
-  // iterate thru existing consents to find any
+        handoff($resumePath, $entryUUID);
 
-  for ($x = 0; $x < $responseCount; $x = $x + 1) {
-
-    $status = "{$response->body->_embedded->consents[$x]->status}";
-    $version = "{$response->body->_embedded->consents[$x]->definition->version}";
-    $currentVersion = "{$response->body->_embedded->consents[$x]->definition->version}";
-
-    if ($status == 'accepted' && $version == $currentVersion) {
-
-      // the consent is active and matches the current version of the definition
-
-      handoff($resumePath, $entryUUID);
+      }
 
     }
 
+    // the user does not have a consent. look up definition
+
+    $url = "https://dir.tu.demoenvi.com:8443/consent/v1/definitions/" . $definitionId . "/localizations/en";
+
+    $response = \Httpful\Request::get($url)
+    ->authenticateWith('cn=Directory Manager', '2FederateM0re')
+    ->expectsJson()
+    ->send();
+
+    $titleText = "{$response->body->titleText}";
+    $dataText = "{$response->body->dataText}";
+    $purposeText = "{$response->body->purposeText}";
+
   }
-
-  // the user does not have a consent. look up definition
-
-  $url = "https://dir.tu.demoenvi.com:8443/consent/v1/definitions/" . $definitionId . "/localizations/en";
-
-  $response = \Httpful\Request::get($url)
-  ->authenticateWith('cn=Directory Manager', '2FederateM0re')
-  ->expectsJson()
-  ->send();
-
-  $titleText = "{$response->body->titleText}";
-  $dataText = "{$response->body->dataText}";
-  $purposeText = "{$response->body->purposeText}";
 
 ?>
 <!doctype html>
