@@ -1,5 +1,7 @@
 <?php
 
+require("../../httpful.phar");
+
 $consentId = $_GET['consent'];
 if (! $consentId) {
   header ("Location: /");
