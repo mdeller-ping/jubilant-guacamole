@@ -87,7 +87,7 @@
 
   $responseCount = "{$response->body->size}";
   $responseData = json_decode($response);
-  $response = json_encode($responseData, JSON_PRETTY_PRINT);
+  $responsePretty = json_encode($responseData, JSON_PRETTY_PRINT);
 
   // iterate thru existing consents to find any
 
@@ -122,7 +122,7 @@
 
       <div style="display:none" id="rawDiv">
         <pre class='alert alert-warning'>GET <?php echo $url ?></pre>
-        <pre class='alert alert-primary' style="height: 500px;"><?php echo $response ?></pre>
+        <pre class='alert alert-primary' style="height: 500px;"><?php echo $responsePretty ?></pre>
       </div>
 
       <br />
