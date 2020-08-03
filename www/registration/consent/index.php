@@ -2,7 +2,7 @@
 
   require('httpful.phar');
 
-  // get stuff from form post
+  // ALL - get stuff from form post
 
   $referenceId = $_POST['REF'];
   $resumePath = $_POST['resumePath'];
@@ -29,13 +29,13 @@
     header ("Location: " . $url);
   }
 
-  // get rid of people who show up without referenceId or resumePath
+  // NONE - get rid of people who show up without referenceId or resumePath
 
   if (! $referenceId || ! $resumePath) {
     header ('Location: https://www.tu.demoenvi.com');
   }
 
-  // was the consent form just submit?
+  // NEW - was the consent form just submit?
 
   if (isset($_POST['acceptConsent']) && $_POST['acceptConsent'] == 'True') {
 
@@ -88,7 +88,7 @@
 
   } else {
 
-    // query pingfederate for this referenceId
+    // UNKNOWN - query pingfederate for this referenceId
     
     $url = "https://auth.tu.demoenvi.com:9031/ext/ref/pickup?REF=" . $referenceId;
 
@@ -100,12 +100,12 @@
     $entryUUID = "{$response->body->{'chainedattr.entryUUID'}}";
 
     if (! $entryUUID) {
-      // should not happen
+      // NONE - should not happen
       echo "unable to translate reference id to entryuuid";
       exit();
     }
 
-    // look in pingdirectory for current consent
+    // UNKNOWN - look in pingdirectory for current consent
 
     $url = "https://dir.tu.demoenvi.com:8443/consent/v1/consents?actor=" . $entryUUID;
 
@@ -120,21 +120,31 @@
 
     for ($x = 0; $x < $responseCount; $x = $x + 1) {
 
+      $id = "{$response->body->_embedded->consents[$x]->id}";
       $status = "{$response->body->_embedded->consents[$x]->status}";
       $version = "{$response->body->_embedded->consents[$x]->definition->version}";
       $currentVersion = "{$response->body->_embedded->consents[$x]->definition->version}";
 
+      echo $id . "<br>";
+      echo $status . "<br>";
+      echo $version . "<br>";
+      echo $currentVersion . "<br>";
+
       if ($status == 'accepted' && $version == $currentVersion) {
 
-        // the consent is active and matches the current version of the definition
+        // EXISTING - the consent is active and matches the current version of the definition
 
-        handoff($resumePath, $entryUUID);
+        echo "handoff<br>";
+        
+        // handoff($resumePath, $entryUUID);
 
       }
 
+      exit();
+
     }
 
-    // the user does not have a consent. look up definition
+    // NEW - the user does not have a consent. look up definition
 
     $url = "https://dir.tu.demoenvi.com:8443/consent/v1/definitions/" . $definitionId . "/localizations/en";
 
