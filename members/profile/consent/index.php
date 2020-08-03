@@ -56,73 +56,40 @@
     <!-- hero banner -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Two ways to be in the know with TransUnion &reg;</h1>
-            <p class="lead">Know where you stand. Protect what you've built. See the way forward.</p>
+            <h1 class="display-4">My Consents</h1>
+            <p class="lead">The list below shows your complete list of consents as well as their current status.</p>
         </div>
     </div>
     <!-- /hero banner -->
 
-    <!-- accountUpdateDiv -->
-    <div class="container mt-5" id="accountUpdateDiv">
-        <h2 class="mt-4">Data Privacy</h2>
-        <p>Would you like to consent to sharing your credit score with 3rd parties?</p>
-        <form method="POST">
-          <div class="form-group col-md-6">
-            <select class="form-control" id="inputConsent">
-              <option value='true' <?php if ($_SERVER['HTTP_X_PA_CONSENT'] == 'TRUE') echo ' selected' ?>>Enabled</option>
-              <option value='false' <?php if ($_SERVER['HTTP_X_PA_CONSENT'] == 'FALSE') echo ' selected' ?>>Disabled</option>
-            </select>
-          </div>
-          <a href="#" class="btn btn-primary mt-5 mb-5" onclick="javascript:updateAccount();">Update</a>
-          <a href="/profile/" class="btn btn-danger">Cancel</a>
-        </form>
-        <textarea class="form-control" style="height: 300px;" id="consentJson">
-{
-    "actor": "<?php echo $_SERVER['HTTP_X_PA_MAIL']?>",
-    "subject": "<?php echo $_SERVER['HTTP_X_PA_MAIL']?>",
-    "status": "accepted",
-    "audience": "credit",
-    "definition": {
-        "id": "creditScore",
-        "version": "1.0",
-        "locale": "en-US"
-    },
-    "dataText": "You agree to share this data...",
-    "purposeText": "This data will be used for...",
-    "titleText": "Share Your Data!",
-    "data": {
-        "implicit": [
-            {
-              "timestamp": "2020-02-21T04:04:57.066Z",
-              "expires": "2020-03-21T04:04:57.066Z"
-        } ]
-    },
-    "consentContext": {
-        "captureMethod": "Member portal preferences update",
-        "subject": {
-            "userAgent": "<?php echo $_SERVER['HTTP_USER_AGENT']?>",
-            "ipAddress": "<?php echo $_SERVER['HTTP_X_FORWARDED_FOR']?>"
-        }
-    }
-}
-          </textarea>
+    <div class="container mt-5" style="height: 500px; overflow: auto;">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td>Consent ID</td><td>Status</td><td>Date Created</td>
+        </tr>
+      </thead>
+    </table>
+
+    <div class="container">
+
+      <br />
+      <br />
+
+      <a href="#" onclick="toggleRaw();">Toggle Raw</a>
+
+      <br />
+      <br />
+
+      <div style="display:none" id="rawDiv">
+        <pre class='alert alert-warning'>GET https://int-docker.anyhealth-demo.ping-eng.com:1443/consent/v1/consents</pre>
+        <pre class='alert alert-primary' style="height: 500px;"><?php echo $response ?></pre>
+      </div>
+
+      <br />
+      <br />
 
     </div>
-    <!-- /accountUpdateDiv -->
-
-    <!-- all done -->
-    <div class="container mt-5 collapse" id="allDoneDiv">
-        <h2 class="mt-4">Thank You</h2>
-        <p class="mt-5 mb-5">Your account has been updated.</p>
-        <a href="/profile" class="btn btn-primary">Done</a>
-    </div>
-    <!-- /all done -->
-
-    <!-- warningDiv -->
-    <div class="container collapse mt-4" id="warningDiv">
-        <div class="alert alert-warning" id="warningMessage">pending</div>
-    </div>
-    <!-- /warningDiv -->
 
     <!-- footer -->
     <nav class="navbar navbar-light bg-light mt-5">
