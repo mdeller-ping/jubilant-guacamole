@@ -104,7 +104,7 @@
       <tr>
         <td><a href="inspect/?consent=<?php echo $id ?>"><?php echo $id ?></td>
         <td><?php echo $status ?></td>
-        <td><?php echo $definitionId ?></td>
+        <td><?php echo $definitionId ?>(<?php echo $version ?>)</td>
         <td><?php echo $createdDate ?></td>
       </tr>
 
