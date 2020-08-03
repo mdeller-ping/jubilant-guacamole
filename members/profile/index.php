@@ -134,7 +134,7 @@
                 <a href="/debug/">Debug Information</a>
             </div>
             <div class="col-sm lead">
-                <a href="/profile/consent/">My Consent</a><br>
+                <a href="/profile/consent/">My Consents</a><br>
             </div>
         </div>
     </div>
