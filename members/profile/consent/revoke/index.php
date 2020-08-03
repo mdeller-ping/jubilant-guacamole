@@ -1,6 +1,6 @@
 <?php
 
-require("../../httpful.phar");
+require("../httpful.phar");
 
 $consentId = $_GET['consent'];
 if (! $consentId) {
