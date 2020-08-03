@@ -140,8 +140,6 @@
 
       }
 
-      exit();
-
     }
 
     // NEW - the user does not have a consent. look up definition
