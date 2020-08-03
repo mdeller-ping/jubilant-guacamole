@@ -31,15 +31,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/report/">Report</a>
         </li>
-        <?php
-          if ($_SERVER['HTTP_X_PA_PLAN'] != 'None') {
-        ?>
         <li class="nav-item">
           <a class="nav-link" href="/score/">Score</a>
         </li>
-        <?php
-        }
-        ?>
         <li class="nav-item">
           <a class="nav-link" href="/profile/">My Profile</a>
         </li>
@@ -149,11 +143,17 @@
         <hr>
 
         <div class="row">
-            <div class="col-sm lead">
-                <strong>Immutable Identifier</strong>
+            <div class="col-sm lead text-muted">
+                Immutable Identifier<br />
+                Account Creation<br />
+                Last Modified<br />
+                Last Password Change
             </div>
-            <div class="col-sm lead">
-                <?php echo $_SERVER['HTTP_X_PA_ENTRYUUID'] ?>
+            <div class="col-sm lead text-muted">
+                <?php echo $_SERVER['HTTP_X_PA_ENTRYUUID'] ?><br />
+                <?php echo $_SERVER['HTTP_X_PA_CREATETIMESTAMP'] ?><br />
+                <?php echo $_SERVER['HTTP_X_PA_MODIFYTIMESTAMP'] ?><br />
+                <?php echo $_SERVER['HTTP_X_PA_PWDCHANGETIMESTAMP'] ?><br />
             </div>
         </div>
     </div>
