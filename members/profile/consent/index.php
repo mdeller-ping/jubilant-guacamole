@@ -102,7 +102,7 @@
 ?>
 
       <tr>
-        <td><?php echo $id ?></td>
+        <td><a href="inspect/?consent=<?php echo $id ?>"><?php echo $id ?></p></td>
         <td><?php echo $status ?></td>
         <td><?php echo $definitionId ?></td>
         <td><?php echo $createdDate ?></td>
