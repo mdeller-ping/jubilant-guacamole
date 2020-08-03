@@ -42,6 +42,7 @@
     $entryUUID = $_POST['entryUUID'];
     $ipAddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
     $userAgent = $_SERVER['HTTP_USER_AGENT'];
+    $version = $_POST['version'];
 
     // record acceptance
 
@@ -54,7 +55,7 @@
       'audience' => 'ConsentAdapter',
       'definition' => array(
         'id' => 'TransUnion_Terms_of_Service',
-        'version' => '1.3',
+        'version' => $version,
         'locale' => 'en'
       ),
       'dataText' => 'dataText',
@@ -146,6 +147,7 @@
     $titleText = "{$response->body->titleText}";
     $dataText = "{$response->body->dataText}";
     $purposeText = "{$response->body->purposeText}";
+    $version = "{$response->body->version}";
 
 ?>
 <!doctype html>
@@ -189,6 +191,7 @@
             <input type="hidden" value="<?php echo $referenceId; ?>" name="REF" />
             <input type="hidden" value="<?php echo $resumePath; ?>" name="resumePath" />
             <input type="hidden" value="<?php echo $entryUUID; ?>" name="entryUUID" />
+            <input type="hidden" value="<?php echo $version; ?>" name="version" />
 
             <a href="javascript:postOk();" class="btn btn-primary mt-5">
                 Continue
