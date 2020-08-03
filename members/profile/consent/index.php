@@ -66,7 +66,7 @@
     </div>
     <!-- /hero banner -->
 
-    <div class="container mt-5" style="height: 500px; overflow: auto;">
+    <div class="container mt-5" style="height: 300px; overflow: auto;">
     <table class="table table-bordered">
       <thead>
         <tr>
