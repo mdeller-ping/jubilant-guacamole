@@ -97,7 +97,7 @@
     <li class="list-group-item">
 <?php
   if ($responseData->status == "accepted") { ?>
-      Status: <a href="revoke/?consent=?<?php echo $consentId ?>"><?php echo $responseData->status ?></a><br>
+      Status: <a href="revoke/?consent=<?php echo $consentId ?>"><?php echo $responseData->status ?></a><br>
 <?php  } else { ?>
       Status: <?php echo $responseData->status ?><br>
 <?php  } ?>
