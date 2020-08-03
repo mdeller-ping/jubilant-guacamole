@@ -70,6 +70,8 @@
 
     <div class="container mt-5">
 
+      <a href="/profile/consent/">Back to list</a>
+
 <?php
 
     // look in pingdirectory for current consent
