@@ -131,10 +131,10 @@
                 <a href="#">Communication Settings</a><br>
                 <a href="#">Marketing Communications</a><br>
                 <a href="#">Language</a><br>
-
+                <a href="/debug/">Debug Information</a>
             </div>
             <div class="col-sm lead">
-                <a href="/profile/consent/">Delegated Consent</a><br>
+                <a href="/profile/consent/">My Consent</a><br>
             </div>
         </div>
     </div>
