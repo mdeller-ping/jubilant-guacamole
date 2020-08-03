@@ -1,3 +1,7 @@
+<?php
+  require("httpful.phar");
+  $entryUUID = $_SERVER['HTTP_X_PA_ENTRYUUID'];
+?>
 <!doctype html>
 <html lang="en">
 
@@ -69,6 +73,38 @@
           <td>Consent ID</td><td>Status</td><td>Date Created</td>
         </tr>
       </thead>
+
+<?php
+
+  // look in pingdirectory for current consent
+
+  $url = "https://dir.tu.demoenvi.com:8443/consent/v1/consents?actor=" . $entryUUID;
+
+  $response = \Httpful\Request::get($url)
+  ->authenticateWith('cn=Directory Manager', '2FederateM0re')
+  ->expectsJson()
+  ->send();
+
+  $responseCount = "{$response->body->size}";
+
+  // iterate thru existing consents to find any
+
+  for ($x = 0; $x < $responseCount; $x = $x + 1) {
+
+    $status = "{$response->body->_embedded->consents[$x]->status}";
+    $version = "{$response->body->_embedded->consents[$x]->definition->version}";
+    $currentVersion = "{$response->body->_embedded->consents[$x]->definition->version}";
+
+?>
+
+      <tr>
+        <td><?php echo $status ?></td>
+        <td><?php echo $version ?></td>
+        <td><?php echo $currentVersion ?></td>
+      </tr>
+
+<?php } ?>
+
     </table>
 
     <div class="container">
@@ -125,47 +161,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <script>
-        let authHeader = 'Y249YWRtaW5pc3RyYXRvcjoyRmVkZXJhdGVNMHJl';
-        let pingDirectory = 'auth.tu.demoenvi.com:1443'
-        let distinguishedName = '<?php echo $_SERVER['HTTP_X_PA_DN'] ?>';
-
-        function updateAccount() {
-            console.log('updateAccount function called');
-
-            consent = $('#inputConsent').val();
-            consent = (consent == 'true');
-
-            body = JSON.stringify({
-                "transUnionActive": consent
-            });
-
-            var settings = {
-                "url": "https://" + pingDirectory + "/directory/v1/" + distinguishedName,
-                "method": "PUT",
-                "timeout": 0,
-                "headers": {
-                    "Content-Type": "application/json",
-                    "Authorization": "Basic " + authHeader
-                },
-                "data": body
-            };
-
-            $.ajax(settings)
-                .done(function(data) {
-                    console.log("Account Updated");
-                    $('#warningMessage').text('');
-                    $('#warningDiv').hide();
-                    $('#accountUpdateDiv').hide();
-                    $('#allDoneDiv').show();
-                })
-                .fail(function(data, status, error) {
-                    console.log("Unable to update");
-                    var responseText = $.parseJSON(data.responseText);
-                    $('#warningMessage').text(responseText.details[0].message);
-                    $('#warningDiv').show();
-                })
-
-        }
+      function toggleRaw() {
+        $('#rawDiv').toggle();
+      }
     </script>
 </body>
 
