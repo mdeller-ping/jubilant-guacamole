@@ -86,6 +86,8 @@
   ->send();
 
   $responseCount = "{$response->body->size}";
+  $responseData = json_decode($response);
+  $response = json_encode($responseData, JSON_PRETTY_PRINT);
 
   // iterate thru existing consents to find any
 
