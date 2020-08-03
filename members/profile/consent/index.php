@@ -70,7 +70,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <td>Consent ID</td><td>Status</td><td>Date Created</td>
+          <td>Consent ID</td><td>Status</td><td>Title</td><td>Date Created</td>
         </tr>
       </thead>
 
@@ -93,16 +93,20 @@
 
   for ($x = 0; $x < $responseCount; $x = $x + 1) {
 
+    $id = "{$response->body->_embedded->consents[$x]->id}";
     $status = "{$response->body->_embedded->consents[$x]->status}";
+    $createdDate = "{$response->body->_embedded->consents[$x]->createdDate}";
     $version = "{$response->body->_embedded->consents[$x]->definition->version}";
-    $currentVersion = "{$response->body->_embedded->consents[$x]->definition->version}";
+    $title = "{$response->body->_embedded->consents[$x]->definition->title}";
+
 
 ?>
 
       <tr>
+        <td><?php echo $id ?></td>
         <td><?php echo $status ?></td>
-        <td><?php echo $version ?></td>
-        <td><?php echo $currentVersion ?></td>
+        <td><?php echo $title ?></td>
+        <td><?php echo $createdDate ?></td>
       </tr>
 
 <?php } ?>
