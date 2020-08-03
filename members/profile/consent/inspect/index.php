@@ -94,11 +94,17 @@
     <?php echo $consentId ?>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><?php echo $responseData->status ?></li>
+    <li class="list-group-item">
+<?php
+  if ($responseData->status == "accepted") { ?>
+      Status: <a href="revoke/?consent=?<?php echo $consentId ?>"><?php echo $responseData->status ?></a><br>
+<?php  } else { ?>
+      Status: <?php echo $responseData->status ?><br>
+<?php  } ?>
+    </li>
     <li class="list-group-item">
       Creation Date: <?php echo $responseData->createdDate ?><br>
       Last Updated: <?php echo $responseData->updatedDate ?><br>
-      Expiration Date: <?php echo $responseData->data->implicit[0]->expires ?><br>
     <li class="list-group-item">
       id: <?php echo $responseData->definition->id ?><br>
       version: <?php echo $responseData->definition->version ?><br>
@@ -110,8 +116,6 @@
       IP Address: <?php echo $responseData->consentContext->subject->ipAddress ?><br>
       User Agent: <?php echo $responseData->consentContext->subject->userAgent ?><br>
     </li>
-    <li class="list-group-item">Purpose: <?php echo $responseData->dataText ?></li>
-    <li class="list-group-item">Consented Person(s): <?php echo $responseData->data->implicit[0]->relationship ?><br>
   </ul>
 </div>
 
