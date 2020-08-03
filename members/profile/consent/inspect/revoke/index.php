@@ -15,8 +15,8 @@ $response = \Httpful\Request::patch($url)
 ->body(['status' => 'revoked'])
 ->send();
 
-echo $response;
+// echo $response;
 
-// header ("Location: " . $url);
+header ("Location: /profile/");
 
 ?>
