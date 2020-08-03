@@ -72,8 +72,8 @@
 
         <div class="row">
             <div class="col-sm lead">
-                <a href="#">STRINGRAY Login</a><br>
-                <a href="#">TLOxp User Login</a><br>
+                <a href="#">STRINGRAY</a><br>
+                <a href="#">TLOxp User</a><br>
                 <a href="#">TransUnion ResidentScreening</a><br>
             </div>
             <div class="col-sm lead">
@@ -89,13 +89,7 @@
 
         <div class="row">
             <div class="col-sm lead">
-                <strong>Membership & Billing</strong>
-            </div>
-            <div class="col-sm lead">
-                <?php echo $_SERVER['HTTP_X_PA_PLAN'] ?>
-            </div>
-            <div class="col-sm lead">
-                <a href="/profile/plan/">Change Plan</a>
+                <a href="/subscriptions/">Manage Subscriptions</a>
             </div>
             <div class="col-sm lead">
             <a href="/debug/">Debug Information</a>
