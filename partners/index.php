@@ -28,20 +28,8 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto mt-4">
-        <li class="nav-item">
-          <a class="nav-link" href="/report/">Report</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/score/">Score</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/profile/">My Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/help/">Help</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/education/">Education</a>
+        <li class="nav-item text-muted">
+          &nbsp;
         </li>
       </ul>
       <ul class="navbar-nav text-right mt-4">
@@ -54,34 +42,27 @@
   <!-- /navigation -->
 
     <!-- hero banner -->
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron alert-primary jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Two ways to be in the know with TransUnion &reg;</h1>
-            <p class="lead">Know where you stand. Protect what you've built. See the way forward.</p>
+            <h1 class="display-4">TransUnion&reg; Business Products</h1>
+            <p class="lead">TransUnion makes trust possible — ensuring consumers and organizations can transact with confidence and achieve great things.</p>
         </div>
     </div>
     <!-- /hero banner -->
 
-    <div class="container mt-5">
-        <h2 class="display-4">Account</h2>
-    </div>
-
     <div class="container mb-5">
         <hr>
 
         <div class="row">
             <div class="col-sm lead">
-                <strong>Contact Information</strong>
+                <a href="#">Auditz Client Portal</a><br>
+                <a href="#">Client Technical Services</a><br>
+                <a href="#">eScan Client Portal</a><br>
             </div>
             <div class="col-sm lead">
-                <?php echo $_SERVER['HTTP_X_PA_CN'] ?><br>
-                <?php echo $_SERVER['HTTP_X_PA_MAIL'] ?><br>
-                <?php echo $_SERVER['HTTP_X_PA_MOBILE'] ?><br>
-            </div>
-            <div class="col-sm lead">
-                <a href="/profile/personal/">Personal Information</a><br>
-                <a href="/profile/email/">Change Account Email</a><br>
-                <a href="/profile/telephone/">Change Phone Number</a><br>
+                <a href="#">FactorTrust</a><br>
+                <a href="#">Healthcare Solutions Portal</a><br>
+                <a href="#">Partner Portal</a><br>
             </div>
         </div>
     </div>
@@ -91,15 +72,14 @@
 
         <div class="row">
             <div class="col-sm lead">
-                <strong>Security</strong>
+                <a href="#">STRINGRAY Login</a><br>
+                <a href="#">TLOxp User Login</a><br>
+                <a href="#">TransUnion ResidentScreening</a><br>
             </div>
             <div class="col-sm lead">
-                Password: ***********<br>
-                MultiFactor: <?php if ($_SERVER['HTTP_X_PA_MFA'] == 'TRUE') { echo 'Enabled'; } else { echo 'Disabled'; } ?><br>
-            </div>
-            <div class="col-sm lead">
-                <a href="/profile/password/">Change Password</a><br>
-                <a href="/profile/multifactor/">MultiFactor</a><br>
+                <a href="#">TransUnion Direct</a><br>
+                <a href="#">TransUnion SmartMove</a><br>
+                <a href="#">TransUnion Background Data</a><br>
             </div>
         </div>
     </div>
@@ -117,24 +97,8 @@
             <div class="col-sm lead">
                 <a href="/profile/plan/">Change Plan</a>
             </div>
-        </div>
-    </div>
-
-    <div class="container mb-5">
-        <hr>
-
-        <div class="row">
             <div class="col-sm lead">
-                <strong>Preferences</strong>
-            </div>
-            <div class="col-sm lead">
-                <a href="#">Communication Settings</a><br>
-                <a href="#">Marketing Communications</a><br>
-                <a href="#">Language</a><br>
-                <a href="/debug/">Debug Information</a>
-            </div>
-            <div class="col-sm lead">
-                <a href="/profile/consent/">My Consents</a><br>
+            <a href="/debug/">Debug Information</a>
             </div>
         </div>
     </div>
@@ -166,12 +130,6 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container">
             <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.tu.demoenvi.com/registration/">Sign up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://members.tu.demoenvi.com/">Member login</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About us</a>
                 </li>

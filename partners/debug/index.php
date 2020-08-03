@@ -11,7 +11,7 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link type="image/x-icon" href="//assets.transunion.com/resources/img/ico/favicon.ico" rel="shortcut icon">
 
-  <title>Member Portal</title>
+  <title>Partner Portal</title>
 </head>
 
 <body>
@@ -28,30 +28,30 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto mt-4">
-        <li class="nav-item">
-          <a class="nav-link" href="/report/">Report</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/score/">Score</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/profile/">My Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/help/">Help</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/education/">Education</a>
+        <li class="nav-item text-muted">
+          &nbsp;
         </li>
       </ul>
       <ul class="navbar-nav text-right mt-4">
         <li class="nav-item">
-          <a class="btn btn-outline-warning btn" href="/pa/oidc/logout">Log Out</a>
+          <a class="btn btn-outline-warning" href="/pa/oidc/logout">Log Out</a>
         </li>
       </ul>
     </div>
   </nav>
   <!-- /navigation -->
+
+    <!-- hero banner -->
+    <div class="jumbotron alert-primary jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">TransUnion&reg; Business Products</h1>
+            <p class="lead">TransUnion makes trust possible — ensuring consumers and organizations can transact with confidence and achieve great things.</p>
+        </div>
+    </div>
+    <!-- /hero banner -->
+
+    <div class="container mb-5">
+
 
   <div class="card">
         <div class="card-header">
@@ -64,16 +64,12 @@
         </ul>
       </div>
 
+    </div>
+
     <!-- footer -->
     <nav class="navbar navbar-light bg-light">
         <div class="container">
             <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.tu.demoenvi.com/registration/">Sign up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://members.tu.demoenvi.com/">Member login</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About us</a>
                 </li>
