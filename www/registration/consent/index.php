@@ -54,7 +54,7 @@
       'audience' => 'ConsentAdapter',
       'definition' => array(
         'id' => 'TransUnion_Terms_of_Service',
-        'version' => '1.2',
+        'version' => '1.3',
         'locale' => 'en'
       ),
       'dataText' => 'dataText',
