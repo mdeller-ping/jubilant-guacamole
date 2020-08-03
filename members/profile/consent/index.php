@@ -97,15 +97,14 @@
     $status = "{$response->body->_embedded->consents[$x]->status}";
     $createdDate = "{$response->body->_embedded->consents[$x]->createdDate}";
     $version = "{$response->body->_embedded->consents[$x]->definition->version}";
-    $title = "{$response->body->_embedded->consents[$x]->definition->title}";
-
+    $definitionId = "{$response->body->_embedded->consents[$x]->definition->id}";
 
 ?>
 
       <tr>
         <td><?php echo $id ?></td>
         <td><?php echo $status ?></td>
-        <td><?php echo $title ?></td>
+        <td><?php echo $definitionId ?></td>
         <td><?php echo $createdDate ?></td>
       </tr>
 
