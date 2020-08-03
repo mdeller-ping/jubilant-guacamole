@@ -70,8 +70,6 @@
 
     <div class="container mt-5">
 
-      <a href="/profile/consent/">Back to list</a>
-
 <?php
 
     // look in pingdirectory for current consent
@@ -128,7 +126,8 @@
 <br />
 <br />
 
-<a href="#" onclick="toggleRaw();">Toggle Raw</a>
+<a href="#" onclick="toggleRaw();">Toggle Raw</a><br>
+<a href="/profile/consent/">Back to Consents</a>
 
 <br />
 <br />

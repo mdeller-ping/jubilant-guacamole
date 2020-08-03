@@ -118,7 +118,8 @@
       <br />
       <br />
 
-      <a href="#" onclick="toggleRaw();">Toggle Raw</a>
+      <a href="#" onclick="toggleRaw();">Toggle Raw</a><br>
+      <a href="/profile/">Back to Profile</a>
 
       <br />
       <br />
