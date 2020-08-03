@@ -3,6 +3,7 @@
   if (! $consentId) {
     header ("Location: /");
   }
+  require("../httpful.phar");
 ?><!doctype html>
 <html lang="en">
 
@@ -71,40 +72,26 @@
 
 <?php
 
-  $curl = curl_init();
+    // look in pingdirectory for current consent
 
-  curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://int-docker.anyhealth-demo.ping-eng.com:1443/consent/v1/consents/" . $consentId,
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => "",
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 0,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => "GET",
-    CURLOPT_SSL_VERIFYHOST => false,
-    CURLOPT_SSL_VERIFYPEER => false,
-    CURLOPT_HTTPHEADER => array(
-      "Authorization: Bearer { \"iss\": \"PatientPortal\", \"aud\": \"ConsentAPI\", \"client_id\": \"PatientPortal\", \"sub\": \"ff99e13b-6ff8-40ef-9ce5-1cc5ef891d3e\", \"active\": true, \"scope\": \"pd:consents:unpriv\" }"
-    ),
-  ));
+    $url = "https://dir.tu.demoenvi.com:8443/consent/v1/consents/" . $consentId;
 
-  $response = curl_exec($curl);
-  $err = curl_error($curl);
+    $response = \Httpful\Request::get($url)
+    ->authenticateWith('cn=Directory Manager', '2FederateM0re')
+    ->expectsJson()
+    ->send();
+   
+    // $status = "{$response->body->_embedded->consents[$x]->status}";
+    // $version = "{$response->body->_embedded->consents[$x]->definition->version}";
+    // $currentVersion = "{$response->body->_embedded->consents[$x]->definition->version}";
 
-  if($err) {
-    echo "cURL Error #:" . $err . "\n";
-  }
-
-  curl_close($curl);
-  
-  $responseData = json_decode($response);
-  $response = json_encode($responseData, JSON_PRETTY_PRINT);
+    $responseData = json_decode($response);
+    $responsePretty = json_encode($responseData, JSON_PRETTY_PRINT);
 ?>
 
 <div class="card">
   <div class="card-header">
-    <?php echo $responseData->id ?>
+    <?php echo $consentId ?>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item"><?php echo $responseData->status ?></li>
@@ -141,8 +128,8 @@
 <br />
 
 <div style="display:none" id="rawDiv">
-  <pre class='alert alert-warning'>GET https://int-docker.anyhealth-demo.ping-eng.com:1443/consent/v1/consents/<?php echo $consentId ?></pre>
-  <pre class='alert alert-primary' style="height: 500px;"><?php echo $response ?></pre>
+  <pre class='alert alert-warning'>GET <?php echo $url ?></pre>
+  <pre class='alert alert-primary' style="height: 500px;"><?php echo $responsePretty ?></pre>
 </div>
 
 <br />
