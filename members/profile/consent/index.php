@@ -78,7 +78,7 @@
 
   // look in pingdirectory for current consent
 
-  $url = "https://dir.tu.demoenvi.com:8443/consent/v1/consents?actor=" . $entryUUID;
+  $url = "https://dir.tu.demoenvi.com:8443/consent/v1/consents?subject=" . $entryUUID;
 
   $response = \Httpful\Request::get($url)
   ->authenticateWith('cn=Directory Manager', '2FederateM0re')
