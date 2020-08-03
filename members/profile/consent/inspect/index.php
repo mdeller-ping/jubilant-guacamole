@@ -63,7 +63,7 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">My Consents</h1>
-            <p class="lead">The list below shows your complete list of consents as well as their current status.</p>
+            <p class="lead">Here we show you an individual consent, that has been slimmed down for easier reading.  The Toggle Raw link below will show the full consent record.  Active consents may be revoked.</p>
         </div>
     </div>
     <!-- /hero banner -->
