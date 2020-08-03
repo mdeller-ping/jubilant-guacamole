@@ -123,20 +123,20 @@
       $id = "{$response->body->_embedded->consents[$x]->id}";
       $status = "{$response->body->_embedded->consents[$x]->status}";
       $version = "{$response->body->_embedded->consents[$x]->definition->version}";
-      $currentVersion = "{$response->body->_embedded->consents[$x]->definition->version}";
+      $currentVersion = "{$response->body->_embedded->consents[$x]->definition->currentVersion}";
 
-      echo $id . "<br>";
-      echo $status . "<br>";
-      echo $version . "<br>";
-      echo $currentVersion . "<br>";
+      // echo $id . "<br>";
+      // echo $status . "<br>";
+      // echo $version . "<br>";
+      // echo $currentVersion . "<br>";
 
       if ($status == 'accepted' && $version == $currentVersion) {
 
         // EXISTING - the consent is active and matches the current version of the definition
 
-        echo "handoff<br>";
-        
-        // handoff($resumePath, $entryUUID);
+        // echo "handoff<br>";
+
+        handoff($resumePath, $entryUUID);
 
       }
 
