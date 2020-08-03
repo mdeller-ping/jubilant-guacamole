@@ -34,7 +34,7 @@
       </ul>
       <ul class="navbar-nav text-right mt-4">
         <li class="nav-item">
-          <a class="btn btn-outline-warning" href="/pa/oidc/logout">Log Out</a>
+          <a class="btn btn-outline-primary" href="/pa/oidc/logout">Log Out <?php echo $_SERVER['HTTP_X_PA_GIVENNAME'] ?></a>
         </li>
       </ul>
     </div>
